@@ -37,6 +37,7 @@ nav:
     - Overview: deployment/index.md
     - Angular: deployment/how-to-deploy-angular-application-to-production.md
     - Express: deployment/how-to-deploy-express-application-to-production.md
+    - Django: deployment/how-to-deploy-django-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
     - Java: deployment/how-to-deploy-java-application-to-production.md
     - MERN: deployment/how-to-deploy-mern-stack-application-to-production.md
