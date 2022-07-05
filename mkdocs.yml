@@ -91,6 +91,7 @@ nav:
       - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
       - Flask API: tutorials/creating-and-hosting-a-flask-api.md
       - Flask HTMx: tutorials/build-flask-htmx-app.md
+      - Image Editing: tutorials/build-image-text-overlay.md
       - Express HTMx: tutorials/build-express-htmx.md
       - Generative Graphics: tutorials/generative-art.md
       - Custom Domains: tutorials/customising-domain.md
