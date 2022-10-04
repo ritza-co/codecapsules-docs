@@ -13,7 +13,7 @@ Deploy a Laravel Docker API and learn how to host backend code on Code Capsules.
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Bootstrap site with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/laravel-docker-api).
+To demonstrate how to deploy a Laravel Docker API with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/laravel-docker-api).
 
 Sign in to GitHub, and fork the example application by clicking "Fork" at the top right of your screen and selecting your GitHub account as the destination.
 
