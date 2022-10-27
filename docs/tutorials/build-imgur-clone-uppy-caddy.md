@@ -172,13 +172,15 @@ Server running at http://localhost:1234
 ✨ Built in 234ms
 ```
 
-Parcel has created the `dist` folder for you and copied over the source files. If you look in the folder, you'll see that each file has a unique number so that changes can happen in real-time without being affected by browser caching. If you look in each file, you'll see that they are optimized for serving and not meant to be edited by a developer. While the Parcel server is running, you can make changes in the `src` folder and Parcel will take care of copying them over to `dist` for the `server.js` file to serve to the user.
+Parcel has created the `dist` folder for you and copied over the source files. If you look in the folder, you'll see that each file has a unique number so that changes can happen in real-time without being affected by browser caching. Your `dist` folder will have files similar to the following (but with different numbers):
 
 ```
 index.0641b553.js
 index.html
 index.0641b553.js.map
 ``` 
+
+If you look in each file, you'll see that they are optimized for serving and not meant to be edited by a developer. While the Parcel server is running, you can make changes in the `src` folder and Parcel will take care of copying them over to `dist` for the `server.js` file to serve to the user.
 
 In another terminal window, run `node server.js` to serve the backend Express application. Now you can visit `http://localhost:3000` in your browser and see the upload interface, but if you try to upload a file it will fail as we haven't written any functionality to handle file uploads yet.
 
@@ -267,7 +269,7 @@ export STATIC_HOST_URL='http://localhost:3001'
 
 Now when you upload files, you'll see a list of links displayed below the upload dashboard showing the user where they can download the files again.
 
-Note that these links won't work yet, as we don't have anything serving these files. We could serve files with Express, but we'll use Caddy as a static file server because it serves files more efficiently and because it makes it easier to scale our production application by adding servers to handle more uploads and downloads if necessary.
+Note that these links won't work yet, as we don't have anything serving these files. We could serve files directly from the Express application, but we'll instead use Caddy as a static file server. It serves files more efficiently and means that we detach file uploads from file downloads, so we can add more servers of either type to add either more uploading or downloading capacity.
 
 ![The app with download links showing](../assets/download-links.png)
 
