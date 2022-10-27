@@ -6,7 +6,7 @@ image: assets/tutorials/build-imgur-clone-uppy-caddy/cover.png
 
 # Build an Imgur clone with Uppy and Caddy
 
-![Docker PHP CRUD app cover](../assets/tutorials/build-imgur-clone-uppy-caddy/cover.png)
+![Cover artwork](../assets/tutorials/build-imgur-clone-uppy-caddy/cover.png)
 
 You probably sometimes have an image or other file locally or in your clipboard and you want to publish it to the internet and get a shareable URL as easily as possible, either to send to a friend or colleague, or to link to from a blog post.
 
@@ -24,7 +24,7 @@ We'll use
 
 The final app will look like this.
 
-![]()
+![Final application](../assets/build-imgur-clone-uppy-caddy/final-app.gif)
 
 To follow along, you should have some basic NodeJS and Docker knowledge, and have NodeJS and Docker installed locally. You'll need to install some packages from NodeJS, and run Parcel and Docker to build the application.
 
@@ -75,6 +75,10 @@ npm install parcel -g
 
 This installs Parcel globally, so we can call it from the command line. We'll use Parcel because Uppy is a big package and we'll only be using small parts of it. Parcel lets us use syntax like `import Uppy from '@uppy/core';` in a vanilla JavaScript file, instead of having to pull in the entire Uppy package from a CDN using syntax like `<script src="https://releases.transloadit.com/uppy/v3.2.2/uppy.min.js"></script>` which would include all of Uppy's plugins and make our app a lot slower to load.
 
+You'll modify files in the `src` folder (`index.html` and `app.js`), and parcel will hot-copy any changes over to the `dist` folder whenever you save the `src` files. The `server.js` file will return the (now static) files in `dist` so you can test and use the application. This is shown in the image below.
+
+![Parcel copies source files into dist automatically](../assets/build-imgur-clone-uppy-caddy/parcel-architecture.png)
+
 ### Building the `index.html` file
 
 Now in `src/index.html, add the following code.
@@ -122,11 +126,21 @@ const uppy = new Uppy()
     })
 ```
 
-### Buliding the `server.js` file
+This imports the Uppy dependencies, including Uppy core (which is the main part of Uppy) and Uppy dahsboard (which lets you display the nice drag-and-drop widget for users to upload files). We also get `xhr-upload`, which is a plugin to allow users to upload a file and submit them to the server without leaving or reloading the main page. Uppy uses a plugin based architecture so if you want to get files from other sources, you can grab the [plugin for that provider](https://uppy.io/docs/providers/). 
+
+We then define an `uploadUrl`, using an environment variable that we haven't set yet. (We do this so we can upload to `localhost:3000` for testing but to a real URL once we are running the app in production), and create an Uppy instance that uses the Dashboard and XHRUpload plugins we imported earlier.
+
+Note that this is just a plain JavaScript file, but we are using `import ... from ...` syntax that isnt supported in JavaScript. Parcel will convert this file to vanilla JavaScript and save it in the `dist` folder for us.
+
+### Building the `server.js` file
+
+Now let's build a basic Express app. At first, it'll just return the frontend `index.html` file we wrote above, but later it will also save the files that the user uploads.
+
+Add the following code to `server.js`.
 
 ```javascript
 const express = require('express');
-const cors = require( 'cors'); 
+const cors = require('cors'); 
 const path = require('path');
 const multer = require('multer');
 
@@ -144,15 +158,194 @@ app.listen(port, () => {
 });
 ```
 
+This code creates a simple Express app and returns the HTML file in `dist/index.html` that Parcel will create for us in the next step.
 
+## Running the application
 
+The application can't actually save uploaded files yet, but let's test it out to see what it can do so far. In one terminal, run `parcel src/index.html` and you should see output similar to the following.
 
+```
+image-sharing-app$ parcel src/index.html
+Server running at http://localhost:1234
+✨ Built in 234ms
+```
 
+Parcel has also created the `dist` folder for you now and copied over the source files. If you look in it you'll also see that each file has a unique number so that changes can happen in real time without being affected by browser caching. If you look in each file, you'll see that they are optimized for serving and not meant to be edited by a developer. While the Parcel server is running, you can make changes in the `src` folder and Parcel will take care of copying them over to `dist` for the `server.js` file to serve to the user.
 
+```
+index.0641b553.js
+index.html
+index.0641b553.js.map
+``` 
 
+In another terminal window, run `node server.js` to serve the backend Express application. Now you can visit `http://localhost:3000` in your browser and see the upload interface, but if you try upload a file it will fail as we haven't written any functionality to handle file uploads yet.
 
+![Uploads fail](../assets/build-imgur-clone-uppy-caddy/failed-upload.png)
 
+## Handling file uploads
 
+To actually handle file uploads, we need to add some code to `server.js` to write the files somewhere safe after a user uploads them.
 
+Add the following code to `server.js`, after the `app.get("/"...` definition.
 
+```javascript
+const storage = multer.diskStorage({
+    destination: `${process.env.PERSISTENT_STORAGE_DIR}`,
+    filename: (req, file, cb) => {
+        const fileName = `${Date.now()}${path.extname(file.originalname)}`;
+        cb(null, fileName);
+    }
+});
+
+const uploadImage = multer({
+    storage
+}).single('userFile');
+
+app.post('/image', uploadImage, (req, res) => {
+    if (req.file) {
+        return res.json({
+            msg: req.file.filename
+        });
+    }
+    res.send('Error uploading file');
+});
+```
+
+This creates a `diskStorage` object using `multer`, a NodeJS module for handling form uploads. We use yet another environment variable `PERSISTENT_STORAGE_DIR` to decide where to save the file, and then name the file with the current time to prevent any problems with users uploading files that have the same name. 
+
+We then define an `/image` endpoint (where Uppy is sending the files from the frontend), and use this diskStorage plugin to save the file to a file system. We also return the file name, which we'll display to the user later so that they can retrieve the file again.
+
+To test the code again at this stage, stop the process in the terminal window running Parcel with `Ctrl + C`, set the environment variables our frontend uses, and start Parcel again. You can do this by running the following commands.
+
+```
+export HOST_URL='http://localhost:3000'
+parcel src/index.html
+```
+
+Then in the terminal window serving the Express application, do the same, and also set the PERSISTENT_STORAGE_DIR environment variable.
+
+```
+export HOST_URL='http://localhost:3000'
+export PERSISTENT_STORAGE_DIR='/tmp'
+node server.js
+```
+
+Now if you visit the app in your browser again, you'll be able to upload files and see that they are saved in your `/tmp` directory.
+
+## Returning the link to the user
+
+Of course, our user can't guess the exact time stamp that we are using to save the files, so they have no way of getting their files back again. To fix this, let's have our frontend get the file name of the application and tell the user where the file can be found.
+
+In `src/app.js`, add the following code to the end of the file.
+
+```javascript
+uppy.on('complete', (result) => {
+    console.log(result);
+    for (const file of result.successful) {
+        const url = `${process.env.STATIC_HOST_URL}/${file.response.body.msg}`;
+        const link = document.createElement('a');
+        link.href = url;
+        link.innerHTML = url;
+        const li = document.createElement('li');
+        li.appendChild(link);
+        document.getElementById('links').appendChild(li);
+    }
+});
+```
+
+This tells Uppy what to do once a file has been uploaded by the user ("on complete"). Uppy lets users upload multiple files at once, so we loop through all the files that were successfully uploaded, and create a new list element (`li`) on the page with a link to the uploaded file.
+
+Note that we use a different environment variable here from before `STATIC_HOST_URL`, as we will serve our files from a different server than the one that handles uploads in the final version of the application. 
+
+Stop the frontend and backend servers again and add the `STATIC_HOST_URL` environment variable to each by running the following command. Then start both servers again.
+
+```
+export STATIC_HOST_URL='http://localhost:3001'
+```
+
+Now when you upload files, you'll see a list of links displayed below the upload dashboard showing the user where they can download the files again.
+
+Note that these links don't actually work yet as we don't have anything serving these files. We could do it with Express too, but instead we'll use Caddy as a static file server which can serve files more efficiently, and also means that we'll be able to scale our production application more easily as we can add more Caddy servers to handle more downloads or more web application servers to handle more uploads.
+
+![The app with download links showing](../assets/download-links.png)
+
+## Serving files with Caddy
+
+To serve the files back to the user, we'll use Caddy and Docker. In the main project directory, create a file called `Caddyfile` with the following contents:
+
+```
+:3000
+encode zstd gzip
+root * {env.PERSISTENT_STORAGE_DIR}
+header Access-Control-Allow-Methods "GET, OPTIONS"
+header Access-Control-Allow-Headers "*"
+header Access-Control-Allow-Origin "*"
+file_server browse
+```
+
+And a file called `Dockerfile` that contains the following:
+
+```
+FROM caddy/caddy:alpine
+COPY Caddyfile /etc/caddy/Caddyfile
+```
+
+The first file configures Caddy to serve everything in PERSISTENT_STORAGE_DIR. It also allows users to list files by visiting a directory. The second file is to set up a Docker container with the official Caddy image and copy across our Caddyfile to configure it.
+
+In a new terminal window, run the following Docker command.
+
+```
+docker build . -t caddy-file-server  && docker run -p 3001:3000  --mount type=bind,source=/tmp,target=/tmp  --env PERSISTENT_STORAGE_DIR=/tmp caddy-file-server
+```
+
+This builds the Dockerfile to an image called `caddy-file-server` and then runs that in a container. Because we are already using port 3000 to run our web app locally, we'll run Caddy on port 3001 but map it to port 3000 in the Docker container as that's what we configured our Caddyfile to listen on. We also mount our local `/tmp` folder to `/tmp` in the Docker container and pass in `/tmp` as PERSISTENT_STORAGE_DIR so that Caddy serves files from there. 
+
+Now you can upload images and the links displayed in the frontend will work and let you download the files again. You can also visit `http://localhost:3001` directly to browse all uploaded files (and anything else in your `/tmp` directory).
+
+## Building a production version of the application 
+
+Now that everything is working, we can create an optimized build to deploy to production. Add the following `scripts` section to your `package.json` file.
+
+```javascript
+  "scripts": {
+      "serve": "node server.js",
+      "build": "parcel build --dist-dir dist src/index.html"
+  }
+```
+
+This means we can now build the application by running `npm run build` and serve it using `npm run serve`. You can test these commands locally, but we mainly need them to easily run the production application on Code Capsules as described in the next section.
+
+## Deploying the application to Code Capsules
+
+To deploy the application to Code Capsules, we'll create three Capsules
+
+* A backend capsule to run the Express application and handle file uploads
+* A Docker capsule to run the Caddy server and handle serving files to users
+* A persistent storage Data Capsule to store the uploads
+
+Because of how we set up the three components using environment variables, we'll just have to set these appropriately for each capsule and everything else will work automatically.
+
+### Creating the capsules and setting the environment variables
+
+Push the entire project up to GitHub. Although our Caddy server and application server are different projects, we'll just keep everything in a single repository for convenience.
+
+Create a new space for this project and create three capsules in the space, as follows.
+
+**Data capsule**
+
+* Choose the 'persistent storage' option
+
+**Docker capsule**
+
+* Configure the Dockerfile path to `/Dockerfile`
+* Bind the capsule to the data capsule
+
+***Backend capsule**
+
+* Set the build command to `npm run build && npm run serve`
+* Bind the capsule to the data capsule
+* Set HOST_URL to the URL for this same backend capsule
+* Set STATIC_HOST_URL to the public URL of the Docker capsule
+
+Now you should be able to upload files by visiting the URL of the backend capsule, and immediately get the public link as before. You can also visit the Docker capsule URL to browse all files uploaded by any user.
 
