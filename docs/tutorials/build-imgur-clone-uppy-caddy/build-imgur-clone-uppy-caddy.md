@@ -340,7 +340,7 @@ Create a new space for this project and create three capsules in the space, as f
 * Configure the Dockerfile path to `/Dockerfile`
 * Bind the capsule to the data capsule
 
-***Backend capsule**
+**Backend capsule**
 
 * Set the build command to `npm run build && npm run serve`
 * Bind the capsule to the data capsule
