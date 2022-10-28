@@ -11,7 +11,7 @@ This guide will show you how to deploy a basic file sharing site on Code Capsule
 
 We'll use three capsules: a Data Capsule to store the files, a Backend Capsule for the Flask upload server and a Docker Capsule for the Caddy file server.
 
-After following the guide, you'll be able to upload files in the Flask application and see a file listing and get public links to your uploaded files in the Caddy application, as shown below.
+After following the guide, you'll be able to upload files in the Flask application, see a file listing, and get public links to your uploaded files in the Caddy application, as shown below.
 
 ![Flask upload server and Caddy file server](../assets/deployment/how-to-deploy-static-file-share-flask-caddy/upload-download.png)
 
