@@ -24,7 +24,7 @@ To build our site we'll use:
 
 The final app will look like this.
 
-![Final application](../assets/build-imgur-clone-uppy-caddy/final-app.gif)
+![Final application](../assets/tutorials/build-imgur-clone-uppy-caddy/final-app.gif)
 
 To follow along, you should have some basic Node.js and Docker knowledge and have Node.js and Docker installed locally. You'll need to install some packages from Node.js and run Parcel and Docker to build the application.
 
@@ -77,7 +77,7 @@ This installs Parcel globally, so we can call it from the command line. We'll us
 
 You'll modify files in the `src` folder (`index.html` and `app.js`), and Parcel will hot-copy any changes over to the `dist` folder whenever you save the `src` files. The `server.js` file will return the (now static) files in `dist` so you can test and use the application. This is shown in the image below.
 
-![Parcel copies source files into dist automatically](../assets/build-imgur-clone-uppy-caddy/parcel-architecture.png)
+![Parcel copies source files into dist automatically](../assets/tutorials/build-imgur-clone-uppy-caddy/parcel-architecture.png)
 
 ### Building the `index.html` file
 
@@ -184,7 +184,7 @@ If you look in each file, you'll see that they are optimized for serving and not
 
 In another terminal window, run `node server.js` to serve the backend Express application. Now you can visit `http://localhost:3000` in your browser and see the upload interface, but if you try to upload a file it will fail as we haven't written any functionality to handle file uploads yet.
 
-![Uploads fail](../assets/build-imgur-clone-uppy-caddy/failed-upload.png)
+![Uploads fail](../assets/tutorials/build-imgur-clone-uppy-caddy/failed-upload.png)
 
 ## Handling file uploads
 
@@ -271,7 +271,7 @@ Now when you upload files, you'll see a list of links displayed below the upload
 
 Note that these links won't work yet, as we don't have anything serving these files. We could serve files directly from the Express application, but we'll instead use Caddy as a static file server. It serves files more efficiently and means that we detach file uploads from file downloads, so we can add more servers of either type to add either more uploading or downloading capacity.
 
-![The app with download links showing](../assets/download-links.png)
+![The app with download links showing](../assets/tutorials/build-imgur-clone-uppy-caddy/download-links.png)
 
 ## Serving files with Caddy
 
