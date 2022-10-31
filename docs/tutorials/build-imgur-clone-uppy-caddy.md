@@ -348,10 +348,21 @@ Create a new Space for this project and create three Capsules in the space as fo
 
 **Backend Capsule**
 
-* Set the build command to `npm run build && npm run serve`.
+* Set the build command to `npm run serve`.
 * Bind the Backend Capsule to the Data Capsule.
-* Set `HOST_URL` to the URL for this Backend Capsule.
-* Set `STATIC_HOST_URL` to the public URL of the Docker Capsule.
+
+Create a file called `.env.prod` in the root directory of your code and paste the following inside:
+```
+export PERSISTENT_STORAGE_DIR=<your-storage-capsule-directory>
+export HOST_URL=<your-backend-capsule-url>
+export STATIC_HOST_URL=<your-docker-capsule-url>
+```
+
+Replace the parts after the `=` with the appropriate URLs from the Capsules you created, which can be found in the Overview section of the Capsules, then run `source .env.prod`.
+
+Next delete the `index` files with the `.js` and `.js.map` extensions and run `npm run build`, which will create new versions of these files.
+
+Commit your code to your GitHub repo and wait for your backend Capsule to finish building.
 
 Now you should be able to upload files by visiting the URL of the Backend Capsule and immediately get the public link as before. You can also visit the Docker Capsule URL to browse all files uploaded by any user.
 
