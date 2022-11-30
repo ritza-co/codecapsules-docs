@@ -26,58 +26,45 @@ The code you need for this guide is in the following GitHub projects.
 
 Sign in to GitHub, and fork both example applications by clicking "Fork" at the top right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your Apps
+## Create a Space for your App
 
-In the Spaces Tab, click the "Create A New Space For Your Apps" button.
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/html/space-name.png)
+![space name](../assets/deployment/shared/space-name.png)
 
-## Link to GitHub
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others.
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”.
+3. Choose a country close to where most of your users will be.
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
 
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
-
-![git-button](../assets/deployment/html/git-button.png)
-
-Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose both the GitHub repositories you forked.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/html/github-integration.png){ width="75%" }
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
-
-Click on the "Modify" button under the Team Repos section, and an "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/html/team-repos.gif)
-
-## Create the Capsules
+## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Spaces" tab and open the Space you’ll be using.
+Navigate to the "Capsules" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Capsule.
 
 ### Data Capsule
 
-Click the "New capsule" button.
+To create a new Data Capsule for your Space follow the instructions below:
 
-1. Choose "Data Capsule".
-2. Under "Data type", select "persistent storage".
+1. Choose "Persistent Storage", your Team and Space.
+2. Choose your payment plan.
 3. Click "Create Capsule".
+
 
 ### Backend Capsule
 
-Click the "New capsule" button again.
+Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
 
-1. Choose Backend Capsule
-2. Select the flask-file-uploads repository
-3. Press "Next"
-4. Press "Create capsule"
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Select the flask-file-uploads repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave "Run Command" blank.
+7. Click "Create Capsule".
 
 ### Docker Capsule
 
@@ -89,7 +76,17 @@ Click the "New capsule" button again.
 4. Enter `Dockerfile` for the Dockefile location
 5. Press "Create Capsule"
 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
+
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
+
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+
 ## Binding the Capsules
 
 Now navigate to each of the Backend Capsule and Docker Capsule and bind them to the Data Capsule. This gives them access to a shared file store so that the Flask application can upload files and the Caddy server can serve them to users.
+
+## View Application
+
+Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
 

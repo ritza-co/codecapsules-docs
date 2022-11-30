@@ -9,7 +9,7 @@ Procfiles communicate to the backend capsule, what processes it needs to run and
 
 The alternative to using a Procfile is using the Code Capsules UI to specify which commands to run during the build phase of your application. Below is a screenshot showing a command that may be entered as input in the UI for a `Node.js` application. 
 
-![Run command for Node application](../assets/reference/procfile/ui-run-command.png)
+![Run command for Node application](../assets/deployment/shared/run-command.png)
 
 ## Procfile Naming and Location
 

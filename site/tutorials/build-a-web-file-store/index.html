@@ -3149,28 +3149,32 @@ git commit -am <span class="s1">&#39;added base files for project&#39;</span>
 git push origin
 </code></pre></div>
 <h3 id="creating-a-new-backend-capsule">Creating a New Backend Capsule</h3>
-<p>Now we need a place to host our app. </p>
+<p>A Capsule provides the server for hosting an application on Code Capsules.</p>
+<p>Navigate to the "Capsules" tab. Once there, click the yellow + icon on the top right of the screen to add a new Capsule. Follow the instructions below to create a Backend Capsule:</p>
 <ol>
-<li>Log in to <a href="https://codecapsules.io">Code Capsules</a>, and create a Team and Space for this project.</li>
-<li>Link <a href="https://codecapsules.io">Code Capsules</a> to the <a href="https://github.com">GitHub</a> repository created above. You can do this by clicking your username at the top right, and choosing <em>Edit Profile</em>. Now you can click the <em>Github</em> button to link to a repo. </li>
-<li>Create a new Capsule, selecting the "Backend" capsule type.</li>
-<li>Select the GitHub repository we created and linked to. If you're only using the repo for this project, you can leave the <em>Repo Subpath</em> field empty. You may need to add your repo to the team repo if you haven't already. Click the <em>Modify Team Repos</em> to do so. </li>
-<li>Click <em>Next</em>, then on the following page, click <em>Create Capsule</em>.</li>
-</ol>
-<p><img alt="Create backend capsule" src="../../assets/tutorials/build-a-web-file-store/create-backend-capsule.gif" /></p>
-<h3 id="creating-a-new-data-capsule">Creating a New Data Capsule</h3>
-<p>We'll need some data storage to store the files uploaded to the web drive. </p>
-<ol>
-<li>Create a new Capsule, selecting the "Data Capsule" type.</li>
-<li>Select "A persistent storage mounted directly to your capsule" as the Data Type. Choose a product size, and give the capsule a name.</li>
+<li>Log in to <a href="https://codecapsules.io">Code Capsules</a>, and create a Team and Space for this project. </li>
+<li>Choose "Backend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
+<li>Choose the GitHub repository you forked.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
 <li>Click "Create Capsule".</li>
 </ol>
-<p><img alt="Create data capsule" src="../../assets/tutorials/build-a-web-file-store/create-data-capsule.gif" /></p>
+<h3 id="creating-a-new-data-capsule">Creating a New Data Capsule</h3>
+<p>We'll need some data storage to store the files uploaded to the web drive. </p>
+<p>Navigate to the "Capsules" tab. Once there, click the yellow + icon on the top right of the screen to add a new Capsule.</p>
+<p>To create a new Data Capsule for your Space follow the instructions below:</p>
+<ol>
+<li>Choose "Persistent Storage", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click "Create Capsule".</li>
+</ol>
 <h3 id="linking-the-capsules">Linking the Capsules</h3>
-<p>To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the "Configure" tab. Scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. </p>
-<p><img alt="Bind data capsule" src="../../assets/tutorials/build-a-web-file-store/bind-capsule.png" /></p>
+<p>To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the "Config" tab. Scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. </p>
+<p><img alt="Bind data capsule" src="../../assets/deployment/shared/bind-persistent.png" /></p>
 <p>After binding the capsules, scroll up to the section "Capsule Parameters". You'll notice that an environment variable, <code>PERSISTENT_STORAGE_DIR</code>, is automatically added with the mount point. We'll use this environment variable in the code to access the storage drive.</p>
-<p><img alt="Storage path environment variable" src="../../assets/tutorials/build-a-web-file-store/storageenv.png" /></p>
+<p><img alt="Storage path environment variable" src="../../assets/deployment/shared/env-variables-persistent-storage.png" /></p>
 <h2 id="writing-the-web-files-code">Writing the Web Files Code</h2>
 <p>Now that we have all our systems setup, we can get onto the best part - coding!</p>
 <h3 id="getting-the-file-list">Getting the File List</h3>
@@ -3403,7 +3407,7 @@ In our case, since we are implementing a super-simple authentication scheme with
 <p>This plugs in and registers the local authentication strategy module into Passport.</p>
 <p>Passport's local strategy uses a simple username and password, checked on the local server, so we'll need a function to accept a username and password for validation. The function checks if entered credentials are valid, and sends back a user object if they are, using the <code>done</code> callback. If the credentials don't checkout, the user gets an error message.</p>
 <p>Our function checks the username and password against what is stored in our environment variables. If the credentials to be checked match the credentials in our environment variables, we authenticate the user. </p>
-<p>Head over to the "Configure" tab on your backend Code Capsule, and add 2 new environment variables : <code>USERNAME</code> and <code>PASSWORD</code>. Supply values of your own to set your username and password, then click the "Update Capsule" button to save the changes.</p>
+<p>Head over to the "Config" tab on your backend Code Capsule, and add 2 new environment variables : <code>USERNAME</code> and <code>PASSWORD</code>. Supply values of your own to set your username and password, then click the "Save button to save the changes.</p>
 <p><img alt="Username and password environment variables" src="../../assets/tutorials/build-a-web-file-store/username-env.png" /></p>
 <p><strong>Note:</strong> <em>While this method of storing user credentials is appropriate for a small, single-user hobby project, it is not sufficient for production with customer credentials. Look to implementing a more robust user store, with password hashing and salting, or using a third-party authentication service such as a social network or an OAuth provider</em></p>
 <p>Passport offers many other <a href="http://www.passportjs.org/packages/">authentication strategies</a>, from OAuth 2.0 strategies allowing authentication through Facebook, Google, Twitter and other OAuth 2.0 providers, to API authentication strategies such as Bearer Tokens.</p>

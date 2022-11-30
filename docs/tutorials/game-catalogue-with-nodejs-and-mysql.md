@@ -55,36 +55,42 @@ git commit -am 'added base files for project'
 git push origin
 ```
 
-### Creating a New Backend Capsule 
+## Create the Capsules
 
-We'll need a place to host our app. 
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space as necessary.
-2. Link [Code Capsules](https://codecapsules.io) to the [GitHub](https://github.com) repository you created above. You can do this by clicking your username at the top right in Code Capsules, and choosing _Edit Profile_. Now you can click the _GitHub_ button to link to a repo. 
-3. Create a new Capsule, selecting the "Backend" capsule type.
-4. Select the GitHub repository. If you are only using the repo for this project, you can leave the _Repo Subpath_ field empty. You may need to add your repo to the team repo if you haven't already. Click the _Modify Team Repos_ to do so. 
-5. Click _Next_, then on the following page, click _Create Capsule_. 
-6. You can follow [this in-depth guide](https://codecapsules.io/docs/deployment/how-to-deploy-express-application-to-production/) if you'd like more information on linking to GitHub and creating an express.js Backend Capsule.
+Navigate to the "Spaces" tab and open the Space you’ll be using.
 
-### Creating a New Data Capsule 
+Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:
 
-We'll need some data storage to store the files that are uploaded to the web drive. 
+1. Choose "Data Capsule".
+2. Under "Data Type", select "MySQL Database Cluster".  
+3. Under "Product", select "Standard".
+4. Click "Create Capsule".
 
-1. Create a new Capsule, selecting the "Data Capsule" type. 
-2. Select "MySQL" as the Data Type. Choose a product size, and give it a name. 
-3. Click "Create Capsule". 
-4. You can follow the [in-depth creation guide](https://codecapsules.io/docs/reference/set-up-mysql-data-capsule/) if you'd like more information on creating a Data Capsule. 
+Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
 
+1. Choose "Backend Capsule".
+2. Under "Product", select "Sandbox".
+3. Choose the GitHub repository you forked.
+4. Press "Next".
+5. Leave "Run Command" blank.
+6. Click "Create Capsule".
 
-### Link the Capsules
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
-To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the Backend Capsule you created above, and click on the "Configure" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Bind data capsule](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/bind-capsule.png)
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+
+## Binding the Capsules
+
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
+
+![Bind Capsules](../assets/deployment/shared/sql-bind-env.png)
 
 After binding the Capsules, scroll up to the section "Capsule Parameters". You'll notice that an environment variable, `DATABASE_URL`, is automatically added containing the connection string to the MySQL database. We'll use this environment variable in the code to access the MySQL database. 
 
-![MySQL connection string](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/database-url.png)
 
 ## Writing the API Code
 
@@ -168,9 +174,9 @@ We'll need to let our Backend Capsule know to run this script. Navigate to the "
 ```bash
 npm run setup
 ```
-Click "Update Capsule" to save this new setting. 
+Click "Save" to save this new setting. 
 
-![Setup run command](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/run-command.png)
+![Setup run command](../assets/deployment/shared/run-command-setup.png)
 
 Let's commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal: 
 
@@ -453,7 +459,7 @@ We'll need a place to store the user credentials, so we can check them against t
 
 Head over to the "Config" page on your Backend Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, and click `Update Capsule` when you are done.  
 
-![Adding username and password](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/auth-variables.png)
+![Adding username and password](../assets/deployment/shared/env-user-password.png)
 
 Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the `var gamesRouter = require('./routes/games');` line in `app.js`:
 

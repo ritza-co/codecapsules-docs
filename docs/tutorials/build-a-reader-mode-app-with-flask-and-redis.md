@@ -543,66 +543,45 @@ git push -u origin main
 
 Finally, we will create our capsules. We need to create three capsules, our Redis Data Capsule, a Backend Capsule for our worker process, and another Backend Capsule for our web app.
 
-## Logging in to Code Capsules
+## Create the Capsules
 
-Go to the [Code Capsules website](https://codecapsules.io), create an account, and login. 
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-After logging in, you’ll see a page like the one below:
+Click the yellow`+` button, and follow the instructions below to create a Data Capsule:
 
-![Code Capsule team settings](../assets/tutorials/redis_queue/team_cc.png)
-
-When creating a Code Capsules account, a Personal Team is created by default. A Team is great for collaborative development, as you can invite people to work on and view your applications. 
-
-## Connecting to GitHub
-Now we need to connect our GitHub account to our Code Capsules account so that our applications can be pulled from GitHub repositories. 
-
-Do this by clicking the profile image button on the top right of the screen and then finding and clicking the GitHub button. 
-
-![Connect to GitHub](../assets/tutorials/redis_queue/github_connect.png)
- 
-Log in to your GitHub account, select your username, press "Only select repositories", and then select the repository containing your project from the list. Finally press "Install & Authorize".
-
-![Selecting the repository](../assets/tutorials/redis_queue/select_repo.png)
-
-## Creating a Redis Database Capsule
-
-Next we can enter our "Personal Space" and create a capsule. A Space allows you to organize one or more capsules together. Inside this Space, create a new capsule.
-
-The first capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and then select "Redis Memory Cache". 
-
-![Creating a capsule](../assets/tutorials/redis_queue/create_capsule.png) 
-
-![Creating a data capsule](../assets/tutorials/redis_queue/create_data_capsule.png) 
-
-![Selecting a database](../assets/tutorials/redis_queue/select_database.png) 
-
-## Creating a Backend Capsule for the worker
-
-Next we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list . 
-
-Now enter `python3 worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
-
-![Selecting the backend repository](../assets/tutorials/redis_queue/select_backend_repo.png) 
-
-![Adding the build command](../assets/tutorials/redis_queue/backend_build_command.png)
-
-The next step is to bind our capsule to our Redis Data Capsule. Do this by going to the "Configure" tab of your Backend Capsule and then scroll to the "Bind Data capsule" section. Click on the "Bind" button to bind the capsules.
-
-![Binding the Redis capsule](../assets/tutorials/redis_queue/bind_redis_capsule.png)
-
-## Creating a Backend Capsule for the Flask Web App
+1. Choose "Data Capsule".
+2. Under "Data Type", select "Redis".  
+3. Click "Create Capsule".
 
 Now to create a capsule for our Flask application. Create a new Backend Capsule and link it to your GitHub repository. 
 
-Do not add a build command, as the `Procfile` we created will run our Flask app for us. 
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Do not add a build command, as the `Procfile` we created will run our Flask app for us. 
+7. Click "Create Capsule".
 
-The next step is to bind our capsule to our Redis Data Capsule. Do this by going to the "Configure" tab of your new Backend Capsule and selecting "Bind" in the "Bind Data capsule" section.
+Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the Redis database in the Data Capsule. 
 
-Wait for the web app capsule to finish building, and then select "Live Website" to see the live app. 
+![Bind Capsules](../assets/deployment/shared/redis-bind-env.png)
 
-![Viewing the live website](../assets/tutorials/redis_queue/live_website.png)
+Finally we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list. 
 
-Our web application has now been deployed through Code Capsules and can be reached by anyone who has our URL.
+Now enter `python3 worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
+
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
+
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+
+
+## View Application
+
+Once the build is complete, a URL link will appear in the URL section in the "Details" tab in our Flask web app Capsule. Click the link and you should see your deployed application.
+
 
 ## Running the Web and Worker processes in the same capsule
 

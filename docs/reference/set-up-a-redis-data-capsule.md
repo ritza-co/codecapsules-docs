@@ -4,23 +4,19 @@ In this tutorial, we’ll create a Redis Data Capsule to provide low latency, in
 
 ## Create a Redis Data Capsule
 
-Log in to your [Code Capsules account](https://codecapsules.io/) and navigate to the Space your Redis Capsule will be contained in. Click "New Capsule". In the Create New Capsule dialog, select "Data Capsule".
+Log in to your [Code Capsules account](https://codecapsules.io/) and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button. In the Create New Capsule dialog, select "Redis".
 
-![CreateDataCapsule](../assets/reference/redis_capsule/create_data_capsule.png)
+![CreateDataCapsule](../assets/deployment/shared/create-redis-capsule.png)
 
-Select "Redis Memory Cache" from the list of data types, and click "Create Capsule".
-
-![SelectDatabase](../assets/reference/redis_capsule/select_database.png)
+Choose a payement option, and click "Create Capsule".
 
 ## Binding a Data Capsule to a Backend Capsule
 
 Now we need to bind our Data Capsule to a Backend Capsule. Navigate to your Backend Capsule and click on the "Configure" tab. Scroll down to the "Bind Data Capsule" section and click "Bind".
 
-![BindCapsule](../assets/reference/redis_capsule/bind_redis_capsule.png)
+![RedisUrl](../assets/deployment/shared/redis-bind-env.png)
 
-During the "Bind" process, Code Capsules creates a `REDIS_URL` environment variable which will let your application connect to your Redis database. Once the capsules have been bound, you can find the variable under the "Configure" tab, in the "Capsule parameters" section.
-
-![RedisUrl](../assets/reference/redis_capsule/redis_url.png)
+During the "Bind" process, Code Capsules creates a `REDIS_URL` environment variable which will let your application connect to your Redis database. Once the capsules have been bound, you can find the variable under the "Config" tab, in the "Capsule parameters" section.
 
 We'll use this environment variable in our app to connect to the Redis database.
 

@@ -3148,12 +3148,14 @@ git push origin
 <p>We'll need a place to host our app.</p>
 <ol>
 <li>Log in to <a href="https://codecapsules.io">Code Capsules</a>, and create a Team and Space as necessary.</li>
-<li>Link Code Capsules to the GitHub repository you created earlier. You can do this by clicking your username at the top right, and choosing "Edit Profile". Now click the "GitHub" button to link to a repo.</li>
-<li>Create a new Capsule, selecting the "Backend" capsule type.</li>
-<li>Select the GitHub repository you created above. If you are only using the repo for this project, you can leave the "Repo Subpath" field empty. You may need to add your repo to the team repo if you haven't already. Click the "Modify Team Repos" to do so. </li>
-<li>Click "Next", then on the following page, click "Create Capsule". </li>
+<li>Create a "Backend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
+<li>Choose the GitHub repository you forked.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<p><img alt="create capsule" src="../../assets/tutorials/build-slackbot-with-node/create-capsule.gif" /></p>
 <h3 id="register-an-app-on-slack">Register an app on Slack</h3>
 <p>After you've created a workspace on Slack, or logged into an existing one, head over to <a href="https://api.slack.com">https://api.slack.com</a> and click on "Create a custom app". </p>
 <p>On the dialog that comes up, we can give our app a name, and choose which workspace we want to add it to. You can choose any name you wish – we've used <em>Serverbot</em> here. Now we can click "Create App". </p>
@@ -3168,7 +3170,7 @@ git push origin
 <p>Our second requirement can be configured by setting up a <em>slash command</em>. Click on the "Slash Commands" menu item on the left, under <em>Features</em>. </p>
 <p><img alt="slash command menu" src="../../assets/tutorials/build-slackbot-with-node/choose-slash-command.png" /></p>
 <p>Then click "Create a new Command". We'll give the command the name <em>/stats</em>. For the <em>Request URL</em>, copy the <em>Domain</em> name from your Code Capsules Overview page. </p>
-<p><img alt="code capsules domain" src="../../assets/tutorials/build-slackbot-with-node/capsule-domain.png" /></p>
+<p><img alt="code capsules domain" src="../../assets/deployment/shared/capsule-domain.png" /></p>
 <p>Paste your domain into the <em>Request URL</em> box on Slack, and add <code>/slack/command/stats</code> to the end of it. We can fill in a description as well, something like 'Returns key stats from the app'.</p>
 <p><img alt="create new command settings" src="../../assets/tutorials/build-slackbot-with-node/create-command.png" /></p>
 <p>Great, now we can click "Save" at the bottom of the page to finish setting up our slash command. </p>

@@ -1380,36 +1380,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-bot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Space for your Bot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-repository-to-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add Repository to Team
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#register-the-bot" class="md-nav__link">
     <span class="md-ellipsis">
       Register the Bot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-space-for-your-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Space for your App
     </span>
   </a>
   
@@ -2894,36 +2876,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-bot" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Space for your Bot
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-repository-to-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add Repository to Team
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#register-the-bot" class="md-nav__link">
     <span class="md-ellipsis">
       Register the Bot
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-space-for-your-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Space for your App
     </span>
   </a>
   
@@ -2976,24 +2940,6 @@
 <p>Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a <a href="https://codecapsules.io/">Code Capsules</a> account and a <a href="https://github.com/">GitHub</a> account.</p>
 <p>To demonstrate how to deploy a Python Discord Bot with Code Capsules, we’ve provided an example bot which you can find on the <a href="https://github.com/codecapsules-io/python-discord-echobot">Code Capsules GitHub repository</a>.</p>
 <p>Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.</p>
-<h2 id="create-a-space-for-your-bot">Create a Space for your Bot</h2>
-<p>Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. </p>
-<p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
-<p><img alt="space name" src="../../assets/deployment/express/space-name.png" /></p>
-<h2 id="link-to-github">Link to GitHub</h2>
-<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".</p>
-<p><img alt="GitHub button" src="../../assets/deployment/express/git-button.png" /></p>
-<p>Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:</p>
-<ol>
-<li>Select "Only Select Repositories".</li>
-<li>Choose the GitHub repository we forked.</li>
-<li>Press "Install &amp; Authorize".</li>
-</ol>
-<p><img alt="Install &amp; authorize github" src="../../assets/deployment/express/github-integration.png" /></p>
-<h2 id="add-repository-to-team">Add Repository to Team</h2>
-<p>Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.</p>
-<p>Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the bot repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.</p>
-<p><img alt="Edit Team Repos" src="../../assets/deployment/python/team-repos.gif" /></p>
 <h2 id="register-the-bot">Register the Bot</h2>
 <p>You'll need a Discord user account before you can create a Discord bot. Head over to Discord and create an account if you don't already have one.</p>
 <p>When you've signed in to Discord, follow the steps below:</p>
@@ -3016,27 +2962,36 @@
 <li>Paste the url you copied in the previous step in another browser tab and add the bot to the server you created in the first step. Click "Continue" to confirm your changes. </li>
 </ol>
 <p>After actioning these steps, your bot will now have access to all the channels in the server you added it to.</p>
+<h2 id="create-a-space-for-your-app">Create a Space for your App</h2>
+<p>Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow <code>+</code> icon on the top right of the screen to add a new Space. </p>
+<p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
+<p><img alt="space name" src="../../assets/deployment/shared/space-name.png" /></p>
+<p>Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.</p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
-<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below:</p>
+<p>To create a new Capsule for your space follow the instructions below:</p>
 <ol>
-<li>Choose "Backend Capsule".</li>
-<li>Under "Product", select "Sandbox".</li>
+<li>Choose "Backend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
 <li>Choose the GitHub repository you forked.</li>
 <li>Press "Next".</li>
 <li>Leave "Run Command" blank.</li>
 <li>Click "Create Capsule".</li>
 </ol>
-<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. </p>
 <p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
-<p><img alt="Build logs" src="../../assets/deployment/express/backend-capsule-build-logs.png" /></p>
+<p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
 <h2 id="add-a-token-environment-variable">Add a <code>TOKEN</code> Environment Variable</h2>
-<p>Once the build is complete, you have to add a <code>TOKEN</code> environment variable on the "Configure" tab under the "Capsule parameters" section. Assign it the value of the token you copied in step 6 of the <a href="#register-the-bot">Register the Bot</a> section above. </p>
+<p>Once the build is complete, you have to add a <code>TOKEN</code> environment variable on the "Config" tab under the "Environment Variables" section. Assign it the value of the token you copied in step 6 of the <a href="#register-the-bot">Register the Bot</a> section above. </p>
 <p><img alt="Add a TOKEN Environment Variable" src="../../assets/deployment/discord/token-env-var.png" /></p>
-<p>Confirm your changes by clicking on "Update Capsule", then restart your Capsule by toggling the radio button in the top right off and on again.</p>
+<p>Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.</p>
 <h2 id="chat-with-the-bot">Chat with the Bot</h2>
-<p>The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, you cand send messages in the general channel of your Discord server and the bot will echo them.</p>
+<p>The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, you cand send messages to the bot as a direct message and the bot will echo them.</p>
 <p>If you’d like to deploy another application in a different language or framework, take a look at our other <a href="/docs/deployment/">deployment guides</a>.</p>
 
   

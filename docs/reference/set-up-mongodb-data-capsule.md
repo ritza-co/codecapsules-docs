@@ -4,19 +4,12 @@ MongoDB provides reliable NoSQL persistent storage for your applications. In thi
 
 ## Create a MongoDB Data Capsule
 
-Log in to your Code Capsules account and navigate to the Space your MongoDB data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. 
+Log in to your Code Capsules account and navigate to the Space your MongoDB data capsule will be contained in. Click the yellow `+` button and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. 
 
-![Create Data Capsule](../assets/reference/create-data-capsule.png)
+![Create Data Capsule](../assets/deployment/shared/create-mongodb-capsule.png)
 
 In the New Data Capsule dialog, choose "MongoDB Database Cluster" as your data type, then click the "Create Capsule" button. 
 
-![MongoDB Database Cluster](../assets/reference/mongodb-database-cluster.png)
-
-To allow your data capsule to be publicly accessible, navigate to the "Overview" tab of the capsule details screen and toggle the switch under "Public Access" to on. 
-
-![Allow Public Access](../assets/reference/public-access.png)
-
-Select this option if you plan on connecting your data capsule to an application that's not hosted on Code Capsules.  
 
 ## Binding a Data Capsule to a Backend Capsule
 
@@ -24,11 +17,9 @@ To connect a data capsule to a backend capsule hosted on Code Capsules you need 
 
 Navigate to the backend capsule and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.
 
-![Bind Data Capsule](../assets/reference/bind-data-capsule.png)
+![Bind Data Capsule](../assets/deployment/shared/bind-mongodb-capsule-env.png)
 
 Click "Bind" to bind your data and backend capsules. During the bind process, Code Capsules creates a `DATABASE_URL` environmental variable to let your backend capsule know how to access services and features of your data capsule. Once the two capsules have been bound, you can scroll to the top of the Config tab to find the value of this variable. 
-
-![Database url environment variable](../assets/reference/environment-variable.png)
 
 We can use this database variable in code to read and write to our data capsule. Copy the value of the `DATABASE_URL` variable and append `/your_db_name?authSource=admin` to it as a query parameter. Make sure to replace `your_db_name` with the actual name of your database. This tells the data capsule to read and write to the specified database. If a database named `your_db_name` doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.
 

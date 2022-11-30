@@ -108,7 +108,7 @@ Now we'll change the text that displays at the top of the portfolio. Scroll down
 
 Save the file and open it in a web browser. Our portfolio should now look something like this: 
 
-![image2](../assets/tutorials/host-a-frontend/starter_template.jpg)
+![image2](../assets/tutorials/host-a-frontend/starter_template.png)
 
 Next, we'll take a look at deleting the date entries above each portfolio piece, removing the "Generic Page" and "Elements Reference" tabs, and modifying the social media links. 
 
@@ -324,65 +324,34 @@ Now Code Capsules can host the portfolio.
 
 ## Deploying to Code Capsules 
 
-To deploy the portfolio to Code Capsules, navigate to https://codecapsules.io/, create an account, and log in. 
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-After logging in, you'll be greeted with a page that looks like the below.
+Click the yellow`+` button, and follow the instructions below to create a Frontend Capsule:
 
-![team](../assets/tutorials/host-a-frontend/welcome_page.png)
 
-Click "Go to personal Team" to continue. Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. 
+To create a new Capsule for your space follow the instructions below:
 
-![team](../assets/tutorials/host-a-frontend/team.png)
+1. Choose "Frontend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave the run command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.
+7. Click "Create Capsule".
 
-Click on the box labeled "Personal". This is called a _Space_. Spaces act as a further layer of organization. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organize large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
 
-### Linking the repository
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-We need to give Code Capsules access to our portfolio. Click on your profile image at the top right of the screen, then find the "GitHub" button – click on it. Code Capsules will redirect you to GitHub.
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
-![GitHubButton](../assets/tutorials/host-a-frontend/github_button.png)
+## View Application
 
-Then: 
-
-1. Log in to GitHub.
-2. Click your username.
-3. Press "Only select repositories".
-4. From the drop-down menu, type the repository's name containing your portfolio and select it.
-5. Press "Install & Authorize".
-    
-    ![permissions_git](../assets/tutorials/host-a-frontend/permissions_git.png)
-
-Now we can deploy our portfolio. Return back to your Team, and enter the space labeled "Personal"
-
-### Creating Capsule, and viewing the portfolio
-
-The last step to deploying the Portfolio is creating a _Capsule_. Capsules provide the server for your application or code – in our case, we'll create a Capsule that'll host our portfolio. Click "Create a new Capsule for your Space". 
-
-![team](../assets/tutorials/host-a-frontend/create_capsule_button.png)
-
-You'll be prompted to choose a Capsule type – our portfolio contains only front-end code, so choose a "Frontend" Capsule and:
-
-1. Add a repo to your Team.
-2. Select a front-end Capsule.
-3. Select the "Trial" product type, select the repository containing the portfolio, and press "Next".
-4. Leave the build command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.
-5. Press "Create Capsule". 
-
-![Add a repository](../assets/tutorials/host-a-frontend/add_repository.jpg)
-
-![Select Capsule type](../assets/tutorials/host-a-frontend/select_capsule_type.jpg)
-
-![Link repository](../assets/tutorials/host-a-frontend/link_repository_to_capsule.jpg)
-
-![Create Capsule](../assets/tutorials/host-a-frontend/create_capsule.png)
-
-Your Capsule is now building. This process will make your portfolio visible online. After it has deployed, click the "Overview" tab, then press the link under "Domains" to view your portfolio.
-
-![image15](../assets/tutorials/host-a-frontend/image15.png)
+ Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
 ## Conclusion and Further Reading
 
-![finished_port](../assets/tutorials/host-a-frontend/finished_port.jpg)
+![finished_port](../assets/tutorials/host-a-frontend/finished_port.png)
 
 We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. 
 

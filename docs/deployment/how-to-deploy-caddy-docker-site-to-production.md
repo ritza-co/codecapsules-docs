@@ -19,69 +19,50 @@ Sign in to GitHub, and fork the example application by clicking “Fork” at th
 
 ## Create an Account with Code Capsules
 
-If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the "Sign Up" button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-If you’ve just signed up for an account, you’ll be directed to a welcome page on your first log in. Click on the “Go To Personal Team” button.
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the "Go To Personal Team" button.
 
-Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
+Alternatively, if you’re signing in again, click on the "Spaces" tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
 
-## Create a Space for your Apps
+## Create a Space for your App
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button.
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
 
-Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
+Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/html/space-name.png)
+![space name](../assets/deployment/shared/space-name.png)
 
-## Link to GitHub
-
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
-
-![git-button](../assets/deployment/html/git-button.png)
-
-Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose the GitHub repository we forked.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/html/github-integration.png){ width="75%" }
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
-
-Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/html/team-repos.gif)
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others.
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”.
+3. Choose a country close to where most of your users will be.
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
 
 ## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the “Spaces” tab and open the Space you’ll be using.
+Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
 
-Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
-
-1. Choose “Docker Capsule”.
-2. Under “Product”, select “Sandbox”.
-3. Choose the GitHub repository you forked.
+1. Choose “Docker Capsule”, your Team and Space.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
 4. Press “Next”.
 5. Enter "Dockerfile" as the input in the "Dockerfile location" field.
 6. Leave the "Docker build context" field blank.
 7. Click “Create Capsule”.
 
-![Create Docker capsule](../assets/deployment/caddy-docker/docker-guide.gif){ width="75%" }
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
-![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png){ width="80%" }
+## View Application
 
-Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link, and you should see your deployed application.
+Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/caddy-docker/caddy-docker-site.png)
 

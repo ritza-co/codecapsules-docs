@@ -1465,33 +1465,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Space for your Apps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-repository-to-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add Repository to Team
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-the-capsule" class="md-nav__link">
     <span class="md-ellipsis">
       Create the Capsule
@@ -2885,33 +2858,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create a Space for your Apps
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#link-to-github" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#add-repository-to-team" class="md-nav__link">
-    <span class="md-ellipsis">
-      Add Repository to Team
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-the-capsule" class="md-nav__link">
     <span class="md-ellipsis">
       Create the Capsule
@@ -2935,51 +2881,36 @@
 
 
 <h1 id="how-to-deploy-a-react-application-to-production-on-code-capsules">How to Deploy a React Application to Production on Code Capsules</h1>
-<p><em>A video for this guide can be found <a href="https://www.youtube.com/watch?v=qQ0Y-3JEeZ0">here</a> if you prefer watching to reading.</em></p>
 <p>Deploy a React application and learn how to host frontend code on Code Capsules.</p>
 <h2 id="set-up">Set up</h2>
 <p>Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a <a href="https://codecapsules.io/">Code Capsules</a> account and a <a href="https://github.com/">GitHub</a> account.</p>
 <p>To demonstrate how to deploy a React application with Code Capsules, we’ve provided an example application which you can find on the <a href="https://github.com/codecapsules-io/demo-react">Code Capsules GitHub repository</a>.</p>
 <p>Sign in to GitHub, and fork the example application by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.</p>
 <h2 id="create-an-account-with-code-capsules">Create an Account with Code Capsules</h2>
-<p>If you don’t already have an account, navigate to the <a href="https://codecapsules.io/">Code Capsules</a> site and click the "Sign Up" button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.</p>
-<p>If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the "Go To Personal Team" button.</p>
-<p>Alternatively, if you’re signing in again, click on "Spaces" in the top right corner of your screen.</p>
-<p>Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at <a href="https://codecapsules.io/docs/FAQ/teams-spaces-capsules/">our explanation</a>.</p>
-<h2 id="create-a-space-for-your-apps">Create a Space for your Apps</h2>
-<p><a href="https://codecapsules.io/docs/FAQ/what-is-a-space/">Spaces</a> are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. </p>
+<p>Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow <code>+</code> icon on the top right of the screen to add a new Space. </p>
 <p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
-<p><img alt="space name" src="../../assets/deployment/express/space-name.png" /></p>
-<h2 id="link-to-github">Link to GitHub</h2>
-<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".</p>
-<p><img alt="GitHub button" src="../../assets/deployment/react/git-button.png" /></p>
-<p>Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:</p>
-<ol>
-<li>Select "Only Select Repositories".</li>
-<li>Choose the GitHub repository we forked.</li>
-<li>Press "Install &amp; Authorize".</li>
-</ol>
-<p><img alt="Install &amp; authorize github" src="../../assets/deployment/react/github-integration.png" /></p>
-<h2 id="add-repository-to-team">Add Repository to Team</h2>
-<p>Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.</p>
-<p>Click on the "Modify" button under the Team Repos section, and an "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.</p>
-<p><img alt="Edit Team Repos" src="../../assets/deployment/react/team-repos.gif" /></p>
+<p><img alt="space name" src="../../assets/deployment/shared/space-name.png" /></p>
+<p>Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.</p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
-<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below:</p>
+<p>To create a new Capsule for your space follow the instructions below:</p>
 <ol>
-<li>Choose "Frontend Capsule".</li>
-<li>Under "Product", select "Trial - Static Site Hosting".</li>
+<li>Choose "Frontend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
 <li>Choose the GitHub repository you forked.</li>
 <li>Press "Next".</li>
-<li>Type <code>npm run build</code> in "Build Command" and <code>build</code> in "Static Content Folder Path". </li>
+<li>Type <code>npm run build</code> in "Build Command" and <code>build</code> in "Static Content Folder Path".</li>
 <li>Click "Create Capsule".</li>
 </ol>
-<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. </p>
 <p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
-<p><img alt="Build logs" src="../../assets/deployment/react/frontend-capsule-build-logs.gif" /></p>
-<p>Once the build is complete, a "Live Website" link will appear at the top of the tab. Click the link and you should see your deployed application.</p>
+<p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
+<p>Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.</p>
 <p><img alt="Deployed App" src="../../assets/deployment/react/cc-react-app.png" /></p>
 <p>If you’d like to deploy another application in a different language or framework, take a look at our other <a href="/docs/deployment/">deployment guides</a>.</p>
 

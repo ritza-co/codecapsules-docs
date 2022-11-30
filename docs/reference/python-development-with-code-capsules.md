@@ -56,60 +56,41 @@ git commit -m "Added new route"
 
 Push the changes to your remote repository by running `git push` in the same terminal window.
 
-## Link to GitHub
+## Create an Account with Code Capsules
 
-To link Code Capsules to your remote GitHub repository, log in to your Code Capsules account and click your profile image at the top right of the screen. Find the "GitHub" button under "GitHub Details".
-
-![git-button](../assets/deployment/html/git-button.png)
-
-Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose the GitHub repository you recently pushed to.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/html/github-integration.png)
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the "Team Settings" tab.
-
-Click on the "Modify" button under the Team Repos section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/html/team-repos.gif)
-
-## Create a Space for your App
-
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this app, or you can create a new Space. In the "Spaces" Tab, click the "Create A New Space For Your Apps" button. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/html/space-name.png)
+![space name](../assets/deployment/shared/space-name.png)
+
+Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
 
 ## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Spaces" tab and open the Space you’ll be using.
+To create a new Capsule for your space follow the instructions below:
 
-Click the "Create a New Capsule for Your Space" button, and follow the instructions below:
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave "Run Command" blank.
+7. Click "Create Capsule".
 
-1. Choose "Backend Capsule".
-2. Under "Product", select "Sandbox".
-3. Choose your remote GitHub repository.
-4. Press "Next".
-5. Leave "Run Command" blank.
-6. Click "Create Capsule".
-
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
-
-![Deployment page](../assets/reference/deployment-page.png)
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/reference/build-logs.png)
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
-Once the build is complete, a "Live Website" link will appear at the top of the tab. Click the link and you should see your deployed application.
+Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/python/cc-flask-app.png)
 
