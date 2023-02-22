@@ -138,7 +138,7 @@ nav:
 extra:
   generator: false
   analytics:
-    provider: google
+    provider: custom
     property: !ENV [GANALYTICS, "UA-165274631-2"]
     feedback:
       title: Was this page helpful?
