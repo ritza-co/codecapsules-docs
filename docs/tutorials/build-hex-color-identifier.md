@@ -67,8 +67,8 @@ Next, we'll install the dependencies we need to build our application. Open the 
 
 ```json
 "require": {
-    ... 
-    
+    ...
+
     "ourcodeworld/name-that-color": "dev-master",
     "symfony/console": "6.0.*",
     "symfony/error-handler": "6.0.*",
@@ -87,7 +87,7 @@ Next, we'll install the dependencies we need to build our application. Open the 
     "symfony/service-contracts": "3.0.*",
     "symfony/event-dispatcher-contracts": "3.0.*",
     "symfony/deprecation-contracts": "3.0.*"
-    
+
     ....
 }
 ```
@@ -124,13 +124,7 @@ class ColorController extends Controller
 
         $result = $instance->name($hexcode);
 
-        // 1. Print the human name e.g "Deep Sea"
-        echo $result["name"] . "\n";
-
-        // 2. Print the hex code of the closest color with a name e.g "#01826B"
-        echo $result["hex"] . "\n";
-
-        return response()->json($result["name"]);
+        return response()->json(["hex" => $result["hex"], "name" => $result["name"]], 200);
     }
 }
 ```
@@ -224,4 +218,3 @@ Once the build is complete, navigate to the "Configure" tab and scroll down to t
 That’s it! Your "Hex Color Identifier" app should be live and fully functional now. You should now be able to query the `/api/color` route.
 
 ![Color API](../assets/tutorials/hex-color-identifier/color-identifier.png)
-
