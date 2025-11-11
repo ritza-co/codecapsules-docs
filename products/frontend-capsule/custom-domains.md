@@ -34,7 +34,7 @@ Next, you need to create an **A record** with your domain registrar for the cust
 
 Log in to your domain registrar's dashboard and locate the DNS settings for your custom domain.
 
-Retrieve the static IP address you [previously copied and saved](#steps-to-add-a-custom-domain) and add an A record pointing to it. Your A record entry may look something like this:
+Retrieve the static IP address you previously copied and saved and add an A record pointing to it. Your A record entry may look something like this:
 
 |Record Type|Name|IPv4 Address|   
 |-----------|----|------------|

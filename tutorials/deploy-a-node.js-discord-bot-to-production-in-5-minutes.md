@@ -1,6 +1,6 @@
 # Deploy a Node.js Discord Bot to Production in 5 Minutes
 
-### Set up <a href="#set-up" id="set-up"></a>
+### Setup <a href="#set-up" id="set-up"></a>
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -45,7 +45,7 @@ When you’ve signed in to Discord, follow the steps below:
 
 After actioning these steps, your bot will now have access to all the channels in the server you added it to.
 
-### Create a Space for your App <a href="#create-a-space-for-your-app" id="create-a-space-for-your-app"></a>
+### Create a Space for Your App <a href="#create-a-space-for-your-app" id="create-a-space-for-your-app"></a>
 
 Log in to your Code Capsules account and navigate to the “Spaces” tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
@@ -57,7 +57,7 @@ Example instructions to go with numbered annotations, 1. Choose a team — you c
 
 ### Create the Capsule <a href="#create-the-capsule" id="create-the-capsule"></a>
 
-A [Capsule](https://codecapsules.io/faq/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
 To create a new Capsule for your space, follow the instructions below:
 
@@ -77,7 +77,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 ### Add a `TOKEN` Environment Variable <a href="#add-a-token-environment-variable" id="add-a-token-environment-variable"></a>
 
-Once the build is complete, you have to add a `TOKEN` environment variable on the “Config” tab under the “Environment Variables” section. Assign it the value of the token you copied in step 6 of the [Register the Bot](https://codecapsules.io/doc/how-to-deploy-a-node-js-discord-bot-to-production-on-code-capsules-in-5-minutes/#register-the-bot) section above.
+Once the build is complete, you have to add a `TOKEN` environment variable on the “Config” tab under the “Environment Variables” section. Assign it the value of the token you copied in step 6 of the Register the Bot section above.
 
 ![token env var](https://codecapsules.io/wp-content/uploads/2023/07/token-env-var.png)
 
@@ -87,4 +87,4 @@ Confirm your changes by clicking on “Save”, then restart your Capsule by tog
 
 The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, you can send messages in the general channel of your Discord server and the bot will echo them.
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://codecapsules.io/docs-tag/deployment-guides/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://app.gitbook.com/o/zJVrvoPm6oe6islWnPll/s/xjp0G5hHSJs8nyv5Z5g7/).

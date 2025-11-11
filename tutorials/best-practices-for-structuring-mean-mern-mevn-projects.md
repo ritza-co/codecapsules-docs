@@ -9,8 +9,8 @@ The MEAN stack—MongoDB, Express.js, Angular, and Node.js—is a powerful techn
 The MEAN stack combines the following technologies:
 
 * MongoDB: A NoSQL database.
-* Express.js: A back-end framework running on Node.js.
-* Angular: A front-end framework.
+* Express.js: A backend framework running on Node.js.
+* Angular: A frontend framework.
 * Node.js: The JavaScript runtime for server-side code.
 
 Together, these components provide an end-to-end framework for building web applications in JavaScript and TypeScript.
@@ -27,8 +27,6 @@ The MEVN stack, consisting of MongoDB, Express.js, Vue.js, and Node.js, provides
 
 Let’s start by discussing how to ideally structure your MEAN stack project. Below is an example directory layout:
 
-Copy
-
 ```
     my-mean-app/
     ├── client/             
@@ -41,13 +39,11 @@ Copy
 
 This separation of client and server code can help maintain a clean code base, making it easier for developers to navigate through the project.
 
-### Folder By Feature vs. Folder By Type <a href="#folder-by-feature-vs-folder-by-type" id="folder-by-feature-vs-folder-by-type"></a>
+### Folder By Feature vs Folder By Type <a href="#folder-by-feature-vs-folder-by-type" id="folder-by-feature-vs-folder-by-type"></a>
 
 There are mainly two strategies when it comes to organizing code: “Folder by Feature” and “Folder by Type.”
 
 #### Folder By Feature
-
-Copy
 
 ```
     server/
@@ -65,8 +61,6 @@ Copy
 Here, each feature (like users, products, etc.) has its own directory that contains all related models, controllers, and routes. This can be particularly useful in larger projects.
 
 #### Folder By Type
-
-Copy
 
 ```
     server/
@@ -90,8 +84,6 @@ Modularity is key to a maintainable codebase. Whether you’re dealing with the 
 
 #### Example: Modular Express Route
 
-Copy
-
 ```
     // user.routes.js
     // Import the necessary modules
@@ -114,8 +106,6 @@ Copy
 
 Always externalize configuration details like database URIs, API keys, and environment-specific settings. Use environment variables or dedicated configuration files to manage these settings.
 
-Copy
-
 ```
     // config.js
     // External configuration
@@ -134,43 +124,43 @@ Always use a version control system like Git to manage your source code. Adopt a
 
 #### Registering and Setting Up on Code Capsules
 
-*   **Registration on Code Capsules**:Start by registering an account on Code Capsules. Follow the steps to create your account and get started.
+*   **Registration on Code Capsules**: Start by registering an account on Code Capsules. Follow the steps to create your account and get started.
 
     ![Register a new account on Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-register-new-account.png)
-*   **Logging into Code Capsules**:Once registered, log in to your Code Capsules account to begin setting up your project.
+
+*   **Logging into Code Capsules**: Once registered, log in to your Code Capsules account to begin setting up your project.
 
     ![Code Capsules login page](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-login-existing-account.png)
-*   **Creating a Team**:Create a team within Code Capsules for collaborative project management.
+
+*   **Creating a Team**: Create a team within Code Capsules for collaborative project management.
 
     ![Code Capsules Dashboard create a new team](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-team.png)
-*   **Setting Up a New Space**:Create a new space in Code Capsules for hosting your projects. Spaces can be tailored for different environments like staging or production.
+
+*   **Setting Up a New Space**: Create a new space in Code Capsules for hosting your projects. Spaces can be tailored for different environments like staging or production.
 
     ![Code Capsules create a new space](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-space.jpg)
 
 #### Deploying Your MEAN Stack Application
 
-*   **Creating and Configuring a New Capsule**:Start a new capsule within your space. The capsule serves as a container for your project.
+*   **Creating and Configuring a New Capsule**: Start a new capsule within your space. The capsule serves as a container for your project.
 
-    Choose the type of capsule based on your needs (front-end, back-end, or Docker).
+    Choose the type of capsule based on your needs (frontend, backend, or Docker).
 
     ![Code Capsules - Capsule details](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-captule-details.png)
-* **Configuring Environment Variables**:Set environment variables in your capsule settings. This is crucial for database connections and other configuration details.
-*   **Uploading Code and Dependencies**:Use Code Capsules’ interface to upload your project code or connect to your GitHub repository.
 
-    Ensure that all dependencies are specified in your `package.json` files for both front-end and back-end.
-*   **Launching the Capsules**:Once configured, launch your capsules. Code Capsules will build and deploy your application.
+* **Configuring Environment Variables**: Set environment variables in your capsule settings. This is crucial for database connections and other configuration details.
+*   **Uploading Code and Dependencies**: Use Code Capsules’ interface to upload your project code or connect to your GitHub repository.
+
+    Ensure that all dependencies are specified in your `package.json` files for both frontend and backend.
+*   **Launching the Capsules**: Once configured, launch your capsules. Code Capsules will build and deploy your application.
 
     Monitor the deployment process and check logs for any potential issues.
-*   **Testing and Verifying Deployment**:After deployment, test your application to ensure it’s running correctly.
+*   **Testing and Verifying Deployment**: After deployment, test your application to ensure it’s running correctly.
 
-    Verify both the front-end and back-end functionalities.
+    Verify both the frontend and backend functionalities.
 
 #### Final Steps
 
-*   **Updating and Maintenance**:For updates, push changes to your repository or re-upload the updated code.
+*   **Updating and Maintenance**: For updates, push changes to your repository or re-upload the updated code.
 
     Regularly monitor the performance and logs to maintain your application.
-
-### Conclusion <a href="#conclusion" id="conclusion"></a>
-
-Structuring and deploying your MEAN stack project effectively can

@@ -53,7 +53,7 @@ To deploy WordPress from your version control repository:
 
 ![Choose repo](.gitbook/assets/wordpress-git-managed.png)
 
-You can read more about connecting your account to a version control provider in [this guide](../platform/account/connect-version-control.md).
+You can read more about connecting your account to a version control provider in [this guide](https://docs.codecapsules.io/platform/account/connect-version-control).
 
 ## Monitor Deployment
 

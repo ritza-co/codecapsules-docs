@@ -11,7 +11,7 @@ A _decentralized application (dApp)_ is a software application that runs on a de
 
 Before you begin building your React Token dApp, it’s essential to start with the base code. This tutorial assumes you have a Git repository set up with the initial code required for the project. Follow these steps to clone the repository and set up your local environment:
 
-1. Install Git: If you haven’t already, install Git on your system. You can download it from [git-scm.com](https://git-scm.com/downloads).
+1. Install Git: If you haven’t already, install [Git](https://git-scm.com/downloads) on your system.
 2. Clone the Repository: Open your terminal or command prompt and navigate to the directory where you want to clone the repository. Use the following command to clone the repo:
 
 ```

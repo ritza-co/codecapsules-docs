@@ -19,13 +19,11 @@ You will need the following to complete the tutorial and host your application o
 * IDE or text editor of your choice
 * Python 3 installed
 
-### Project Set Up <a href="#project-set-up" id="project-set-up"></a>
+### Project Setup <a href="#project-set-up" id="project-set-up"></a>
 
 To begin, we need to create a project folder to house all our files.
 
 In a terminal, navigate to the directory you’ll be keeping the application files in. Run the commands below to create the project folder and navigate into it.
-
-Copy
 
 ```
 mkdir generate-graphics
@@ -33,8 +31,6 @@ cd generate-graphics
 ```
 
 Next, we’ll create a virtual environment, which will allow us to isolate the packages we need to run our application from the computer system. Run the command below from a terminal in the project root folder to create a virtual environment called `env`:
-
-Copy
 
 ```
 python -m venv env
@@ -44,15 +40,11 @@ To activate the virtual environment, run one of the following commands, dependin
 
 MacOS
 
-Copy
-
 ```
 source env/bin/activate
 ```
 
 Windows
-
-Copy
 
 ```
 .envScriptsactivate
@@ -64,8 +56,6 @@ When you’ve activated the virtual environment, the name `env` will appear on t
 
 Now we can install dependencies our app needs to the environment. Run the command below from a terminal in the project root folder to install the packages we’ll need:
 
-Copy
-
 ```
 pip install flask pillow gunicorn
 ```
@@ -76,8 +66,6 @@ The final setup step is to link to GitHub. We’ll link our newly created local 
 
 Head over to [GitHub](https://github.com/) and create a new repository. You’ll be presented with instructions for linking your new remote repository to a local one. Go back to your terminal in the project root folder and run the command below, taking care to replace the `username` and `repository_name` with your own values.
 
-Copy
-
 ```
 git remote add origin git@github.com:username/repository_name.git
 ```
@@ -85,8 +73,6 @@ git remote add origin git@github.com:username/repository_name.git
 ### Build the Frontend <a href="#build-the-frontend" id="build-the-frontend"></a>
 
 We can now start building our generative art app, and we’ll start with the frontend using Flask templates. Create an `app/templates` folder inside the project root folder and add a file named `home.html` to it. This file will contain the code for the landing page of our app. Populate it with the code below:
-
-Copy
 
 ```
 <!DOCTYPE html>
@@ -184,8 +170,6 @@ We’ll be using HTMx to send requests to generate a new graphic image, and we i
 
 Next, we’ll add the code for the body of the home page. Copy and paste the snippet below underneath the closing `</head>` tag in `home.html`:
 
-Copy
-
 ```
 <body>
   <h1>Generate Art</h1>
@@ -225,8 +209,6 @@ The backend contains the interesting bits of our app’s logic. Here, we will se
 
 Create a file named `run.py` in the project root folder and populate it with the code below:
 
-Copy
-
 ```
 from app import app
 
@@ -239,8 +221,6 @@ The code above is responsible for starting our application by calling Flask’s 
 ### Initialize `app` Module <a href="#initialize-app-module" id="initialize-app-module"></a>
 
 Let’s go ahead and initialize the `app` module we imported in the previous code snippet. Create an `__init__.py` file inside the `/app` folder and populate it with the code below:
-
-Copy
 
 ```
 from flask import Flask
@@ -257,8 +237,6 @@ In the code above, we create a Flask `app` object and import the app views we’
 The next step is to add logic for the graphic image generation. Create a file named `palettes.json` in the project root folder and populate it with the code in this [file](https://github.com/codecapsules-io/generative-art/blob/main/palettes.json). This is a list of 2D arrays containing random numbers that represent different color palettes. We sourced these color palettes from [Color-Hex](https://www.color-hex.com/). Our app will pick randomly from these each time a user chooses to generate a new image.
 
 Next, let’s create the file that will make use of the palettes we defined. In the `/app` folder, add a file named `make_squares.py` and populate it with the code below:
-
-Copy
 
 ```
 import base64
@@ -320,8 +298,6 @@ The `create()` method is responsible for generating Base64 image strings for new
 
 The last step in building our backend is to add the application views. To achieve this, create a file named `views.py` inside the `/app` folder and populate it with the code below:
 
-Copy
-
 ```
 from app import app
 from flask import render_template, send_file, request
@@ -369,8 +345,6 @@ Our generate art app is now complete, and we are only left with adding the files
 
 We’ll start by creating a Procfile, which tells Code Capsules how to run our app. Create a file named `Procfile` in the project root folder and add the following code to it:
 
-Copy
-
 ```
 web: gunicorn run:app
 ```
@@ -378,8 +352,6 @@ web: gunicorn run:app
 We use the `gunicorn` server to run our app in production, since the built-in Flask server is less secure and only suitable to be used in a development environment.
 
 Next, we need to generate a `requirements.txt` file to tell Code Capsules which packages need to be installed first before our app can start. Run the command below from a terminal while in the project’s root folder to create a `requirements.txt` file.
-
-Copy
 
 ```
 pip freeze –local > requirements.txt
@@ -389,8 +361,6 @@ pip freeze –local > requirements.txt
 
 Before we push our local changes to the remote repository, we must stop tracking our virtual environment folder. Create a file named `.gitignore` in the project root folder and add the code below to it:
 
-Copy
-
 ```
 /env
 ```
@@ -398,8 +368,6 @@ Copy
 #### Add, Commit, and Push Git Changes
 
 Let’s add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:
-
-Copy
 
 ```
 git add -A
@@ -411,7 +379,7 @@ Your remote repository will now be up-to-date with your local one.
 
 ### Deploy to Code Capsules <a href="#deploy-to-code-capsules" id="deploy-to-code-capsules"></a>
 
-The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Backend Capsule and deploy the app there. You can follow this [deployment guide](https://codecapsules.io/docs/deployment/how-to-deploy-flask-application-to-production/) to see how to do this in greater detail.
+The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Backend Capsule and deploy the app there. You can follow this [deployment guide](https://docs.codecapsules.io/backend/python/flask) to see how to do this in greater detail.
 
 That’s it! Your “Generate Art” app should be live and fully functional now.
 

@@ -15,7 +15,7 @@ The BotFather will respond with a message containing an access token for your ne
 
 To confirm that your bot was created successfully, search for the bot’s username. You should be able to see it and start a conversation with it, although it won’t respond, as we haven’t written the bot’s logic yet.
 
-### Set up <a href="#set-up" id="set-up"></a>
+### Setup <a href="#set-up" id="set-up"></a>
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -23,7 +23,7 @@ To demonstrate how to deploy a Python Telegram Bot with Code Capsules, we’ve p
 
 Sign in to GitHub, and fork the example bot repository by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
-### Create a Space for your Bot <a href="#create-a-space-for-your-bot" id="create-a-space-for-your-bot"></a>
+### Create a Space for Your Bot <a href="#create-a-space-for-your-bot" id="create-a-space-for-your-bot"></a>
 
 Log in to your Code Capsules account and navigate to the “Spaces” tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
@@ -35,7 +35,7 @@ Example instructions to go with numbered annotations, 1. Choose a team — you c
 
 ### Create the Capsule <a href="#create-the-capsule" id="create-the-capsule"></a>
 
-A [Capsule](https://codecapsules.io/faq/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
 To create a new Capsule for your space, follow the instructions below:
 
@@ -71,7 +71,7 @@ For the `URL` variable, set it to the value of your bot’s domain. You can get 
 
 Confirm your changes by clicking on “Save”, then restart your Capsule by toggling the radio button in the top right off and on again.
 
-### Setup Webhook <a href="#setup-webhook" id="setup-webhook"></a>
+### Set Up Webhook <a href="#setup-webhook" id="setup-webhook"></a>
 
 The next step is to set up a webhook for your bot. Do this by clicking the “Live Website” link at the top of the capsule’s page. On the new tab that opens, add `/setwebhook` to the URL and press enter/return to visit the URL. If you see `webhook setup ok` then your bot is ready to chat!
 
@@ -79,4 +79,4 @@ The next step is to set up a webhook for your bot. Do this by clicking the “Li
 
 The bot will be able to respond to messages after actioning the above steps. When this is done, search for your bot on Telegram using the username you assigned it and start a chat with it. The bot has been programmed to respond to `/start` and echo any messages you send it.
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://codecapsules.io/docs-tag/deployment-guides/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://app.gitbook.com/o/zJVrvoPm6oe6islWnPll/s/xjp0G5hHSJs8nyv5Z5g7/).

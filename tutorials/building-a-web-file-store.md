@@ -31,8 +31,6 @@ Head over to [GitHub](https://github.com/) and create a new repo. We’re callin
 
 We’ll use the [Express.js application generator](http://expressjs.com/en/starter/generator.html) to create the project base. Type in the following:
 
-Copy
-
 ```
 npx express-generator --hbs 
 npm install
@@ -43,8 +41,6 @@ Here we’ve created a few files and folders that we can edit. The `--hbs` optio
 The command `npm install` downloads and installs all the dependencies and packages required by the base project. Open the folder with Visual Studio Code or your chosen editor, and browse through the files to get familiar with them. The `app.js` file in the project root is the main entry point for the app.
 
 It’s time to push this boilerplate project up to Git. Type the following into the command prompt or terminal:
-
-Copy
 
 ```
 git add . 
@@ -100,15 +96,11 @@ Open the file `index.js` in the `routes` folder of our project. This is the serv
 
 To interact with the storage capsule and the files on it, we’ll use the built-in [`fs`](https://nodejs.org/api/fs.html#fs_file_system), or file system, module included in Node.js. Add a reference to this module at the top of the file:
 
-Copy
-
 ```
 const fs = require('fs');
 ```
 
 Then, modify the default `get` route to use the `fs` module to get the file listing on the storage drive:
-
-Copy
 
 ```
 router.get('/', function(req, res, next) {
@@ -122,19 +114,17 @@ router.get('/', function(req, res, next) {
 
 This code uses the [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback) function to get an array of all the files in the storage drive. Note that we use the environment variable that was automatically set up when we bound the capsules to specify the path to the storage drive. Environment variables are accessible through the [`process.env`](https://nodejs.org/api/process.html#process_process_env) object in Node.js.
 
-The [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback) function calls a callback function once it has the file list. The callback has 2 arguments: `err`, which will contain an error object if the folder could not be read, and `files`, which is a string array of all the filenames in the folder, if the call was successful.
+The `readdir` function calls a callback function once it has the file list. The callback has 2 arguments: `err`, which will contain an error object if the folder could not be read, and `files`, which is a string array of all the filenames in the folder, if the call was successful.
 
 If the `err` object is populated, we immediately return with an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) using the `sendStatus` function. The code `500` means that the server encountered an error processing a request, so the browser can show an error page.
 
-Since the [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback) function doesn’t return the files in any order, we use the built-in [array `sort` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to sort the files. By default, the sort function sorts the files in ascending alphabetical order. If you’d like a different sort order, you can supply a function to customize the behavior here.
+Since the `readdir` function doesn’t return the files in any order, we use the built-in [array `sort` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) to sort the files. By default, the sort function sorts the files in ascending alphabetical order. If you’d like a different sort order, you can supply a function to customize the behavior here.
 
 The sorted files can now be returned to the browser. We call the [`res.render`](http://expressjs.com/en/4x/api.html#res.render) function, which specifies the Handlebars template to use as the return web page. The templates are stored in the `views` folder of the project. The function also accepts a data object as an argument. [Handlebars](https://handlebarsjs.com/) then combines this data with the template to fill in the values on the page.
 
 #### Rendering the File List
 
 Our backend route gets the file list, and passes it through to the `index` HTML template. Let’s customize that template to display the files. Open `index.hbs` in the views folder, and update the contents to this code:
-
-Copy
 
 ```
 <h1>{{title}}</h1>
@@ -160,15 +150,16 @@ Handlebars uses the sequence `{{ }}` to indicate sections of the template to be 
 
 Then we set up a simple table, and use the Handlebars of each function to iterate over the elements in the `files` array we passed from the `Get /` route. The Handlebars keyword `{{this}}` is used to reference the current file name on each iteration.
 
-You can save, commit and push your changes so far. Our code should deploy automatically on [Code Capsules](https://codecapsules.io/). After deploying, you can visit the public URL, and you should see something like this:\
-![blank files](https://codecapsules.io/wp-content/uploads/2023/07/blank-files.png)\
+You can save, commit and push your changes so far. Our code should deploy automatically on [Code Capsules](https://codecapsules.io/). After deploying, you can visit the public URL, and you should see something like this:
+
+\
+![blank files](https://codecapsules.io/wp-content/uploads/2023/07/blank-files.png)
+
 This is good, but a little uninteresting without any files to view!
 
 #### Adding the File Upload Route
 
 Let’s add functionality to upload a file, then we’ll be able to view it in the list. We’ll first add an [HTML upload form](https://www.w3schools.com/html/html_forms.asp) to the `index.hbs` file in the `views` folder. Add this code under the `<h1>{{title}}</h1>` line:
-
-Copy
 
 ```
 <div>
@@ -188,8 +179,6 @@ This code adds in a new HTML form, which makes a `POST` request to the root `/` 
 
 Now that we have a way for the user to select a file to upload and send to the server, we need to create a route to process the submitted file. In the `index.js` file in the `routes` folder, we’ll add a new HTTP route. This one will be a [POST](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) route, as we are using it to upload a new file (or resource) onto the server. Add this stub for the route in the `index.js` file:
 
-Copy
-
 ```
 router.post('/', function(req, res){
 
@@ -198,23 +187,17 @@ router.post('/', function(req, res){
 
 To handle file uploads with Express, we’ll use a package that takes care of all the encoding and streaming concerns of file uploads. Open up the terminal and install the [`express-fileupload`](https://www.npmjs.com/package/express-fileupload) package using NPM:
 
-Copy
-
 ```
 npm install express-fileupload
 ```
 
 To use this package, we need to add it into the [middleware](http://expressjs.com/en/guide/using-middleware.html) of our Express server. Open up the `app.js` file in the root folder of the project, and import the package by adding the following `require` statement at the top of the file:
 
-Copy
-
 ```
 const fileUpload = require('express-fileupload');
 ```
 
 Now insert the package into the Express middleware pipeline by adding the following line just under the `var app = express();` statement:
-
-Copy
 
 ```
 app.use(fileUpload());
@@ -223,8 +206,6 @@ app.use(fileUpload());
 The `express-fileupload` module adds a `files` attribute to our `req` object. Through the `files` attribute, we can access any uploads as their own objects, which are named the same as the HTML form `inputs`.
 
 Now we can expand on the route stub. In the `index.js` file, complete the `POST` route as follows:
-
-Copy
 
 ```
 router.post('/', function(req, res){
@@ -264,8 +245,6 @@ We’ll add a route with the format `/filename` to get the requested file. We’
 
 Add this route to the `index.js` file.
 
-Copy
-
 ```
 router.get('/:filename', function(req, res, next){
     const filepath = process.env.PERSISTENT_STORAGE_DIR + '/' + req.params.filename; 
@@ -278,8 +257,6 @@ This sets up a `GET` route, with the requested filename as a parameter. Then the
 Then we call the [`download`](http://expressjs.com/en/5x/api.html#res.download) method on the `res` (result) object with the constructed path. This sends the file to the browser.
 
 Now we need a way to call this route from the front end. Open the `index.hbs` file in the `views` folder, and modify the `{{this}}` template in the file list table to an HTML [anchor `<a>` tag](https://www.w3schools.com/tags/tag_a.asp), with the `href` to the route we added above. We’ll also add the [`download`](https://www.w3schools.com/tags/att_a_download.asp) attribute to the tag so that the link will not be opened in the browser, but downloaded instead. The updated file list table should look like this now:
-
-Copy
 
 ```
 <div>
@@ -310,8 +287,6 @@ Now that we can upload and download files, we’ll probably also need to remove 
 
 Since the data capsule appears just like a regular file system to our code, we can use the built-in Node.js [`fs`](https://nodejs.org/api/fs.html#fs_file_system) module here again. It has a method called [`unlink`](https://nodejs.org/api/fs.html#fs_fs_unlinksync_path) which deletes a file from a file system. We supply it with a path to the file, and a callback function to let us know the result of the delete file request. If we get an error, we’ll send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) status back to the browser, to let the browser know that an error occurred. If the delete action is successful, we’ll send a status code [`200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which lets the browser know that the operation was a success. Add this code to the `index.js` file to implement the `DELETE` route:
 
-Copy
-
 ```
 router.delete('/:filename', function(req, res){
   const filepath = process.env.PERSISTENT_STORAGE_DIR + '/' + req.params.filename; 
@@ -325,8 +300,6 @@ router.delete('/:filename', function(req, res){
 ```
 
 Now let’s update the front end to be able to call this route. Open the `index.hbs` file, and add a new header column to the file table, along with a button for each file in the new column to delete it:
-
-Copy
 
 ```
 <div>
@@ -352,8 +325,6 @@ Copy
 
 Next, we’ll create some front-end JavaScript code for the button to call when clicked. We’ll use the browser-side [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function to call the `DELETE` file route. Add this script block at the bottom of the `index.hbs` file:
 
-Copy
-
 ```
 <script type="text/javascript">
   function deleteFile(filename){
@@ -373,8 +344,6 @@ This adds a new function `deleteFile` to the front-end index page. It has one ar
 The [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) function returns a `promise`. This is an alternative to callbacks. If the call was successful, the code in the `.then()` handler is called. This reloads the page, so that the file listing is updated to show that the file is now deleted. If the call fails, the code in the `catch` handler is called. This uses another standard browser dialog, an [`alert`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), to let the user know that something went wrong.
 
 Now let’s hook this function up to the button we added for each file. We’ll use the [`onclick`](https://www.w3schools.com/jsref/event_onclick.asp) event on the buttons to call the function, along with the filename to be deleted. Update the button code like this:
-
-Copy
 
 ```
 <button onclick="deleteFile('{{this}}')">Delete</button>
@@ -397,15 +366,11 @@ Passport’s [local strategy](https://www.npmjs.com/package/passport-local) plug
 
 Let’s start by installing all these packages and plugins. Type the following in the terminal:
 
-Copy
-
 ```
 npm install passport passport-local express-session
 ```
 
 Now add references to these packages to the top section of the `app.js` file. A good place to add them is after the `var logger = require('morgan');` line. Here’s the code you’ll need:
-
-Copy
 
 ```
 var passport = require('passport'); 
@@ -414,8 +379,6 @@ var session = require("express-session");
 ```
 
 The first thing to add to the app is the session middleware, then the Passport authentication middleware. Add the following after the `app.use(express.static(path.join(__dirname, 'public')));` line:
-
-Copy
 
 ```
 app.use(session({secret : "<YOUR_SECRET>"})); 
@@ -428,8 +391,6 @@ This inserts the `session` middleware into the app pipeline, to read and write p
 Next, we initialize Passport into the middleware pipeline, and add in the code for Passport to use sessions to check and record authentication.
 
 When using sessions with Passport, we need to implement serialization and de-serialization of user objects from session information, so that Passport can add the user object to the `req` object in the app pipeline. Add these functions to the bottom of the `app.js` file:
-
-Copy
 
 ```
 passport.serializeUser(function(user, done) {
@@ -448,8 +409,6 @@ passport.deserializeUser(function(user, done) {
 In our case, since we are implementing a super-simple authentication scheme with just one user, we don’t need to call out to a database or other store to get user information. In fact, since there is no real user information that is of use to our app currently, we just return the `user` object that Passport sends to us straight back, as we don’t really have a use for it. Even though we are doing nothing with the information, we need to register these functions with Passport, as it calls them, regardless.
 
 Now we can set up the rest of the logic for Passport. Add this code just above the serialization code:
-
-Copy
 
 ```
 passport.use(new LocalStrategy(
@@ -476,13 +435,11 @@ Head over to the “Config” tab on your backend Code Capsule, and add 2 new en
 
 <figure><img src="https://codecapsules.io/wp-content/uploads/2023/07/username-env.png" alt=""><figcaption></figcaption></figure>
 
-Passport offers many other [authentication strategies](http://www.passportjs.org/packages/), from OAuth 2.0 strategies allowing authentication through Facebook, Google, Twitter and other OAuth 2.0 providers, to API authentication strategies such as Bearer Tokens.
+Passport offers many other [authentication strategies](https://www.passportjs.org/features/), from OAuth 2.0 strategies allowing authentication through Facebook, Google, Twitter and other OAuth 2.0 providers, to API authentication strategies such as Bearer Tokens.
 
 Now that we have set the username and password for our app, we can add the login page routes to render the login page and send the form `POST` with user credentials to Passport.
 
 Add these 2 routes just above the index routes (`app.use('/', indexRouter);`) in `app.js`:
-
-Copy
 
 ```
 app.get('/login', function(req, res){
@@ -496,15 +453,11 @@ The first `GET` route adds a `/login` URL to our app. The route handler function
 
 There’s one more bit of code to include before we add the front-end login form. We need to check if a user is successfully authenticated before they can access the file list and other functionality. To do this, we’ll insert a call to an authentication check function in our app middleware. Add this code just above the `app.use('/', indexRouter);` line, so it’s called before the routes above are served:
 
-Copy
-
 ```
 app.use(isAuthenticated); 
 ```
 
 Now, let’s implement the reference `isAuthenticated` middleware. Add this function to the bottom of the `app.js` file:
-
-Copy
 
 ```
 function isAuthenticated(req, res, next) {
@@ -518,8 +471,6 @@ function isAuthenticated(req, res, next) {
 If a user is successfully authenticated, the `isAuthenticated()` method, which is added by Passport to the `req` object, will return `true`. In that case, we can safely let the pipeline proceed to the next middleware function (in this case, one of the protected routes). If the authentication check comes back `false`, we redirect back to the login page, away from our protected pages.
 
 Now we have all the back-end pieces for authentication in place, let’s add the login page and form. Add a new file called `login.hbs` in the `views` folder. Place this code into the new file:
-
-Copy
 
 ```
 <form action="/login" method="post">

@@ -182,7 +182,7 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 {% endstep %}
 
 {% step %}
-#### &#x20;Build and Deployment Process
+#### Build and Deployment Process
 
 **Vue.js:** For Vue.js applications, the build process usually involves transpiling and bundling JavaScript and assets for production. Deployment is often simpler, especially for single-page applications (SPAs).
 
@@ -192,7 +192,7 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 {% step %}
 #### Hosting Providers
 
-**Vue.js:** Vue.js applications can be hosted on a wide range of hosting providers, including static site hosting, traditional web hosting, cloud platforms, and serverless environments. Learn how to [Deploy your Vue application to production](https://codecapsules.io/doc/how-to-deploy-a-vue-application-to-production-on-code-capsules/) on Code Capsules.
+**Vue.js:** Vue.js applications can be hosted on a wide range of hosting providers, including static site hosting, traditional web hosting, cloud platforms, and serverless environments. Learn how to [deploy your Vue application to production](https://codecapsules.io/doc/how-to-deploy-a-vue-application-to-production-on-code-capsules/) on Code Capsules.
 
 **Nuxt 3:** Depending on your Nuxt 3 application’s configuration (SSR, SSG, or SPA), hosting requirements may vary. You may need a server environment with Node.js support for SSR, while SSG can be hosted on simpler environments.
 {% endstep %}

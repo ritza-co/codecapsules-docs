@@ -2,15 +2,15 @@
 
 ### November 2025
 
-* Our new CLI has been released, check it out here: [https://docs.codecapsules.io/cli](https://docs.codecapsules.io/cli)&#x20;
+* Our new CLI has been released. Check it out [here](https://docs.codecapsules.io/cli).
 * Ability to proxy and connect to your deployed workloads via the cli, allowing you to debug services or access your databases from your local machine
 * Fixed a bug when trying to scale storage down (this is not possible)
 * Fixed a bug when trying to scale databases horizontally, the correct replicas are created without any issues
 
 ### October 2025
 
-* New and improved alerting, check it out here: [https://docs.codecapsules.io/products/backend-capsule/alerting](https://docs.codecapsules.io/products/backend-capsule/alerting)
-* Ability to get email notifications for any workload alerts like OOM, too much CPU being used or unexpected app crashes etc
+* New and improved alerting. Check it out [here](https://docs.codecapsules.io/products/backend-capsule/alerting).
+* Ability to get email notifications for any workload alerts like OOM, too much CPU being used, unexpected app crashes, etc.
 
 ### September 2025
 

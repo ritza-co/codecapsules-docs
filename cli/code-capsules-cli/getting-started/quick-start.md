@@ -4,7 +4,7 @@
 
 ### 1. Log in to the CLI
 
-To use the CLI, log into your Code Capsules account
+To use the CLI, log in to your Code Capsules account.
 
 ```bash
 codecaps login -e <your email>
@@ -16,7 +16,7 @@ You will be prompted for your password. For security reasons, it is not recommen
 codecaps login -e <your email> -p <your password>
 ```
 
-Once logged in, you can ensure you are logged into the correct account using the `whoami` command
+Once logged in, you can ensure you are logged into the correct account using the `whoami` command:
 
 ```bash
 codecaps whoami
@@ -24,7 +24,7 @@ codecaps whoami
 
 
 
-### 2. Proxy a Capsule to your local machine
+### 2. Proxy a Capsule to Your Local Machine
 
 Using the CLI, you can access any Capsule through a secure connection without exposing it publicly. For example, Redis Capsules cannot be accessed through a public domain. The `proxy` command allows you to access your Capsule by creating a safe tunnel between your local machine and the Capsule.
 

@@ -112,7 +112,7 @@ We'll need a place to host our app.
 
 #### Register an app on Slack
 
-After you've created a workspace on Slack or logged into an existing one, head over to [https://api.slack.com](https://api.slack.com/apps) and click on "Create an app", then "From Scratch".
+After you've created a workspace on Slack or logged into an existing one, head over to [Slack API](https://api.slack.com/apps) and click on "Create an app", then "From Scratch".
 
 On the dialog that comes up, we can give our app a name and choose which workspace we want to add it to. You can choose any name you wish – we've used _Serverbot_ here. Now we can click "Create App".
 
@@ -262,7 +262,7 @@ If all goes well, in a few minutes you should get a message on your Slack channe
 
 #### Adding a slash command
 
-Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the [Slack docs again](https://api.slack.com/interactivity/slash-commands#app_command_handling), we notice that Slack will send the slash command instruction to the URL we specified in the command setup earlier. We can also see that the POST payload is in the format [`application/x-www-form-urlencoded`](https://www.w3schools.com/html/html_urlencode.asp). We can set up a [`body-parser`](https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions) to interpret this data.
+Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the [Slack docs](https://api.slack.com/interactivity/slash-commands#app_command_handling) again, we notice that Slack will send the slash command instruction to the URL we specified in the command setup earlier. We can also see that the POST payload is in the format [`application/x-www-form-urlencoded`](https://www.w3schools.com/html/html_urlencode.asp). We can set up a [`body-parser`](https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions) to interpret this data.
 
 Let's extend our code with the snippet below to implement the slash command receiver as specified in the Slack docs. First, add a require statement for `body-parser` at the top.
 
@@ -417,7 +417,7 @@ Ok, back to the function. After we retrieve the signing secret from the environm
 
 After this, we construct our basestring, made from the version we extracted above, the timestamp of the request, and the `rawBody` (which we extracted in our body parser `verify` function earlier).
 
-The next two lines are where we actually calculate the hash. First, we set up the `crypto` module with our crypto algorithm type [`SHA256`](https://en.wikipedia.org/wiki/SHA-2), and with our unique Signing Secret. This allows us to then create an [HMAC – or Hash Based Message Authentication code](https://en.wikipedia.org/wiki/HMAC), which is the fancy name for the message signature. We then use the `update` method on our newly created HMAC to load in our basestring that we constructed above.
+The next two lines are where we actually calculate the hash. First, we set up the `crypto` module with our crypto algorithm type [`SHA256`](https://en.wikipedia.org/wiki/SHA-2), and with our unique Signing Secret. This allows us to then create an [HMAC (hash-based message authentication code)](https://en.wikipedia.org/wiki/HMAC), which is the fancy name for the message signature. We then use the `update` method on our newly created HMAC to load in our basestring that we constructed above.
 
 Now that the crypto HMAC is primed with all the info it needs, we can call the `digest` function to actually calculate the hash. We pass in as a parameter `hex` to indicate that we want the result back in [hexadecimal format](https://en.wikipedia.org/wiki/Hexadecimal), as this is the same format that Slack sends their calculated hash value in.
 

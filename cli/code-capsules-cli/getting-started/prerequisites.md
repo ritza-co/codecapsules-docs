@@ -8,4 +8,4 @@ If you have not used Code Capsules before, we recommend reading our documentatio
 
 ## Next Steps
 
-Once you are set up and comfortable with the Code Capsules platform, you are ready to [install the CLI](installation-and-usage.md)
+Once you are set up and comfortable with the Code Capsules platform, you are ready to [install the CLI](installation-and-usage.md).

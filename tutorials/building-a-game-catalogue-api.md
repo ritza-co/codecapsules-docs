@@ -30,8 +30,6 @@ Head over to [GitHub](https://github.com/) and create a new repo. We’re callin
 
 We’ll use the [Express](http://expressjs.com/en/starter/generator.html) generator to create the project base. [Express](http://expressjs.com/) is a lightweight web framework for Node.js. To create the base project, type in the following:
 
-Copy
-
 ```
 npx express-generator --no-view
 npm install
@@ -42,8 +40,6 @@ This creates a few files and folders that we can edit. The `--no-view` option te
 The command `npm install` downloads and installs all the dependencies and packages required by the base project. Open the folder with Visual Studio Code or an editor of your choice, and browse through the files to get familiar with them. The `app.js` file in the project root is the main entry point for the app.
 
 Great, it’s time to push this boilerplate project up to Git. We can do it with the following commands, from the command prompt or terminal:
-
-Copy
 
 ```
 git add . 
@@ -99,15 +95,11 @@ We don’t have direct access to the Data Capsule and the MySQL database it’s 
 
 Create a new file called `setup.js` in the root of your project. Now we need to install a package that will allow us to connect to MySQL and send commands. We’ll use [MySQL2](https://www.npmjs.com/package/mysql2). Use `npm` from the terminal to install this package:
 
-Copy
-
 ```
 npm install mysql2
 ```
 
 Now we can add the code to create the table. In the new `setup.js` file, add the following code:
-
-Copy
 
 ```
 const mysql = require('mysql2');
@@ -140,15 +132,11 @@ This code imports the `mysql2` driver package. We write a boot message to the co
 
 Now, we need a way for the Backend Capsule to run this setup script. We can use the `package.json` file to register a new command that `npm` will be able to run. Open the `package.json` file and add in the following line to the `scripts` object:
 
-Copy
-
 ```
     "setup": "node setup.js"
 ```
 
 The complete `package.json` file should look like this now:
-
-Copy
 
 ```
 {
@@ -171,8 +159,6 @@ Copy
 
 We’ll need to let our Backend Capsule know to run this script. Navigate to the “Configure” tab on the Backend Capsule, and scroll down to the “Run Command” section. Change this to:
 
-Copy
-
 ```
 npm run setup
 ```
@@ -182,8 +168,6 @@ Click “Save” to save this new setting.
 ![run command setup](https://codecapsules.io/wp-content/uploads/2023/07/run-command-setup.png)
 
 Let’s commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal:
-
-Copy
 
 ```
 git add . 
@@ -197,8 +181,6 @@ If you navigate to the “Logs” tab on the Backend Capsule, you should see the
 
 Once this is done, you can change the “Run Command” under the “Configure” tab back to:
 
-Copy
-
 ```
 npm run start
 ```
@@ -210,8 +192,6 @@ Remember to click “Update Capsule” to save this.
 Our database is set up with a new table. Let’s add some code to create an API route to read from this table.
 
 To keep the solution neater, we’ll add a new file to contain the API route code. Add a new file called `games.js` in the `routes` folder in your project, with the following code:
-
-Copy
 
 ```
 var express = require('express');
@@ -243,8 +223,6 @@ We create a [`router`](http://expressjs.com/en/5x/api.html#router), which is an 
 
 Express routers allow us to add routes using the following structure:
 
-Copy
-
 ```
 router.METHOD(PATH, HANDLER)
 ```
@@ -265,8 +243,6 @@ If there is no error, we send the results of the SQL query back, formatted as [J
 
 Now that we have the router set up and our first route created, we can hook them up to the main Express app. Open the `app.js` file in the route folder and add the following code above the line `var app = express();`:
 
-Copy
-
 ```
 var gamesRouter = require('./routes/games');
 ```
@@ -275,15 +251,11 @@ This adds a reference to the router we defined in the `game.js` file.
 
 Now, let’s use this reference to add the router to the Express app. Add the following line just above the `module.exports = app;`:
 
-Copy
-
 ```
 app.use('/games', [ gamesRouter ]); 
 ```
 
 Let’s test all of this by committing and pushing these changes:
-
-Copy
 
 ```
 git add . 
@@ -305,8 +277,6 @@ For the create route, it would be nice to return the newly created entry, along 
 
 Each route allows us to chain multiple handlers to it, with each handler running one after the other. This is the core concept of middleware. So to implement our create route with its two distinct operations, we can chain 2 handlers, like this:
 
-Copy
-
 ```
 router.post('/', [functionOne, functionTwo])
 ```
@@ -314,8 +284,6 @@ router.post('/', [functionOne, functionTwo])
 Here, `functionOne` can pass control to `functionTwo` by calling the `next()` parameter, which is passed into each handler by Express. We can also pass custom information from one handler to another by adding it onto the `req` object, which is also passed to each handler by Express.
 
 Ok, enough theory, let’s add this code in `games.js` above the line `module.exports = router;` using what we know from above:
-
-Copy
 
 ```
 router.post('/', [addNewGame, returnGameById]);  
@@ -360,8 +328,6 @@ The handler `returnGameById` queries the database for the newly created object, 
 
 To test this, commit and push the code up again to Code Capsules.
 
-Copy
-
 ```
 git add . 
 git commit -am 'added post route for games'
@@ -373,8 +339,6 @@ Once it has successfully built and deployed on Code Capsules, we can try this ne
 Create a new query in Postman, with the HTTP method set to “POST”. Set the URL to the URL of your Backend Capsule, along with the `/games` path. Then click the “Body” tab, select “raw” as the mime type, and select “JSON” from the dropdown as the content type.
 
 Add the following JSON payload to the body:
-
-Copy
 
 ```
 {
@@ -395,8 +359,6 @@ Now that we can add a game, and read back the catalog, we might need to update a
 We’ll use the same pattern as we did for the `post` route, and re-use the `returnGameById` function to retrieve the newly updated row from the database.
 
 Add this code to add the update route:
-
-Copy
 
 ```
 router.put('/:id', [updateGame, returnGameById]);
@@ -432,8 +394,6 @@ The last route we need to add is a delete route to remove a game entry. Luckily,
 
 The delete route will work similarly to our other routes. However, since we are removing a record, we don’t need to return any data. We can just return the usual status code to signal everything worked OK.
 
-Copy
-
 ```
 router.delete('/:id', function(req, res, next){
   connection.query(
@@ -466,30 +426,24 @@ For this tutorial, we’ll implement a basic access control system, that only al
 
 Let’s start by installing the two packages required. The first is the base Passport package, and the second is a package with the HTTP Basic authentication strategy.
 
-Copy
-
 ```
 npm install passport passport-http
 ```
 
 Now we add this as middleware, to check credentials before our `games` routes are called. In the `app.js` file, add the following near the top of the file, just under the other package `require` statements:
 
-Copy
-
 ```
 const passport = require('passport');  
 const BasicStrategy = require('passport-http').BasicStrategy; 
 ```
 
-We’ll need a place to store the user credentials, so we can check them against the credentials the client supplies. We can store them in the environment settings, as they’ll be stored in plain text, i.e. unencrypted. In a production application, you would store them in the database, with the password hashed and salted. We’ll leave that option as something for you to explore :).
+We’ll need a place to store the user credentials, so we can check them against the credentials the client supplies. We can store them in the environment settings, as they’ll be stored in plain text, i.e. unencrypted. In a production application, you would store them in the database, with the password hashed and salted. We’ll leave that option as something for you to explore.
 
 Head over to the “Config” page on your Backend Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, and click `Update Capsule` when you are done.
 
 ![env user password](https://codecapsules.io/wp-content/uploads/2023/07/env-user-password.png)
 
 Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the `var gamesRouter = require('./routes/games');` line in `app.js`:
-
-Copy
 
 ```
 passport.use(new BasicStrategy(
@@ -510,15 +464,11 @@ The final part is to add the Passport authenticate middleware to the routes we w
 
 Update the line:
 
-Copy
-
 ```
 app.use('/games', [ gamesRouter ]); 
 ```
 
 to:
-
-Copy
 
 ```
 app.use('/games', [ passport.authenticate('basic', {session: false}), gamesRouter ]); 

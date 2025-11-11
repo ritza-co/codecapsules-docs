@@ -8,7 +8,7 @@ To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) ac
 
 ## Create an Account with Code Capsules
 
-Before creating your WordPress capsule, you'll need a Team and a Space. You can follow these guides to learn how to create [Teams](../../platform/teams/what-is-a-team.md) and [Spaces](../../platform/spaces/what-is-a-space.md).
+Before creating your WordPress capsule, you'll need a Team and a Space. You can follow these guides to learn how to create [Teams](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/teams/what-is-a-team) and [Spaces](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/spaces/what-is-a-space).
 
 If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen then click "New Capsule".
 
@@ -16,7 +16,7 @@ If you already have a Team and Space set up, log in to your Code Capsules accoun
 
 ## Create the Capsule
 
-A [Capsule](../../platform/capsules/what-is-a-capsule.md) provides the server for hosting an application on Code Capsules.
+A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
 To create a Wordpress Capsule first choose "WordPress" as the Capsule type, as well as your Team, and Space.
 
@@ -53,7 +53,7 @@ To deploy WordPress from your version control repository:
 
 ![Choose repo](../.gitbook/assets/wordpress-capsule/deploy/wordpress-git-managed.png)
 
-You can read more about connecting your account to a version control provider in [this guide](../../platform/account/connect-version-control.md).
+You can read more about connecting your account to a version control provider in [this guide](https://docs.codecapsules.io/platform/account/connect-version-control).
 
 ## Monitor Deployment
 

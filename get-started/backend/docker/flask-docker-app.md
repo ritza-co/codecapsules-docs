@@ -6,7 +6,7 @@ description: A walkthrough on how to deploy a Flask Docker application from GitH
 
 Deploy a Flask Docker application and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 

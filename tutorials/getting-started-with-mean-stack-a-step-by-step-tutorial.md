@@ -8,9 +8,9 @@ In this step-by-step tutorial, we will guide you through the process of building
 
 Before we begin, ensure that you have the following tools and knowledge:
 
-1. Node.js: Install Node.js from the official website (https://nodejs.org/). Node.js will enable you to run JavaScript on the server-side.
+1. Node.js: Install [Node.js](https://nodejs.org/). Node.js will enable you to run JavaScript on the server-side.
 2. npm (Node Package Manager): npm comes bundled with Node.js and is used to manage packages and dependencies for your project.
-3. MongoDB: Install MongoDB from the official website (https://www.mongodb.com/). MongoDB is a NoSQL database that stores your application’s data.
+3. MongoDB: Install [MongoDB](https://www.mongodb.com/). MongoDB is a NoSQL database that stores your application’s data.
 4. Angular CLI: Install Angular CLI globally using npm. You can do this by running \`npm install -g @angular/cli\`. Angular is a front-end framework for building dynamic web applications.
 
 Now that you have the necessary tools in place, let’s get started with building your MEAN stack application!
@@ -19,16 +19,12 @@ Now that you have the necessary tools in place, let’s get started with buildin
 
 1\. Create a new directory for your project:
 
-Copy
-
 ```
 mkdir mean-stack-app
 cd mean-stack-app
 ```
 
 2\. Initialize your Node.js project:
-
-Copy
 
 ```
 npm init -y
@@ -38,15 +34,11 @@ npm init -y
 
 1\. Install Express.js, a popular Node.js web application framework:
 
-Copy
-
 ```
 npm install express --save
 ```
 
-2\. Create a basic Express.js server in a file named \`server.js\`. This will be your application’s backend:
-
-Copy
+2\. Create a basic Express.js server in a file named `server.js`. This will be your application’s backend:
 
 ```
 const express = require('express');
@@ -64,19 +56,15 @@ console.log(`Server is running on port ${port}`);
 
 3\. Start your Node.js server:
 
-Copy
-
 ```
 node server.js
 ```
 
-Your server should now be running at \`http://localhost:3000\`, and you should see “Hello MEAN Stack!” when you visit this URL in your browser.
+Your server should now be running at `http://localhost:3000`, and you should see “Hello MEAN Stack!” when you visit this URL in your browser.
 
 ### Create the Frontend with Angular <a href="#create-the-frontend-with-angular" id="create-the-frontend-with-angular"></a>
 
 1\. Generate a new Angular project:
-
-Copy
 
 ```
 ng new mean-stack-frontend
@@ -86,27 +74,21 @@ Follow the prompts to configure your Angular project.
 
 2\. Navigate to your Angular project directory:
 
-Copy
-
 ```
 cd mean-stack-frontend
 ```
 
 3\. Start the Angular development server:
 
-Copy
-
 ```
 ng serve
 ```
 
-Your Angular application will be available at \`http://localhost:4200\`. Visit this URL in your browser, and you should see the default Angular app.
+Your Angular application will be available at `http://localhost:4200`. Visit this URL in your browser, and you should see the default Angular app.
 
 ### Connect Angular to Express.js <a href="#connect-angular-to-expressjs" id="connect-angular-to-expressjs"></a>
 
-1\. Open the \`src/environments/environment.ts\` file in your Angular project and update the \`apiUrl\` property to point to your Express.js server:
-
-Copy
+1\. Open the `src/environments/environment.ts` file in your Angular project and update the `apiUrl` property to point to your Express.js server:
 
 ```
 export const environment = {
@@ -116,8 +98,6 @@ apiUrl: 'http://localhost:3000',
 ```
 
 2\. Create an Angular service to interact with your Express.js backend. You can generate a service using the Angular CLI:
-
-Copy
 
 ```
 ng generate service api
@@ -130,8 +110,6 @@ Implement your API service to make HTTP requests to your Express.js server.
 ### Set Up MongoDB <a href="#set-up-mongodb" id="set-up-mongodb"></a>
 
 1\. Start your MongoDB server:
-
-Copy
 
 ```
 mongodb
@@ -149,7 +127,7 @@ mongodb
 
 3\. Deploy your Angular frontend to a hosting service like Netlify, Vercel, or GitHub Pages.
 
-4\. Update your Angular \`environment.ts\` file to point to your production API URL.
+4\. Update your Angular `environment.ts` file to point to your production API URL.
 
 Congratulations! You’ve now built and deployed a production-ready MEAN stack application. This tutorial provides a solid foundation for creating web applications using the MEAN stack, but there is still much more to explore and learn. As you gain experience, you can enhance your application with features like user authentication, data validation, and more.
 

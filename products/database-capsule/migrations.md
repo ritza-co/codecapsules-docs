@@ -2,7 +2,7 @@
 
 This guide walks you through migrating a database using an Express app and a MySQL Capsule.
 
-You might find our [guide to setting up a MySQL Data Capsule](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/database/mysql) and our [creating an Express application with Code Capsules tutorial](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/node.js/express.js) helpful.
+You might find our guides on [setting up a MySQL Data Capsule](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/database/mysql) and [creating an Express application with Code Capsules](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/node.js/express.js) helpful.
 
 ## Step 1: Clone From Your GitHub Repository
 

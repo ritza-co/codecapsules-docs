@@ -4,4 +4,4 @@
 
 [Teams](../teams/what-is-a-team.md), Spaces, and [Capsules](../capsules/what-is-a-capsule.md) form the foundation of [Code Capsules](https://codecapsules.io). 
 
-A **Space** is an organizational tool for managing [Capsules](../capsules/what-is-a-capsule.md). Each Space can contain multiple Capsules, making it easier to structure and manage large or complex projects by grouping related Capsules together.
+A **Space** is an organizational tool for managing Capsules. Each Space can contain multiple Capsules, making it easier to structure and manage large or complex projects by grouping related Capsules together.

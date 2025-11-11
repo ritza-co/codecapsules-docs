@@ -307,7 +307,3 @@ print(api_data.json())
 ```
 
 All done!
-
-## Further Reading <a href="#further-reading" id="further-reading"></a>
-
-We’ve learned a lot about APIs; how to interact with them, how to use API endpoints, and how to create and host an API with Flask and Code Capsules.&#x20;

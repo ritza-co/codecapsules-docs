@@ -12,7 +12,7 @@ You will need the following to complete the tutorial:
 
 * Docker installed locally.
 * IDE or text editor of your choice.
-* (Optional) a local PHP developer environment.
+* A local PHP developer environment (optional).
 
 You can do all the development using the Docker environment that we’ll create as part of the tutorial, but it can be easier to run and debug code locally so if you haven’t used PHP before and don’t want to do the set-up, you can rely only on Docker.
 
@@ -21,13 +21,11 @@ To deploy the application to Code Capsules, you’ll also need:
 * A [GitHub](https://github.com/) account and Git installed locally.
 * A [Code Capsules](https://codecapsules.io/) account.
 
-### Project Set Up <a href="#project-set-up" id="project-set-up"></a>
+### Project Setup <a href="#project-set-up" id="project-set-up"></a>
 
 Let’s start by creating a project folder that will house all our files.
 
 In a terminal, navigate to the directory you’ll be keeping the application files in. Run the commands below to create the project folder and navigate into it.
-
-Copy
 
 ```
 mkdir book-recommendations
@@ -37,8 +35,6 @@ cd book-recommendations
 ### Building the Frontend <a href="#building-the-frontend" id="building-the-frontend"></a>
 
 Let’s begin by building our app’s index page. This page will use PHP and HTML, as it will contain both static and dynamic content. Create a file named `index.php` in the project root folder and populate it with the code below:
-
-Copy
 
 ```
 <!DOCTYPE html>
@@ -75,8 +71,6 @@ It then sets up a table structure that we’ll use PHP to populate later.
 
 Even though our app doesn’t do anything yet, let’s run it to see our progress so far. We’ll use Docker for this. In the same project directory, create a file called exactly `Dockerfile` (note the capital D and no file extension), and add the following code.
 
-Copy
-
 ```
 FROM php:8.0-apache
 WORKDIR /var/www/html
@@ -88,8 +82,6 @@ EXPOSE 80
 This pulls an official Docker container which already has the PHP language installed and integrated with Apache, a web server. It copies all files from the local directory (in our case, just `index.php` for now), and exposes port 80, which is the port that Apache is set to serve files on.
 
 Now run the following command in your terminal.
-
-Copy
 
 ```
 docker build . -t book-app && docker run -p 8000:80 book-app
@@ -106,8 +98,6 @@ Hit `Ctrl + C` in the terminal window running Docker to stop the server.
 To allow the user to add new books, we’ll need a form with an input. Let’s build that now.
 
 Add the following code to your `index.php` file, above the existing table definition.
-
-Copy
 
 ```
 <h2>Add Book</h2>
@@ -133,8 +123,6 @@ Now you can type in a book and author name and press the “Save” button, but 
 ### Building the Backend <a href="#building-the-backend" id="building-the-backend"></a>
 
 Next, we’ll create an `app.php` file to handle the backend logic and database connection for our application. Create this file and add the following code.
-
-Copy
 
 ```
 <?php
@@ -164,8 +152,6 @@ This code also creates a table for our books if it doesn’t already exist. The 
 
 To use this code from the main `index.php` file, add the following lines to the top.
 
-Copy
-
 ```
 <?php
 include "app.php";
@@ -182,8 +168,6 @@ We’ll display our books to the user by grabbing them all from the database, lo
 
 In the `app.php` file, add the following function to the top of the file.
 
-Copy
-
 ```
 function getBooks($db) {
     $query = "SELECT * FROM books";
@@ -193,8 +177,6 @@ function getBooks($db) {
 ```
 
 This retrieves the books from the database and returns an array containing all of them. Update the **Books** section of the `index.php` file with the following code.
-
-Copy
 
 ```
 <h2>Books</h2>
@@ -240,8 +222,6 @@ If you run the app again, you’ll see that now any books that you add automatic
 
 To avoid our table getting too messy, we’ll use some basic JavaScript to edit and delete books, along with some hidden forms at the top of our page. Right after the opening `<body>` tag in `index.php`, add the following forms.
 
-Copy
-
 ```
 <form id="updateForm" method="POST">
     <input type="hidden" name="update_id" id="update_id">
@@ -259,8 +239,6 @@ Copy
 These are two forms consisting only of hidden input fields, so they won’t be visible to the user. We’ll populate the values and submit them using JavaScript. The first form has values for `new_title` and `new_author` so we can update the database with new values supplied by the user. The “delete” form only has the book ID, as that’s all we need to remove it from the database.
 
 We need matching JavaScript functions to use these forms, so add the following code to the `<head>` section of your `index.php` file.
-
-Copy
 
 ```
 <script>
@@ -287,9 +265,7 @@ function delete_book(id, title, author) {
 
 We pass variables for the ID, title, and author to both functions. Although the existing title and ID are not strictly necessary, it’s nice to show them to the user for reference when they are entering the new information or as a confirmation for the delete function. The update function prompts the user for a new title and author and then submits the update form, while the delete function confirms if the user really wants to delete that entry and then submits the delete form.
 
-Finally, to make these work on the backend, update the if statement in the `app.php` file to look as follows.
-
-Copy
+Finally, to make these work on the backend, update the if statement in the `app.php` file to look as follows:
 
 ```
 if ($_POST) {
@@ -333,8 +309,6 @@ The application should now run fine on your local machine, but let’s deploy it
 
 Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project’s root folder, run the commands below from the terminal, replacing “username” and “repository\_name” with your own values from GitHub.
 
-Copy
-
 ```
 git init
 git add -A
@@ -352,8 +326,6 @@ The final step is to deploy our app to Code Capsules. We’ll use two capsules f
 
 Change the line where you connect to the database in the `app.php` file to match the following.
 
-Copy
-
 ```
 $database_name = $_ENV["PERSISTENT_STORAGE_DIR"] ."/books.db";
 ```
@@ -366,6 +338,6 @@ Now create a new Data Capsule and a Docker Capsule in a single Space in Code Cap
 
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set “Network Port” to “80” to match what Apache is running on, and bind the Docker Capsule to the Data Capsule.
 
-![configuration](https://codecapsules.io/wp-content/uploads/2023/07/configuration.png)
+![Configuration](https://codecapsules.io/wp-content/uploads/2023/07/configuration.png)
 
 Deploy and build the application, and you should see it running on a custom URL that you can share with the world.

@@ -13,7 +13,7 @@ In this tutorial, we’ll explore the benefits of HTMx by building a full-stack 
 
 <figure><img src=".gitbook/assets/book-app.png" alt=""><figcaption></figcaption></figure>
 
-Overview and Requirements
+### Overview and Requirements
 
 After building our application, you’ll want to deploy it to production, so you can show it to friends and family. You will therefore need the following to complete the tutorial:
 
@@ -30,8 +30,6 @@ With all the requirements in place, we can go ahead and set up our project. Let�
 
 Let’s create a folder to house our application’s source code. Run the commands below in the terminal to create the folder and navigate into it.
 
-Copy
-
 ```
 mkdir express-htmx
 cd express-htmx
@@ -47,8 +45,6 @@ Run the command `npm init` in the project root folder and follow the setup instr
 
 While still in the root folder, run the command below to install the dependencies we’ll need to build our application:
 
-Copy
-
 ```
 npm i express pug sequelize sqlite3
 ```
@@ -61,8 +57,6 @@ From the project’s root folder, enter the command `git init` to initialize a `
 
 Create a `.gitignore` file and add the line below to it:
 
-Copy
-
 ```
 /node_modules
 ```
@@ -72,8 +66,6 @@ This excludes the `node_modules` folder from being tracked as you build the app,
 #### Linking to GitHub
 
 Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project’s root folder, run the command below from the terminal, replacing `username` and `repository_name` with your own values from GitHub:
-
-Copy
 
 ```
 git remote add origin git@github.com:username/repository_name.git
@@ -86,8 +78,6 @@ This will link your local repository to the one on GitHub.
 With the set-up complete, we can now begin building our app. We will start with the HTMx frontend, and for this, you need to create a `/views` folder inside the project’s root folder.
 
 Next, create an `index.pug` file inside the `/views` folder, and populate it with the code below:
-
-Copy
 
 ```
 <doctype html>
@@ -109,8 +99,6 @@ Copy
 There’s not much going on in the code snippet above, except for lines 5 and 6, which are responsible for loading Bootstrap and HTMx into our index page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
 
 The code underneath the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below with the same level of indentation as the `</head>` tag:
-
-Copy
 
 ```
 <body>
@@ -159,8 +147,6 @@ There are a couple of attributes here that aren’t used in traditional HTML. Le
 
 We can now dive into building the backend of our app. Start by creating an `app/model/` directory from the project root folder and creating a file named `dbconfig.js` in it. This file will contain logic for creating a SQLite database on a persistent file storage Data Capsule on Code Capsules when we deploy our application. Populate the `dbconfig.js` file with the code below:
 
-Copy
-
 ```
 const { Sequelize } = require("sequelize");
 const persistent_path = process.env.PERSISTENT_STORAGE_DIR || ".";
@@ -178,8 +164,6 @@ The value of the `PERSISTENT_STORAGE_DIR` environment variable will contain the 
 #### Create a `Book` Model
 
 After creating the database, we have to define the model of objects we’ll be reading and writing to it. Add a file named `book.js` in the `/model` folder and fill it with the code below:
-
-Copy
 
 ```
 // represents the model
@@ -218,8 +202,6 @@ Our `Book` objects will have three fields for the `id`, `name`, and `author`. Th
 
 The next step is to add the views responsible for executing the CRUD operations we’ll be performing on book objects. Create an `index.js` file in the project root folder and add the following code to it:
 
-Copy
-
 ```
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -250,8 +232,6 @@ In the snippet above, we import the modules our app depends on, initialize an `a
 
 Let’s add an index route that fetches and returns all `Book` objects from the database when a user visits the landing page. Add the following code to `index.js` above the `const PORT = process.env.PORT || 3005;` line:
 
-Copy
-
 ```
 app.get("/", async (req, res) => {
   const books = await Book.findAndCountAll();
@@ -262,8 +242,6 @@ app.get("/", async (req, res) => {
 We use the Sequelize `Book` model object we defined in the `book.js` file to query the database for all book objects in a readable format using the `findAndCountAll()` method and not raw SQL. This is the major benefit of using an ORM to interact with a database.
 
 Next, we’ll add a `/submit` route that will be called when a user submits a new book entry. This route will be responsible for saving and returning the `id` of the recently saved book to the database. Paste the code below into `index.js`:
-
-Copy
 
 ```
 app.post("/submit", async (req, res) => {
@@ -297,8 +275,6 @@ As HTMx expects an HTML response, the `submit` method responds with an HTML tabl
 
 Next, let’s add the code for the `/delete` route. Copy and paste the code below:
 
-Copy
-
 ```
 app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
@@ -312,8 +288,6 @@ app.delete("/delete/:id", async (req, res) => {
 The first thing you may have noticed about this route is the `id` query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for “nothing”.
 
 We now have routes for creating, reading, and deleting books. It’s time to add routes associated with updating book entries to complete our app’s CRUD functionality. Add the code below to `index.js` to add logic for updating book entries to your app:
-
-Copy
 
 ```
 app.get("/get-book-row/:id", async (req, res) => {
@@ -395,8 +369,6 @@ If the user goes through with updating the book, then the `/update` route is cal
 
 Code Capsules automatically runs the `npm start` command to start `node` projects. Currently, our project doesn’t have a `start` command, so let’s add one in `package.json`. Modify the `"scripts"` dictionary in the `package.json` file so that it looks like this:
 
-Copy
-
 ```
 "scripts": {
   "test": "echo "Error: no test specified" && exit 1",
@@ -413,8 +385,6 @@ Our app is ready to be tested. Navigate to the project’s root folder in a term
 ### Add, Commit, and Push Git Changes <a href="#add-commit-and-push-git-changes" id="add-commit-and-push-git-changes"></a>
 
 Let’s add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:
-
-Copy
 
 ```
 git add -A

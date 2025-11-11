@@ -52,15 +52,11 @@ To edit, configure, and deploy both versions of our application, you will need t
 
 To start, initialize a local Git repository and clone the [starter code](https://github.com/ritza-co/demo-htmx-express-white-label) onto your local machine from your terminal with the following command:
 
-Copy
-
 ```
 git clone https://github.com/ritza-co/demo-htmx-express-white-label.git
 ```
 
 This repo hosts an HTMX and Express app that works as a UI for a data store. To see the application, run the following commands from your terminal:
-
-Copy
 
 ```
 npm install
@@ -79,15 +75,11 @@ To be a white-label app, this app needs to be customizable to match the requirem
 
 Create a new file in the root directory of the project called `.env` and copy the following code into it:
 
-Copy
-
 ```
 heading= Pizza Recommendations
 ```
 
 This defines an environment variable that we can now access from our JavaScript code and pass into our `index.pug` through a context dictionary. In the root directory of the project, open the `index.js` file and in the `app.get('/',` function, replace the `return` function with the following:
-
-Copy
 
 ```
 return res.render('index', {
@@ -100,15 +92,11 @@ Here we get the environment variable we set in the `.env` file with `process.env
 
 For example, open up the `index.pug` file in the `views` folder and change the `h1` on the page from this:
 
-Copy
-
 ```
 h1 Book Recommendations
 ```
 
 To this:
-
-Copy
 
 ```
 h1= heading
@@ -119,8 +107,6 @@ This changes the hard-coded title of the page to the environment variable access
 ![custom heading](https://codecapsules.io/wp-content/uploads/2023/08/custom-heading.png)
 
 You can get pretty creative with setting these environment variables. To demonstrate some of the possibilities, define these variables within the `.env` file:
-
-Copy
 
 ```
 title= Pizza store
@@ -137,8 +123,6 @@ buttonTextColor= white
 ```
 
 And replace all the code in the `index.pug` file with the following:
-
-Copy
 
 ```
 <!DOCTYPE html>
@@ -228,8 +212,6 @@ Finally, we need to access the environment variables from the `index.js` file an
 
 Replace the `app.get('/',` function with the following:
 
-Copy
-
 ```
 app.get('/', async (req, res) => {
   const items = await Item.findAndCountAll();
@@ -260,15 +242,11 @@ app.get('/', async (req, res) => {
 
 Now we can pass the environment variable directly into the context dictionary, like so:
 
-Copy
-
 ```
 title: process.env.title
 ```
 
 Or we can edit the environment variable where necessary. The code below checks if the user wants a navigation bar and if not, it will define a string to set the display property of the navbar styling to `none`.
-
-Copy
 
 ```
 let display = '';
@@ -342,8 +320,6 @@ In the Backend Capsule, navigate to the “Config” tab. Under the “Environme
 
 For the first app, the pizza company, set the environment variables to the following:
 
-Copy
-
 ```
 title= Pizza store
 heading= Pizza Recommendations
@@ -359,8 +335,6 @@ buttonTextColor= white
 ```
 
 For the second app, the movie company, set the environment variables to the following:
-
-Copy
 
 ```
 title= Movie store

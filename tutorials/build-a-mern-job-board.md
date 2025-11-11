@@ -6,18 +6,16 @@ In this tutorial, we’ll extend a boilerplate MERN application to make a job bo
 
 ### Getting Started <a href="#getting-started" id="getting-started"></a>
 
-Head over to the [MERN stack deployment guide](https://codecapsules.io/doc/how-to-deploy-a-mern-stack-application-to-production-on-code-capsules/) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application.
+Head over to the [MERN stack deployment guide](https://docs.codecapsules.io/full-stack/mern-stack) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application.
 
 Before we can view the application’s frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
 
-Navigate to the project’s root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](https://codecapsules.io/tutorial/how-to-set-up-a-mongodb-data-capsule/) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`.
+Navigate to the project’s root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](https://docs.codecapsules.io/database/mongodb) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`.
 
 Set the local `DATABASE_URL` environment variable by following the steps below:
 
 * Create a `.env` file in the root folder.
 * Add the line below to the `.env` file replacing the connection string with your own.
-
-Copy
 
 ```
 DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
@@ -25,15 +23,11 @@ DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codec
 
 * Run the command below in a terminal window from the root folder to install the package for loading environment variables.
 
-Copy
-
 ```
 npm install dotenv
 ```
 
 * Open the `index.js` file in the root folder and add the following line just below the other require statements.
-
-Copy
 
 ```
 require('dotenv').config();
@@ -44,8 +38,6 @@ require('dotenv').config();
 Open the project’s root folder and navigate to the client directory. This is where you’ll find the code for the React frontend in the `src` subdirectory. Open a terminal and run `npm install` from the client directory to install the `node_modules` required by the frontend code.
 
 Next, type in `npm run build`. This command creates a `build` folder with an optimized version of our frontend source code. This code has all the extra spacing removed, which is great for efficiency but impossible for humans to read or edit. An excerpt is shown below:
-
-Copy
 
 ```
 a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"fe1e148c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(f);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;
@@ -62,8 +54,6 @@ Let’s extend this frontend to reflect the job board functionality.
 #### Adding the `SubmitJob` Component
 
 Create a `components` folder within the `client/src` directory (`client/src/components`) to house the submit job and view jobs components that we’re going to build next. Create a `submitJob.js` file in the components folder and add the following code:
-
-Copy
 
 ```
 import React, { useState } from 'react'
@@ -107,8 +97,6 @@ The `SubmitJob` component uses state to keep track of the job field values as th
 
 Create a `viewJobs.js` file in the components folder and add the following code to it:
 
-Copy
-
 ```
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -150,8 +138,6 @@ The `ViewJobs` component uses the `useEffect` hook to fetch available jobs as so
 #### Viewing the Frontend
 
 We need to import the two components we have just created in `src/App.js` before we can see the changes we just made. Open `App.js` and replace its contents with this code:
-
-Copy
 
 ```
 import logo from './logo.svg';
@@ -195,8 +181,6 @@ We’re now ready to extend the backend to include functionality for the additio
 
 Let’s define our job model to declare which job fields we want to save. Open `app/models/index.js` and replace its contents with this code:
 
-Copy
-
 ```
 const dbConfig = require("../config/db-config.js");
 const mongoose = require("mongoose");
@@ -213,8 +197,6 @@ module.exports = db;
 Here, we create and export a `db` variable that we’ll use to access the database. We’ll use the [Mongoose library](https://mongoosejs.com/) to handle all communication with our MongoDB database.
 
 Now create a file named `job.model.js` in the `models` folder to define the fields and field types of the job model. Populate it with the code below. If you added more fields to your frontend `SubmitJob` component, remember to add them here too, or they won’t be saved when a user submits a job.
-
-Copy
 
 ```
 module.exports = mongoose => {
@@ -246,8 +228,6 @@ Delete the `person.model.js` file that came with the boilerplate project, as we 
 #### Adding Job Controllers
 
 The next step is to create controllers to decide whether the app is reading or writing jobs to the database. In the `app/controllers/` folder, create a file named `job.controller.js` and add the following code to it:
-
-Copy
 
 ```
 const db = require("../models");
@@ -309,8 +289,6 @@ Delete the `person.controller.js` file that came with the boilerplate project, a
 
 The last step in extending the backend is to add endpoints for the frontend to make `post` and `get` requests to. Create a `job.routes.js` file in the `app/routes/` folder and add the following code:
 
-Copy
-
 ```
 module.exports = app => {
     const jobs = require("../controllers/job.controller.js");
@@ -333,15 +311,11 @@ Delete the `person.routes.js` file that was in the routes folder.
 
 In `index.js` in the root folder of the project, find the following line:
 
-Copy
-
 ```
 require("./app/routes/person.routes")(app);
 ```
 
 and change it to:
-
-Copy
 
 ```
 require("./app/routes/job.routes")(app);
@@ -352,8 +326,6 @@ This tells our backend to use the routes defined in our `job.routes.js` file.
 ### Integrating the Frontend and Backend <a href="#integrating-the-frontend-and-backend" id="integrating-the-frontend-and-backend"></a>
 
 Our Express backend uses the contents of the `client/build` folder to render the frontend of our MERN stack application. The lines below in the `index.js` file in the root folder handle that responsibility:
-
-Copy
 
 ```
 const path = __dirname + '/client/build/';
@@ -367,8 +339,6 @@ We’ll use version control to keep track of the new files we added when we were
 
 We don’t want to track the build folder in git (the frontend will rebuild when we deploy to Code Capsules), so we’ll add this folder to be ignored in the `.gitignore` file in the project’s root folder, like this:
 
-Copy
-
 ```
 /client/build
 ```
@@ -376,8 +346,6 @@ Copy
 #### Git Add
 
 To add all the new files we created, run the command below in the root folder of the project.
-
-Copy
 
 ```
 git add -A
@@ -387,8 +355,6 @@ git add -A
 
 Next, we need to commit the files we just added to our repository. To do this, run this command:
 
-Copy
-
 ```
 git commit -m "Added job board files"
 ```
@@ -396,8 +362,6 @@ git commit -m "Added job board files"
 #### Git Push
 
 The final step is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made:
-
-Copy
 
 ```
 git push origin main
