@@ -22,13 +22,11 @@ layout:
 
 # How to Create and Host a Telegram Bot on Code Capsules
 
-_This guide uses Python. You can find the NodeJS version_ [_here_](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)_._
+_This guide uses Python. You can find the NodeJS version_ [_here_](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)_, and the Go Version [_here_](create-and-host-go-ai-telegram-bot.md)._
 
-In [a previous tutorial](creating-and-hosting-an-api-with-flask/), we created and hosted an API on Code Capsules. In this tutorial, we'll create a client for this API in the form of a Telegram bot. This will allow us to pull temperature, weather and exchange rate data on the go by messaging our bot in the Telegram app.
+In this tutorial, we'll create a Telegram bot that will allow us to pull temperature, weather and exchange rate data on the go by messaging our bot in the Telegram app.
 
 We'll also learn how to host this bot on [Code Capsules](https://codecapsules.io/) so it can be used by others. Along the way, we'll learn some key concepts about hosting bots securely and efficiently.
-
-Let's get started!
 
 ### Requirements
 
@@ -37,9 +35,7 @@ To create a Telegram bot, we'll need:
 * [Python](https://www.python.org/) 3.9+ installed.
 * A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed.
 * [Virtualenv](https://pypi.org/project/virtualenv/) installed.
-* A [Telegram](https://telegram.org/) account.
 * A [Code Capsules](https://codecapsules.io/) account.
-* An API on Code Capsules, created using [the Personal API tutorial](creating-and-hosting-an-api-with-flask/).
 
 ### About Telegram Bots
 
@@ -60,7 +56,7 @@ Once you have a Telegram account, you can register a new bot by sending a messag
 3. Choose a name for your bot.
 4. Choose a username for your bot (must end in "bot").
 
-Once you've chosen a username, the BotFather will reply with an _authorization token_. This is a string that enables your bot to send requests to the Telegram Bot API, similar to the authorisation tokens we used to retrieve weather and exchange rate data in the personal API tutorial. Make sure to save this token somewhere safe and private.
+Once you've chosen a username, the BotFather will reply with an _authorization token_. This is a string that enables your bot to send requests to the Telegram Bot API. Make sure to save this token somewhere safe and private.
 
 To see if your bot was successfully created, search for the bot's username. You should see the bot and be able to start a conversation with it. Right now, our bot won't reply to anything you send it, as it doesn't have any backend code yet. Let's change that.
 
@@ -86,47 +82,67 @@ Enter the virtual environment using the appropriate command for your system:
 
 The virtual environment will help manage our dependencies for when we host the bot on Code Capsules.
 
-To interact with the Telegram Bot API, we need to install the [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, a Python wrapper for the [Telegram Bot API](https://core.telegram.org/bots/api). We'll also use the Python library `requests` to retrieve data from the weather and currency exchange rate API. To install these requirements, enter the following in your terminal:
+To interact with the Telegram Bot API, we need to install the [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, a Python wrapper for the [Telegram Bot API](https://core.telegram.org/bots/api). We'll also use the Python library `requests` to retrieve data from the weather and currency exchange rate API. Finally, we will install the `python-dotenv` library for convenience so that we can store our sensitive API keys in a file while we test locally. To install these requirements, enter the following in your terminal:
 
 ```bash
-pip install python-telegram-bot requests
+pip install python-telegram-bot requests python-dotenv
 ```
 
-### Retrieving Data from the API
+### Registering Accounts on OpenExchangeRates and weatherstack
 
-Now we can start coding. Create a file named `bot.py` in the same directory where we activated the virtual environment. In this file, enter the following code, replacing `YOUR-URL-HERE` with the URL pointing to the weather and exchange rate API hosted on Code Capsules.
+Our API will return the current temperature of a chosen city and the USD exchange rates for three currencies. We’ll create our API by combining data from two other APIs – weatherstack and OpenExchangeRates.
+
+Registering an account is required so that we can receive a unique API key. An API key is a password that lets us use a particular API. In APIs with more sensitive data, these are used to prevent unauthorized access.
+
+#### Getting Our API Keys
+In the directory where we are going to create our bot, create a file called `.env` in the same directory where we activated our virtual environment. We will use this to store our API keys temporarily while we code and test.
+
+First, let’s register an account on OpenExchangeRates. Navigate [here](https://openexchangerates.org/) and:
+
+1. Sign up and log in.
+2. On the dashboard, click “App IDs”.
+3. Take note of your “App ID” (API key), and paste it into the `.env` file: `EXCHANGE_API_KEY=<YOUR_API_KEY>`.
+
+Obtaining the Weatherstack API key is similar:
+
+1. Create a free account on [Weatherstack](https://weatherstack.com/)
+2. Log in and take note of the API key presented in the control panel,and paste it into the `.env` file: `WEATHER_API_KEY=<YOUR_API_KEY>`.
+
+At this point we can also add our _authorization token_ for our Telegram bot that we created earlier, to the `.env` file: `BOT_TOKEN=<YOUR_BOT_TOKEN>`.
+
+### Creating the Bot
+
+Now we can start coding. Create a file named `bot.py` in the same directory as our `.env` file. We'll set up helper functions to fetch data from the weather and exchange rate APIs. In this file, enter the following code:
 
 ```python
+import os
 import requests
+from dotenv import load_dotenv
 
-url = 'YOUR-URL-HERE/GET'
-data = requests.get(url) # requests data from API
-data = data.json() # converts return data to json
+load_dotenv()
 
-# Retrieve values from API
-curr_temp = data['curr_temp']
-cad_rate = data['usd_rates']['CAD']
-eur_rate = data['usd_rates']['EUR']
-zar_rate = data['usd_rates']['ZAR']
+EXCHANGE_API_KEY = os.getenv('EXCHANGE_API_KEY')
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 
+EXCHANGE_URL = f'https://openexchangerates.org/api/latest.json?app_id={EXCHANGE_API_KEY}'
+EXCHANGE_PARAMS = {'symbols': 'ZAR,EUR,CAD'}
 
-def return_weather():
-    print('Hello. The current temperature in Cape Town is: '+str(curr_temp)+" celsius.")
+WEATHER_URL = f'http://api.weatherstack.com/current?access_key={WEATHER_API_KEY}'
+WEATHER_PARAMS = {'query': 'Cape Town'}
 
+def get_weather():
+    response = requests.get(WEATHER_URL, params=WEATHER_PARAMS)
+    curr_temp = response.json()['current']['temperature']
+    return f'Hello. The current temperature in Cape Town is: {curr_temp} celsius.'
 
-def return_rates():
-    print("Hello. Today, USD conversion rates are as follows: USD->CAD = "+str(cad_rate)+
-    ", USD->EUR = "+str(eur_rate)+", USD->ZAR = "+str(zar_rate))
-
-
-return_weather()
-
-return_rates()
+def get_exchange_rates():
+    response = requests.get(EXCHANGE_URL, params=EXCHANGE_PARAMS)
+    rates = response.json()['rates']
+    cad_rate, eur_rate, zar_rate = rates['CAD'], rates['EUR'], rates['ZAR']
+    return f'Hello. Today, USD conversion rates are as follows: USD->CAD = {cad_rate}, USD->EUR = {eur_rate}, USD->ZAR = {zar_rate}'
 ```
 
-Here we request the currency and weather data from the API and parse the temperature and conversion rates. Then we print out the data using `return_weather()` and `return_rates()`.
-
-Try it out! Run the program to ensure everything works, then continue.
+We've created two helper functions: `get_weather()` and `get_exchange_rates()`. These functions make requests to the third-party APIs and then format the JSON response into a string that the bot can send back to users. The `load_dotenv()` call above loads the variables from our `.env` as environment variables.
 
 ### Creating the Bot
 
@@ -136,25 +152,12 @@ Now we can get to creating the actual bot. At the top of the `bot.py` file, add 
 from telegram.ext import Application, CommandHandler
 ```
 
-From the `python-telegram-bot` library, we import two classes: `Application` and `CommandHandler`. We'll talk about these classes soon.
+From the `python-telegram-bot` library, we import two classes: `Application` and `CommandHandler`. Now we can create our `main()` method like this:
 
-We don't need to print our data anymore – instead, we'll return a string to our bot, so the bot can display it on Telegram. Replace `def return_weather()` and `def return_rates()` with the following:
-
-```python
-def return_weather():
-    return 'Hello. The current temperature in Cape Town is: '+str(curr_temp)+" celsius."
-
-
-def return_rates():
-    return "Hello. Today, USD conversion rates are as follows: USD->CAD = "+str(cad_rate)+", USD->EUR = "+str(eur_rate)+", USD->ZAR = "+str(zar_rate)
-
-```
-
-Now, replace the `return_weather()` and `return_rates()` function calls with the code below:
 
 ```python
 def main():
-    TOKEN = "YOUR-BOT-TOKEN-HERE"
+    TOKEN = os.getenv('BOT_TOKEN')
     application = Application.builder().token(TOKEN).build()
 
     weather_handler = CommandHandler("weather", weather)
@@ -180,10 +183,10 @@ Let's define that function and the other two. Just above `def main()`, enter the
 
 ```python
 async def weather(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=get_weather())
 
 async def currency(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=get_exchange_rates())
 
 async def start(update, context):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! I respond to /weather and /currency. Try them!")
@@ -195,52 +198,67 @@ Back in our `main()` function, we use `application.add_handler` to add all three
 
 Finally, `application.run_polling()` will begin [_polling_](https://en.wikipedia.org/wiki/Polling_\(computer_science\)) for updates from Telegram. This means our code will regularly ask Telegram's servers if any commands have been sent to it. Upon receiving commands, the appropriate handler will be invoked.
 
-The code `bot.py` file should now look like the code below. Once again, make sure to replace `YOUR-URL-HERE` with the URL of the API you created in the API tutorial.
+The code `bot.py` file should now look like the code below. Make sure to add your API keys to the `.env` file in the same directory.
 
 ```python
-from telegram.ext import Application, CommandHandler
+import os
 import requests
+from telegram.ext import Application, CommandHandler
+from dotenv import load_dotenv
+
+load_dotenv()
+
+EXCHANGE_API_KEY = os.getenv('EXCHANGE_API_KEY')
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
+
+EXCHANGE_URL = f'https://openexchangerates.org/api/latest.json?app_id={EXCHANGE_API_KEY}'
+EXCHANGE_PARAMS = {'symbols': 'ZAR,EUR,CAD'}
+
+WEATHER_URL = f'http://api.weatherstack.com/current?access_key={WEATHER_API_KEY}'
+WEATHER_PARAMS = {'query': 'Cape Town'}
 
 
-url = 'YOUR-URL-HERE/get'
-data = requests.get(url) # requests data from API
-data = data.json() # converts return data to json
-
-# Retrieve values from API
-curr_temp = data['curr_temp']
-cad_rate = data['usd_rates']['CAD']
-eur_rate = data['usd_rates']['EUR']
-zar_rate = data['usd_rates']['ZAR']
+def get_weather():
+    """Fetch current weather from external API"""
+    response = requests.get(WEATHER_URL, params=WEATHER_PARAMS)
+    curr_temp = response.json()['current']['temperature']
+    return f'Hello. The current temperature in Cape Town is: {curr_temp} celsius.'
 
 
-def return_weather():
-    return'Hello. The current temperature in Cape Town is: '+str(curr_temp)+" celsius."
+def get_exchange_rates():
+    """Fetch exchange rates from external API"""
+    response = requests.get(EXCHANGE_URL, params=EXCHANGE_PARAMS)
+    rates = response.json()['rates']
+    cad_rate, eur_rate, zar_rate = rates['CAD'], rates['EUR'], rates['ZAR']
+    return f'Hello. Today, USD conversion rates are as follows: USD->CAD = {cad_rate}, USD->EUR = {eur_rate}, USD->ZAR = {zar_rate}'
 
-def return_rates():
-    return "Hello. Today, USD conversion rates are as follows: USD->CAD = "+str(cad_rate)+ ", USD->EUR = "+str(eur_rate)+", USD->ZAR = "+str(zar_rate)
 
 async def weather(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=get_weather())
+
 
 async def currency(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=get_exchange_rates())
+
 
 async def start(update, context):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text='Hi! I respond to /weather and /currency. Try these!')
+    await context.bot.send_message(chat_id=update.effective_chat.id, text='Hi! I respond to /weather and /currency. Try them!')
+
 
 def main():
-    TOKEN = "YOUR-BOT-TOKEN-HERE"
+    TOKEN = os.getenv('BOT_TOKEN')
     application = Application.builder().token(TOKEN).build()
-    
+
     weather_handler = CommandHandler('weather', weather)
-    currency_handler = CommandHandler('currency',currency)
-    start_handler = CommandHandler('start',start)
-    
+    currency_handler = CommandHandler('currency', currency)
+    start_handler = CommandHandler('start', start)
+
     application.add_handler(weather_handler)
     application.add_handler(currency_handler)
     application.add_handler(start_handler)
-    
+
     application.run_polling()
+
 
 if __name__ == '__main__':
     main()
@@ -294,28 +312,7 @@ If you've completed some of our other backend tutorials, you will be familiar wi
 
 ### Preparing For Deployment
 
-Before we push our code to GitHub and deploy it on Code Capsules, we need to make one small code change and create some files.
-
-#### Creating an API key environment variable
-
-Because we'll push our code to GitHub, we need to hide our bot's authentication key. If we don't, anyone could use our authentication key and take control of our bot.
-
-Replace this line
-
-```python
-TOKEN = "YOUR-BOT-TOKEN-HERE"
-```
-
-with the below
-
-```python
-import os
-TOKEN = os.getenv('BOTAPIKEY')
-```
-
-`os.getenv('BOTAPIKEY')` will look for an [environment variable](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) with the name "BOTAPIKEY". When we host our bot on Code Capsules, we'll set this environment variable to the key we received from the BotFather.
-
-With that done, we must now create some files before we can push our code to GitHub and deploy it on Code Capsules.
+Before we push our code to GitHub and deploy it on Code Capsules, we need to create some files.
 
 #### Creating a Procfile and requirements.txt
 
@@ -329,7 +326,7 @@ To create the `Procfile`:
 
 In the same directory, open a terminal and activate the virtual environment. Then enter `pip3 freeze > requirements.txt` to generate a list of requirements for our Code Capsules server.
 
-Now we can push our code to GitHub. Create a GitHub repository and send the `requirements.txt`, `Procfile`, and `bot.py` files to the repository.
+Now we can push our code to GitHub. Create a GitHub repository and send the `requirements.txt`, `Procfile`, and `bot.py` files to the repository. Make sure **not** to include the `.env` file as this contains our sensitive keys.
 
 ### Deploying the Bot to Code Capsules
 
@@ -342,11 +339,11 @@ With all of the files sent to GitHub, let's deploy the bot to Code Capsules:
 5. Select the GitHub repository containing the bot – leave "Repo subpath" empty and click "Next".
 6. Leave the "Run Command" blank and click "Create Capsule".
 
-We haven't supplied our webhook a URL yet, and we still need to create an environment variable for our bot's authorisation token. To create an environment variable:
+We haven't supplied our webhook a URL yet, and we still need to create environment variables for our bot's authorization tokens. To create the environment variables:
 
 1. Navigate to your Capsule.
 2. Click the "Config" tab.
-3. Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the "Update Capsule" button after adding the variable.
+3. Add an environment variables in the same form as our `.env` file. So, we add three environment variables: `BOT_TOKEN`, `WEATHER_API_KEY`, and `EXCHANGE_API_KEY`
 
 <figure><img src=".gitbook/assets/bot-api-key-env.png" alt=""><figcaption><p>Bot API Key Environment Variable</p></figcaption></figure>
 
