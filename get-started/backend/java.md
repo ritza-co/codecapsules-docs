@@ -56,13 +56,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](<../.gitbook/assets/backend-capsule-build-logs (1).png>)
-
-## Binding the Capsules
-
-Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Data capsules" section and click on "Bind". This enables the capsule to use the Persistent database in the Data Capsule.
-
-![Bind MEAN Capsules](../.gitbook/assets/bind-persistent-capsule-backend.png)
+![Build Logs](<../.gitbook/assets/backend-capsule-build-logs (1).png>)ß
 
 ## View Application
 
