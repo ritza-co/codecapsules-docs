@@ -45,21 +45,21 @@ Example instructions to go with numbered annotations
 
 ## Create the Capsule
 
-A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
+A [Capsule](https://docs.codecapsules.io/platform/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
 To create a new Capsule for your Space, follow the instructions below:
 
-1. Choose "Backend Capsule", your Team, and Space.
-2. Choose your payment plan.
-3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-4. Choose the GitHub repository you forked.
+1. Click the add Capsule `+` button in your space.
+2. Choose "Backend" for the Capsule type, select your Team, and Space if not already populated.
+3. Choose your payment plan and click "Next".
+4. Click the "Configure Git for Code Capsules" button and give access to the repository you forked at the start of the tutorial.
 5. Press "Next".
-6. Leave "Run Command" blank.
+6. Leave the "Run Command" blank.
 7. Click "Create Capsule".
 
 Code Capsules will automatically build your application when you've finished creating the Capsule.
 
-Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
+Once your application is live, you can view the build logs by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
 ![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
@@ -71,7 +71,7 @@ Assign the `BOT_TOKEN` variable the value of the access token you were given by 
 
 ![Add a BOT\_TOKEN Environment Variable](../../.gitbook/assets/bot-token-env-variable.png)
 
-For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the URL in the new tab that opens. Paste the URL you copied in the value field for the `URL` environment variable (make sure the URL ends with a `/` or the webhook will not be valid).
+For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Details" tab of the capsule's and copying the URL in the **Public URL** section. Paste the URL you copied in the value field for the `URL` environment variable (make sure the URL ends with a `/` or the webhook will not be valid).
 
 ![Add a URL Environment Variable](../../.gitbook/assets/url-env-variable.png)
 
@@ -79,10 +79,10 @@ Confirm your changes by clicking on "Save", then restart your Capsule by togglin
 
 ## Setup Webhook
 
-The next step is to set up a webhook for your bot. Do this by clicking the "Live Website" link at the top of the capsule's page. On the new tab that opens, add `/setwebhook` to the URL and press enter/return to visit the URL. If you see `webhook setup ok` then your bot is ready to chat!
+The next step is to set up a webhook for your bot. Do this by clicking the "Public URL" link on the "Details" tab of the capsule's. On the new tab that opens, add `/setwebhook` to the URL and press enter/return to visit the URL. If you see `webhook setup ok` then your bot is ready to chat!
 
 ## Chat with the Bot
 
 The bot will be able to respond to messages after completing the above steps. When this is done, search for your bot on Telegram using the username you assigned it and start a chat with it. The bot has been programmed to respond to `/start` and echo any messages you send it.
 
-If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](../../).
+If you'd like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://docs.codecapsules.io/backend).
