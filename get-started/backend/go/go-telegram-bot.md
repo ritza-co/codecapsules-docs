@@ -29,7 +29,7 @@ To demonstrate how to deploy a Go Telegram Bot with Code Capsules, we've provide
 
 Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your Bot
+## Create a Space for Your Bot
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
@@ -77,9 +77,9 @@ For the `URL` variable, set it to the value of your bot's domain. You can get it
 
 Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.
 
-## Setup Webhook
+## Set Up Webhook
 
-The next step is to set up a webhook for your bot. Do this by clicking the "Public URL" link on the "Details" tab of the capsule's. On the new tab that opens, add `/setwebhook` to the URL and press enter/return to visit the URL. If you see `webhook setup ok` then your bot is ready to chat!
+The next step is to set up a webhook for your bot. Do this by clicking the "Public URL" link on the "Details" tab of the capsule. In the new tab that opens, add `/setwebhook` to the URL and press `enter`/`return` to visit the URL. If you see `webhook setup ok`, then your bot is ready to chat!
 
 ## Chat with the Bot
 
