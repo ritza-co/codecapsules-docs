@@ -49,12 +49,12 @@ Let's create a Telegram bot.
 
 To create a Telegram bot, we need to download [Telegram](https://telegram.org/) and create a user account. You can use Telegram on your PC, your phone, or both.
 
-Once you have a Telegram account, you can register a new bot by sending a message to BotFather, a bot managed by Telegram itself. Search for "BotFather" and initiate a chat. From the chat interface, follow these steps:
+Once you have a Telegram account, you can register a new bot by sending a message to BotFather, a bot managed by Telegram itself. Search for `BotFather` and initiate a chat. From the chat interface, follow these steps:
 
-1. Press "start".
+1. Click **Start**.
 2. Type `/newbot`.
 3. Choose a name for your bot.
-4. Choose a username for your bot (must end in "bot").
+4. Choose a username for your bot (must end in `bot`).
 
 Once you've chosen a username, the BotFather will reply with an _authorization token_. This is a string that enables your bot to send requests to the Telegram Bot API. Make sure to save this token somewhere safe and private.
 
@@ -99,8 +99,8 @@ In the directory where we'll create our bot (the same directory where we activat
 First, let's register an account on OpenExchangeRates. Navigate [to the site](https://openexchangerates.org/) and:
 
 1. Sign up and log in.
-2. On the dashboard, click "App IDs".
-3. Take note of your "App ID" (API key), and paste it in the `.env` file: `EXCHANGE_API_KEY=<YOUR_API_KEY>`.
+2. On the dashboard, click **App IDs**.
+3. Take note of your **App ID** (API key), and paste it in the `.env` file: `EXCHANGE_API_KEY=<YOUR_API_KEY>`.
 
 Obtaining the Weatherstack API key is similar:
 
@@ -331,18 +331,18 @@ venv/
 
 With all of the necessary files pushed to GitHub, let's deploy the bot to Code Capsules. Log in to Code Capsules and create a Team and Space as necessary.
 
-1. Click the add Capsule `+` button in your space.
-2. Choose "Backend" for the Capsule type, select your Team, and Space if not already populated.
-3. Choose your payment plan and click "Next".
-4. Click the "Configure Git for Code Capsules" button and give access to the repository you created for the bot.
-5. Press "Next".
-6. Leave the "Run Command" blank.
-7. Click "Create Capsule".
+1. Click the add Capsule **+** button in your space.
+2. Choose **Backend** for the Capsule type, select your Team, and Space if not already populated.
+3. Choose your payment plan and click **Next**.
+4. Click the **Configure Git for Code Capsules** button and give access to the repository you created for the bot.
+5. Click **Next**.
+6. Leave the **Run Command** blank.
+7. Click **Create Capsule**.
 
 We still need to create environment variables for our bot's authorization and API tokens. To create the environment variables:
 
 1. Navigate to your Capsule.
-2. Click the "Config" tab.
+2. Click the **Config** tab.
 3. Add environment variables in the same form as our `.env` file. Add three environment variables: `BOT_TOKEN`, `WEATHER_API_KEY`, and `EXCHANGE_API_KEY`.
 
 <figure><img src=".gitbook/assets/bot-api-key-env.png" alt=""><figcaption><p>Bot API Key Environment Variable</p></figcaption></figure>
