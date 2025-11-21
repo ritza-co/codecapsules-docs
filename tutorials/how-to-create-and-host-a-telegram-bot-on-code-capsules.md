@@ -22,7 +22,7 @@ layout:
 
 # How To Create and Host a Telegram Bot on Code Capsules
 
-_This guide uses Python. You can find the Node.js version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules)_, and the Go Version [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot)._
+_This guide uses Python. You can find the Node.js version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules)_, and the Go version [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot)._
 
 In this tutorial, we'll create a Telegram bot that will allow us to pull temperature, weather, and exchange rate data on the go by messaging our bot in the Telegram app.
 
