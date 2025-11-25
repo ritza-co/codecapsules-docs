@@ -6,7 +6,7 @@ description: A guide on how to launch a Java application from GitHub.
 
 Deploy a Java application and learn how to host backend code on Code Capsules.
 
-## Setup
+## Set Up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -24,13 +24,13 @@ Alternatively, if you're signing in again, click on the "Spaces" tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/platform).
 
-## Create a Space for Your App
+## Create a Space for your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../.gitbook/assets/space-name (1).png>)
+![Create a Space](<../.gitbook/assets/space-name (4).png>)
 
 Example instructions to go with numbered annotations
 
@@ -56,13 +56,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
-
-## Binding the Capsules
-
-Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Data capsules" section and click on "Bind". This enables the capsule to use the Persistent database in the Data Capsule.
-
-![Bind MEAN Capsules](../.gitbook/assets/bind-persistent-capsule-backend.png)
+![Build Logs](<../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## View Application
 

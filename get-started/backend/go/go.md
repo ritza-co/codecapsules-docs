@@ -6,7 +6,7 @@ description: A guide to deploying a Go application from GitHub.
 
 Deploy a Go application and learn how to host backend code on Code Capsules.
 
-## Setup
+## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -22,15 +22,15 @@ If you've just signed up for an account, you'll be directed to a welcome page on
 
 Alternatively, if you're signing in again, click on the "Spaces" tab.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/platform).
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](../../platform/platform.md).
 
-## Create a Space for Your App
+## Create a Space for your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../.gitbook/assets/space-name (1).png>)
+![Create a Space](<../../.gitbook/assets/space-name (4).png>)
 
 Example instructions to go with numbered annotations
 
@@ -56,13 +56,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
-
-## Binding the Capsules
-
-Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule.
-
-![Bind Capsules](../.gitbook/assets/bind-persistent-capsule-backend.png)
+![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## View Application
 
@@ -70,6 +64,6 @@ Restart your capsule by toggling the radio button in the top right off and on ag
 
 Once the build is complete, click the "URL" link in the "Details" tab, and you should see your deployed application.
 
-![Deployed App](../.gitbook/assets/cc-go-app.png)
+![Deployed App](../../.gitbook/assets/cc-go-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](../).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](../../).
