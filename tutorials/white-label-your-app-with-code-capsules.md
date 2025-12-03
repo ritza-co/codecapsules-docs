@@ -65,7 +65,7 @@ npm run start
 
 Then go to [`http://localhost:3005/`](http://localhost:3005/) to see the app.
 
-![initial app](https://codecapsules.io/wp-content/uploads/2023/08/initial-app.png)
+![initial app](.gitbook/assets/white-label-your-app-with-code-capsules/initial-app.png)
 
 The application is currently set up for a singular purpose: to store book recommendations. The scope and branding are limited, but the core functionality—a data store with an intuitive UI—could be a great tool for a number of companies.
 
@@ -104,7 +104,7 @@ h1= heading
 
 This changes the hard-coded title of the page to the environment variable accessed through the context dictionary. If you run the app now, you will see that the page has a new heading.
 
-![custom heading](https://codecapsules.io/wp-content/uploads/2023/08/custom-heading.png)
+![custom heading](.gitbook/assets/white-label-your-app-with-code-capsules/custom-heading.png)
 
 You can get pretty creative with setting these environment variables. To demonstrate some of the possibilities, define these variables within the `.env` file:
 
@@ -260,7 +260,7 @@ const navStyle = `background-color: ${process.env.navColor}; display: ${display}
 
 If you run the code now, you will see the app has a branded look:
 
-![pizza app](https://codecapsules.io/wp-content/uploads/2023/08/pizza-app.png)
+![pizza app](.gitbook/assets/white-label-your-app-with-code-capsules/pizza-app.png)
 
 We won’t need the `.env` file in our deployment, so you can go ahead and delete that file.
 
@@ -360,11 +360,11 @@ The pizza company’s application has a red theme, a modern sans-serif font, cus
 
 The movie company has a dark blue theme, a traditional serif font, custom headings, and its logo.
 
-![movie app](https://codecapsules.io/wp-content/uploads/2023/08/movie-app.png)
+![movie app](.gitbook/assets/white-label-your-app-with-code-capsules/movie-app.png)
 
 The app also has the option to turn off the navbar, which can be done by setting the `navbar` environment variable to `false`. This would be the result:
 
-![app no nav](https://codecapsules.io/wp-content/uploads/2023/08/app-no-nav.png)
+![app no nav](.gitbook/assets/white-label-your-app-with-code-capsules/app-no-nav.png)
 
 Stylistic changes can be made by changing colors, font types, text, and logos, but pretty large changes can also be made to the UI by hiding and revealing its parts through variable choices. It’s all up to the designer of the application to decide how far they want to go in providing this kind of customization to their client.
 

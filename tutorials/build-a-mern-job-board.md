@@ -47,7 +47,7 @@ Whenever we change our application’s frontend code, we edit the files in the `
 
 Run `node index.js` in the terminal from the project’s root folder to start the boilerplate MERN application. You can view it in your browser at `http://localhost:8080`. The app should look something like this:
 
-![mern stack](https://codecapsules.io/wp-content/uploads/2023/07/mern-stack.png)
+![mern stack](.gitbook/assets/build-a-mern-job-board/mern-stack.png)
 
 Let’s extend this frontend to reflect the job board functionality.
 
@@ -171,7 +171,7 @@ You’ll notice the page layout has changed, but the styling is a bit off. Add t
 
 When you rebuild your application and take a look at the frontend, it should look like this:
 
-![job board ui](https://codecapsules.io/wp-content/uploads/2023/07/job-board-ui.png)
+![job board ui](.gitbook/assets/build-a-mern-job-board/job-board-ui.png)
 
 ### Extending the Backend <a href="#extending-the-backend" id="extending-the-backend"></a>
 

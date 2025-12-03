@@ -81,7 +81,7 @@ npm install express body-parser superagent
 
 Now let's create an `index.js` file, which will be the main file for our app. A simple way to do this is to open up your project folder in an editor, like [Visual Studio Code](https://code.visualstudio.com). Now you can create a new `index.js` file.
 
-<figure><img src=".gitbook/assets/create-indexjs.gif" alt=""><figcaption><p>Create Index.js in Visual Studio</p></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/create-indexjs.gif" alt=""><figcaption><p>Create Index.js in Visual Studio</p></figcaption></figure>
 
 Save this blank file. Now add another file named `.gitignore` and add this lines to it, and save:
 
@@ -258,7 +258,7 @@ git push origin
 
 If all goes well, in a few minutes you should get a message on your Slack channel from your code!
 
-<figure><img src=".gitbook/assets/startup-message.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/startup-message.png" alt=""><figcaption></figcaption></figure>
 
 #### Adding a slash command
 
@@ -321,13 +321,13 @@ After the code has finished deploying on Code Capsules (it should send a startup
 
 Type `/stats` in the channel we chose earlier. After a second or two, the app should respond with its current vital stats and information.
 
-<figure><img src=".gitbook/assets/slash-command-test.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/slash-command-test.png" alt=""><figcaption></figcaption></figure>
 
 #### Adding verification
 
 We can ask our app via Slack (which we use constantly!) how it's doing; pretty cool, huh? There is a problem, though. If we call our slash command endpoint from anywhere else, for instance, if we just call it using [Postman](https://www.postman.com), it also returns all the information and stats! This would not be good for a production system, as sensitive information will be easily found by attackers.
 
-<figure><img src=".gitbook/assets/postman-slash-command.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/postman-slash-command.png" alt=""><figcaption></figcaption></figure>
 
 So, how can we ensure that the request comes from our Slack workspace? Luckily, Slack has thought about this and sends a [message signature with its requests](https://api.slack.com/authentication/verifying-requests-from-slack). From the [guide in Slack's docs](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request), we can put together some code to check that the request is legitimately from Slack. The main parts of the check, copied from the docs, look like this:
 
@@ -453,7 +453,7 @@ git push origin
 
 Once the code is up and running on Code Capsules, test it out to see that it still responds to the Slack slash command. Then you can try again from Postman or other similar apps, and see that it will not send any info without a valid signature (you can use `v0=a2114d57b48eac39b9ad189dd8316235a7b4a8d21a10bd27519666489c69b503` as an example `x-slack-signature` parameter):
 
-<figure><img src=".gitbook/assets/401-auth.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/401-auth.png" alt=""><figcaption></figcaption></figure>
 
 ### Things to Try Next
 

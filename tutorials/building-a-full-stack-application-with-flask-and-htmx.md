@@ -35,7 +35,7 @@ This is where a new HTML extension called HTMx enters and shines. HTMx gives tra
 
 In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Flask and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
 
-<figure><img src=".gitbook/assets/flask-htmx.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/building-a-full-stack-application-with-flask-and-htmx/flask-htmx.png" alt=""><figcaption></figcaption></figure>
 
 ### Overview and Requirements
 
@@ -86,7 +86,7 @@ source env/bin/activate
 
 After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful.
 
-<figure><img src=".gitbook/assets/venvactive.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/building-a-full-stack-application-with-flask-and-htmx/venvactive.png" alt=""><figcaption></figcaption></figure>
 
 #### Installing Dependencies
 

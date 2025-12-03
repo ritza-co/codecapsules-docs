@@ -6,7 +6,7 @@ In this tutorial, we’ll show you how to build a web application that creates i
 
 Here’s an example of a graphic image that can be created by the app we’ll build:
 
-![graphic](https://codecapsules.io/wp-content/uploads/2023/07/graphic.png)
+![graphic](.gitbook/assets/build-a-generative-art-application-with-pillow-flask-and-htmx/graphic.png)
 
 You can also add text to the generated images to create image covers and different marketing posts.
 
@@ -52,7 +52,7 @@ Windows
 
 When you’ve activated the virtual environment, the name `env` will appear on the far left of your current line. This confirms that the activation was successful.
 
-![envactive](https://codecapsules.io/wp-content/uploads/2023/07/envactive.png)
+![envactive](.gitbook/assets/build-a-generative-art-application-with-pillow-flask-and-htmx/envactive.png)
 
 Now we can install dependencies our app needs to the environment. Run the command below from a terminal in the project root folder to install the packages we’ll need:
 
@@ -383,4 +383,4 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 That’s it! Your “Generate Art” app should be live and fully functional now.
 
-![app](https://codecapsules.io/wp-content/uploads/2023/07/app.png)
+![app](.gitbook/assets/build-a-generative-art-application-with-pillow-flask-and-htmx/app.png)

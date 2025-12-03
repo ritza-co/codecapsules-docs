@@ -71,7 +71,7 @@ envScriptsactivate.bat
 
 If the virtual environment has activated correctly, you’ll see (env) to the left of your name in the terminal.
 
-![env active](https://codecapsules.io/wp-content/uploads/2023/07/env-active.png)
+![env active](.gitbook/assets/env-active.png)
 
 ### Installing the Dependencies
 

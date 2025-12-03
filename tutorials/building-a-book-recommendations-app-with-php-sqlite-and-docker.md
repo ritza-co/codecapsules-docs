@@ -4,7 +4,7 @@ PHP is one of the first technologies that made dynamic web applications possible
 
 Here’s what the final app will look like:
 
-![final app](https://codecapsules.io/wp-content/uploads/2023/07/final-app.png)
+![final app](.gitbook/assets/building-a-book-recommendations-app-with-php-sqlite-and-docker/final-app.png)
 
 ### Requirements <a href="#requirements" id="requirements"></a>
 
@@ -89,7 +89,7 @@ docker build . -t book-app && docker run -p 8000:80 book-app
 
 This builds a Docker image from the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it’s running, you can visit `http://localhost:8000` in your web browser to see the application.
 
-![frontend](https://codecapsules.io/wp-content/uploads/2023/07/frontend.png)
+![frontend](.gitbook/assets/building-a-book-recommendations-app-with-php-sqlite-and-docker/frontend.png)
 
 Hit `Ctrl + C` in the terminal window running Docker to stop the server.
 
@@ -116,7 +116,7 @@ This sets up a form with inputs and a submit button. Note the hidden field with 
 
 If you run the app again, you’ll see something like the following.
 
-![frontend with form](https://codecapsules.io/wp-content/uploads/2023/07/frontend-with-form.png)
+![frontend with form](.gitbook/assets/building-a-book-recommendations-app-with-php-sqlite-and-docker/frontend-with-form.png)
 
 Now you can type in a book and author name and press the “Save” button, but then the app will crash as we haven’t built the backend yet. Let’s do that next.
 
@@ -338,6 +338,6 @@ Now create a new Data Capsule and a Docker Capsule in a single Space in Code Cap
 
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set “Network Port” to “80” to match what Apache is running on, and bind the Docker Capsule to the Data Capsule.
 
-![Configuration](https://codecapsules.io/wp-content/uploads/2023/07/configuration.png)
+![Configuration](.gitbook/assets/building-a-book-recommendations-app-with-php-sqlite-and-docker/configuration.png)
 
 Deploy and build the application, and you should see it running on a custom URL that you can share with the world.

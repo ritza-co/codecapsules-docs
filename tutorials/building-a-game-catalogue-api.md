@@ -165,7 +165,7 @@ npm run setup
 
 Click “Save” to save this new setting.
 
-![run command setup](https://codecapsules.io/wp-content/uploads/2023/07/run-command-setup.png)
+![run command setup](.gitbook/assets/building-a-game-catalogue-api/run-command-setup.png)
 
 Let’s commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal:
 
@@ -177,7 +177,7 @@ git push origin
 
 If you navigate to the “Logs” tab on the Backend Capsule, you should see the script booting up and the result of the `CREATE TABLE` command.
 
-![setup logs](https://codecapsules.io/wp-content/uploads/2023/07/setup-logs.png)
+![setup logs](.gitbook/assets/building-a-game-catalogue-api/setup-logs.png)
 
 Once this is done, you can change the “Run Command” under the “Configure” tab back to:
 
@@ -265,7 +265,7 @@ git push origin
 
 If you visit the Code Capsules dashboard for the Backend Capsule, you should see a note that it’s building. Once it’s finished building, head over to your site in a browser and navigate to the `/games` route. You should see it return an empty array:
 
-![get results](https://codecapsules.io/wp-content/uploads/2023/07/get-results.png)
+![get results](.gitbook/assets/building-a-game-catalogue-api/get-results.png)
 
 This works, but is not very interesting! Let’s add a create route so that we can add new game entries.
 
@@ -350,7 +350,7 @@ Add the following JSON payload to the body:
 
 Click “Send”, and your API should send back the newly inserted game, along with its `id`:
 
-![post game](https://codecapsules.io/wp-content/uploads/2023/07/post-game.png)
+![post game](.gitbook/assets/building-a-game-catalogue-api/post-game.png)
 
 #### Adding an Update Route
 
@@ -386,7 +386,7 @@ In the `queryResults` callback, we set the `req.body.id` field to the `id` from 
 
 Commit and push this code to deploy it to Code Capsules. Now, you can test this route in Postman, by updating the HTTP method to `put`. Add the ID `1` to the games path, and change some of the information in the body. Click “Send” and you should see the API return the updated document.
 
-![put game](https://codecapsules.io/wp-content/uploads/2023/07/put-game.png)
+![put game](.gitbook/assets/building-a-game-catalogue-api/put-game.png)
 
 #### Adding a Delete Route
 
@@ -416,7 +416,7 @@ Because we don’t have any record to return (we deleted it!), we just return a 
 
 Great, it’s time to commit this code, push it up and test it. You should be able to select the “DELETE” verb in Postman, and add in a game `id` to the route. Click “Send”, and you should see a blank reply, with the status code as `200 OK`.
 
-![delete game](https://codecapsules.io/wp-content/uploads/2023/07/delete-game.png)
+![delete game](.gitbook/assets/building-a-game-catalogue-api/delete-game.png)
 
 #### Adding Authentication
 
@@ -441,7 +441,7 @@ We’ll need a place to store the user credentials, so we can check them against
 
 Head over to the “Config” page on your Backend Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, and click `Update Capsule` when you are done.
 
-![env user password](https://codecapsules.io/wp-content/uploads/2023/07/env-user-password.png)
+![env user password](.gitbook/assets/building-a-game-catalogue-api/env-user-password.png)
 
 Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the `var gamesRouter = require('./routes/games');` line in `app.js`:
 
@@ -478,15 +478,15 @@ We set the `session` flag to false, as the convention for APIs is to require cre
 
 Commit and push this updated code to deploy it. Once it is running, if you try any of the routes in Postman, you should see an authentication error message.
 
-![auth error](https://codecapsules.io/wp-content/uploads/2023/07/auth-error.png)
+![auth error](.gitbook/assets/building-a-game-catalogue-api/auth-error.png)
 
 To send the credentials along with your request, select the “Authorisation” tab in Postman. Choose “Basic Auth” from the dropdown list, and enter the credentials you set in the right-hand pane.
 
-![auth settings](https://codecapsules.io/wp-content/uploads/2023/07/auth-settings.png)
+![auth settings](.gitbook/assets/building-a-game-catalogue-api/auth-settings.png)
 
 If you try your query again, it should let you pass, and come back with the usual response.
 
-![auth success](https://codecapsules.io/wp-content/uploads/2023/07/auth-success.png)
+![auth success](.gitbook/assets/building-a-game-catalogue-api/auth-success.png)
 
 ### Next Steps <a href="#next-steps" id="next-steps"></a>
 
