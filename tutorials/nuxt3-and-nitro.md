@@ -204,31 +204,31 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 
 Start off by setting up a new Code Capsules account. Follow the steps to create your user profile, preparing you for app deployment.
 
-![Creating a new account on Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-register-new-account.png)
+![Creating a new account on Code Capsules](.gitbook/assets/code-capsules-register-new-account.png)
 
 ### Navigating Your Code Capsules Interface
 
 Once you’ve registered, log in to your Code Capsules profile. This interface is your command center for project management and application deployment.
 
-![Logging into your Code Capsules account](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-login-existing-account.png)
+![Logging into your Code Capsules account](.gitbook/assets/code-capsules-login-existing-account.png)
 
 ### Building a Collaborative Team in Code Capsules
 
 Use Code Capsules to form a development team. This is a vital step for effective project coordination and developer collaboration.
 
-![Forming a team on Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-team.png)
+![Forming a team on Code Capsules](.gitbook/assets/code-capsules-create-new-team.png)
 
 ### Creating a New Project Environment in Code Capsules
 
 Spaces in Code Capsules offer unique environments for each project. Initiate a new space to provide a dedicated and isolated setting for your apps.
 
-![Setting up a new space in Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-space.jpg)
+![Setting up a new space in Code Capsules](.gitbook/assets/code-capsules-create-new-space.jpg)
 
 ### Starting Your First Capsule
 
 In your newly created space, proceed to launch a new capsule. Consider these capsules as separate compartments for different parts of your application, including the front-end, back-end, or Docker setups.
 
-![code capsules captule details.png](https://codecapsules.io/wp-content/uploads/2024/06/code-capsules-captule-details.png.webp)
+![code capsules captule details.png](.gitbook/assets/code-capsules-captule-details.png)
 
 Following these steps, you can smoothly deploy your MEAN stack application on Code Capsules, taking advantage of their comprehensive and intuitive platform for efficient application management and deployment.
 

@@ -106,14 +106,10 @@ First, let’s register an account on OpenExchangeRates. Navigate to here and:
 2. On the dashboard, click “App IDs”.
 3. Take note of your “App ID” (API key) you will need to paste it into the code below.
 
-![app id](https://codecapsules.io/wp-content/uploads/2023/07/app-id.png)
-
 Obtaining the weatherstack API key is similar:
 
 1. Create a free account on weatherstack
 2. Log in and take note of the API key presented in the control panel, you will need to paste it into the code below.
-
-![weatherstack](https://codecapsules.io/wp-content/uploads/2023/07/weatherstack.png)
 
 Now we can retrieve data from the OpenExchangeRates and weatherstack APIs using our API keys. Let’s try that out now.
 

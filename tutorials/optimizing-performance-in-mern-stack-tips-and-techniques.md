@@ -212,31 +212,31 @@ Monitor real-time performance metrics to detect and address issues promptly.
 
 Initiate your journey by establishing a Code Capsules account, specifically tailored for MERN stack optimization. Carefully complete your profile setup, ensuring it aligns with performance enhancement strategies for MERN applications.
 
-![Optimizing account setup for MERN stack on Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-register-new-account.png)
+![Optimizing account setup for MERN stack on Code Capsules](.gitbook/assets/code-capsules-register-new-account.png)
 
 ### Streamlining MERN Project Management in Code Capsules
 
 Post-registration, access your Code Capsules dashboard to manage MERN stack projects. This space is optimized for performance tracking and efficient deployment of MERN applications.
 
-![Streamlined MERN project management on Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-login-existing-account.png)
+![Streamlined MERN project management on Code Capsules](.gitbook/assets/code-capsules-login-existing-account.png)
 
 ### Formulating a High-Performance MERN Team in Code Capsules
 
 In Code Capsules, establish a team that specializes in MERN stack optimization. This step is crucial for collaboratively enhancing application performance and handling complex MERN projects.
 
-![Creating a MERN-focused team in Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-team.png)
+![Creating a MERN-focused team in Code Capsules](.gitbook/assets/code-capsules-create-new-team.png)
 
 ### Setting Up Performance-Optimized Spaces for MERN in Code Capsules
 
 Within Code Capsules, create spaces dedicated to MERN stack projects. These spaces are designed to host and run your applications in environments that are fine-tuned for maximum performance.
 
-![Developing performance-optimized spaces for MERN in Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-create-new-space.jpg)
+![Developing performance-optimized spaces for MERN in Code Capsules](.gitbook/assets/code-capsules-create-new-space.jpg)
 
 ### Launching Performance-Focused Capsules for MERN
 
 Start a new capsule in your MERN-optimized space, conceptualizing these as individual project units. These capsules are configured to enhance the performance of each component of your MERN application, such as the front-end, back-end, or server configurations.
 
-![Initiating performance-focused capsules for MERN in Code Capsules](https://codecapsules.io/wp-content/uploads/2023/11/code-capsules-captule-details.png)
+![Initiating performance-focused capsules for MERN in Code Capsules](.gitbook/assets/code-capsules-captule-details.png)
 
 By following these modified steps focused on MERN stack performance, you can efficiently deploy and manage your applications on Code Capsules, leveraging the platform’s capability for optimized MERN application performance and deployment.
 

@@ -181,7 +181,7 @@ To add the access token to the environment in Code Capsules, head over to the ca
 
 Now that we've added our access token, we need to find the ID of the channel we want to post to. Find a channel on your Slack workspace that you want to send to, or create a new channel. Now we can get the channel ID by right-clicking on the channel name to bring up a context menu. Now, we can choose "Copy Link" from that menu:
 
-<figure><img src=".gitbook/assets/CleanShot 2025-06-02 at 16.31.45@2x.png" alt=""><figcaption><p>Slack Channel ID</p></figcaption></figure>
+<figure><img src=".gitbook/assets/copy-slack-channel-id.png" alt=""><figcaption><p>Slack Channel ID</p></figcaption></figure>
 
 If we paste that link, we get something like `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 
