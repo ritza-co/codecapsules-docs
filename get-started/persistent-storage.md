@@ -8,21 +8,21 @@ A Persistent Storage Capsule is like a virtual cloud hard drive. The key benefit
 
 ## Create a File Data Capsule
 
-Log in to your Code Capsules account and navigate to the Space your Data Capsule will be contained in. Click the yellow `+` button on the bottom left of the screen, select "New Capsule", then select "Persistent Storage" option from the dropdown.
+Log in to your Code Capsules account and navigate to the Space your Data Capsule will be contained in. Click the yellow `+` button on the bottom left of the screen, select **New Capsule**, then select **Persistent Storage** option from the dropdown.
 
 ![Create Data Capsule](.gitbook/assets/create-persistent-capsule.png)
 
-Choose your payment option, then click the "Create Capsule" button.
+Choose your payment option, then click the **Create Capsule** button.
 
 ## Binding a Data Capsule to a Backend Capsule
 
 You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules before you can connect to it and use it.
 
-Navigate to the Backend Capsule and click "Config" to open the Capsule's config tab. Scroll down to the "Bind Data Capsule" section, where your recently created Data Capsule will show.
+Navigate to the Backend Capsule and click **Config** to open the Capsule's config tab. Scroll down to the **Bind Data Capsule** section, where your recently created Data Capsule will show.
 
 ![Bind Data Capsule](/broken/files/CKg4JfuYeIXa6tW7o1NG)
 
-Click "Bind" to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two Capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable.
+Click **Bind** to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two Capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable.
 
 ![PERSISTENT STORAGE DIR Environment Variable](.gitbook/assets/env-variables-persistent-storage.png)
 
@@ -76,8 +76,8 @@ By default, you can't browse files and folders in your Persistent Storage Capsul
 To enable file browsing:
 
 1. Navigate to your Persistent Storage Capsule
-2. Go to the "Details" tab
-3. Toggle "Public Access" to "Enabled"
+2. Go to the **Details** tab
+3. Toggle **Public Access** to **Enabled**
 
 ![Toggle Storage to Public Acess Enabled](.gitbook/assets/toggle-public-access.png)
 
@@ -88,9 +88,9 @@ This doesn't mean your files are indexed on the internet - it exposes them over 
 #### Mac
 
 1. Open Finder
-2. Click on "Go" in the menu bar and select "Connect to Server"
+2. Click on **Go** in the menu bar and select **Connect to Server**
 3. Enter the WebDAV server URL in the following format: `https://server-address`
-4. Click "Connect"
+4. Click **Connect**
 5. Enter the username and password when prompted
 6. The WebDAV server will now appear as a mounted drive in Finder
 
@@ -101,9 +101,9 @@ Here you can see the files inside a Wordpress Capsule accessed in the Mac Finder
 #### Windows
 
 1. Open File Explorer
-2. Right-click on "This PC" in the sidebar
-3. Click on "Add a network location"
-4. Click "Next" in the wizard until prompted to enter the "Internet or network address"
+2. Right-click on **This PC** in the sidebar
+3. Click on **Add a network location**
+4. Click **Next** in the wizard until prompted to enter the **Internet or network address**
 5. Enter the WebDAV server URL in the following format: `https://server-address`
 6. Enter the username and password when prompted
 7. Complete the setup wizard

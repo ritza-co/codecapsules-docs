@@ -44,7 +44,7 @@ Follow the prompts to choose your region and give your Space a name, then click 
 
 Example instructions to go with numbered annotations:
 
-1. Choose a Team. You can use a default "personal" Team if you're the only person working on this project, or a named Team if you're collaborating with others.
+1. Choose a Team. You can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others.
 2. The name should remind you of the project, for example, `customer-api` or `notetaking-app`.
 3. Choose a country close to where most of your users reside.
 

@@ -4,17 +4,17 @@ In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in
 
 ## Create a Redis Data Capsule
 
-Log in to your [Code Capsules](https://codecapsules.io/) account and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select "New Capsule", then select "Redis" from the dropdown.
+Log in to your [Code Capsules](https://codecapsules.io/) account and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select **New Capsule**, then select **Redis** from the dropdown.
 
 ![Create Data Capsule](../.gitbook/assets/create-redis-capsule.png)
 
-Choose a payment option, and click "Create Capsule".
+Choose a payment option, and click **Create Capsule**.
 
 ## Connecting a Data Capsule to a Backend Capsule
 
 Now we need to connect our Data Capsule to a Backend Capsule using a database connection URL.
 
-Navigate to your Backend Capsule and click on the "Configure" tab. Scroll down to the "Data capsules" section and click "View". Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
+Navigate to your Backend Capsule and click on the **Configure** tab. Scroll down to the **Data capsules** section and click **View**. Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
 We'll use this environment variable in our app to connect to the Redis database.
 

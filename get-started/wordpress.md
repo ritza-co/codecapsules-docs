@@ -10,7 +10,7 @@ To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) ac
 
 Before creating your WordPress capsule, you'll need a Team and a Space. You can follow these guides to learn how to create [Teams](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/teams/what-is-a-team) and [Spaces](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/spaces/what-is-a-space).
 
-If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen, then click "New Capsule".
+If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen, then click **New Capsule**.
 
 ![Create a Capsule](.gitbook/assets/add-capsule.png)
 
@@ -18,7 +18,7 @@ If you already have a Team and Space set up, log in to your Code Capsules accoun
 
 A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
-To create a WordPress Capsule, first choose "WordPress" as the Capsule type, as well as your Team, and Space.
+To create a WordPress Capsule, first choose **WordPress** as the Capsule type, as well as your Team, and Space.
 
 ![Choose a Capsule Type](.gitbook/assets/wordpress-capsule-type.png)
 
@@ -26,7 +26,7 @@ Next choose your payment plan, or create a custom plan.
 
 ![Choose Plan](.gitbook/assets/wordpress-choose-plan.png)
 
-A WordPress Capsule requires a connection to a MySQL Database Capsule as well as a Persistent Storage Capsule. Either select a previously created instance of each from the dropdowns, or click the yellow `+` next to each and follow the prompts for creating each Capsule. Click "Create Capsule".
+A WordPress Capsule requires a connection to a MySQL Database Capsule as well as a Persistent Storage Capsule. Either select a previously created instance of each from the dropdowns, or click the yellow `+` next to each and follow the prompts for creating each Capsule. Click **Create Capsule**.
 
 ![Deploy Configuration](.gitbook/assets/wordpress-configure-capsule.png)
 
@@ -36,9 +36,9 @@ A WordPress Capsule requires a connection to a MySQL Database Capsule as well as
 
 To automatically download and deploy a WordPress version on Code Capsules:
 
-1. Select the "Default" deployment type from the dropdown
+1. Select the **Default** deployment type from the dropdown
 2. Choose your WordPress version
-3. Click "Next"
+3. Click **Next**
 
 ![Choose Wordpress Version](.gitbook/assets/wordpress-version.png)
 
@@ -46,10 +46,10 @@ To automatically download and deploy a WordPress version on Code Capsules:
 
 To deploy WordPress from your version control repository:
 
-1. Select the "Git Managed" deployment type
+1. Select the **Git Managed** deployment type
 2. Select a repository
 3. Select the branch to deploy from
-4. Click "Next"
+4. Click **Next**
 
 ![Choose repo](.gitbook/assets/wordpress-git-managed.png)
 
@@ -57,11 +57,11 @@ You can read more about connecting your account to a version control provider in
 
 ## Monitor Deployment
 
-Code Capsules will automatically build and deploy your WordPress application. You can view the build log by selecting the "Logs" tab to monitor the deployment progress.
+Code Capsules will automatically build and deploy your WordPress application. You can view the build log by selecting the **Logs** tab to monitor the deployment progress.
 
 ![Logs](.gitbook/assets/wordpress-logs.png)
 
-Once the build is complete, click the URL link in the "Details" tab to access your WordPress site.
+Once the build is complete, click the URL link in the **Details** tab to access your WordPress site.
 
 ![URL](.gitbook/assets/wordpress-url.png)
 
@@ -73,7 +73,7 @@ When you first visit your WordPress site, you'll see the installation screen:
 2. Create an admin username.
 3. Set a strong password.
 4. Provide your email address.
-5. Click "Install WordPress".
+5. Click **Install WordPress**.
 
 ![Setup Wordpress Admin Account](.gitbook/assets/wordpress-setup.png)
 
