@@ -38,7 +38,7 @@ Here we also add`"sql-file": true` to ensure that database migrations run using 
 
 Find the database URL for a MySQL Data Capsule in the **Config** tab of a Backend Capsule:
 
-![DATABASE URL](/broken/files/biFc2iNjdhn8kmkDA4fT)
+![DATABASE URL](../.gitbook/assets/configure-tab.png)
 
 You can also access the database URL using an environment variable as follows:
 
@@ -52,7 +52,7 @@ Run the following command to create a folder to store migrations:
 
 The folder should contain three files:
 
-![SQL files](/broken/files/ID8PTuBwAqzVNCjhB2aN)
+![SQL files](../.gitbook/assets/sql-files.png)
 
 MySQL queries are stored in the two generated SQL files: One named with an `up` suffix and the other with a `down` suffix.
 
@@ -99,7 +99,7 @@ To run these migrations in a production environment, update the Capsule's **Run 
 
 Edit the **Run Command** in the **Config** tab of the Backend Capsule.
 
-![Run Command](/broken/files/FevqCUejsIG1z6eCVcYs)
+![Run Command](../.gitbook/assets/configure-tab-run-command.png)
 
 ## Step 7: Push the Changes
 

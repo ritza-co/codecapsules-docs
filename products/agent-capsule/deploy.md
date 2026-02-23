@@ -12,7 +12,7 @@ Before creating your Agent Capsule, you'll need a Team and a Space. You can foll
 
 If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen then click "New Capsule".
 
-![Create a Capsule](/broken/files/4bJZiaOBexUoKSnAhzd2)
+![Create a Capsule](../.gitbook/assets/add-capsule.png)
 
 ## Create the Capsule
 

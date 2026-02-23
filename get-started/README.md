@@ -2,8 +2,8 @@
 description: >-
   Comprehensive tutorials, references, example code, and more CodeCapsules
   products.
-cover: /broken/files/uRf9AYTumLmkgj6mLxac
-coverY: 0
+cover: .gitbook/assets/generic-docs-banner.png
+coverY: 258.9370836417468
 ---
 
 # Get Started

@@ -1,7 +1,7 @@
 ---
 description: Everything you need to know about Code Capsules.
-cover: .gitbook/assets/CC Docs Banner.png
-coverY: 0
+cover: .gitbook/assets/generic-docs-banner.png
+coverY: 130.2738712065137
 ---
 
 # Platform

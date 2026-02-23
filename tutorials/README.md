@@ -1,7 +1,7 @@
 ---
 description: Detailed tutorials to help you use Code Capsules based on your use case.
-cover: .gitbook/assets/cc-docs-banner.png
-coverY: 0
+cover: .gitbook/assets/generic-docs-banner.png
+coverY: -127.14729829755737
 ---
 
 # Tutorials Overview

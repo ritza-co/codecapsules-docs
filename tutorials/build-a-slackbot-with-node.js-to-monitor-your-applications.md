@@ -4,10 +4,12 @@ description: >-
   status changes via Slack.
 cover: .gitbook/assets/slackbot-cover.jpg
 coverY: 0
+coverHeight: 424
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -19,6 +21,8 @@ layout:
   pagination:
     visible: true
   metadata:
+    visible: true
+  tags:
     visible: true
 ---
 

@@ -1,10 +1,12 @@
 ---
 cover: .gitbook/assets/php-book-app-cover.jpg
 coverY: 0
+coverHeight: 425
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -14,6 +16,10 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
     visible: true
 ---
 

@@ -20,7 +20,7 @@ You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules b
 
 Navigate to the Backend Capsule and click **Config** to open the Capsule's config tab. Scroll down to the **Bind Data Capsule** section, where your recently created Data Capsule will show.
 
-![Bind Data Capsule](/broken/files/CKg4JfuYeIXa6tW7o1NG)
+![Bind Data Capsule](<.gitbook/assets/bind-persistent (1).png>)
 
 Click **Bind** to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two Capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable.
 

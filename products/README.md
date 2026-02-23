@@ -2,8 +2,8 @@
 description: >-
   Everything you need to know about configuring and deploying apps with Code
   Capsules.
-cover: /broken/files/fydPYehZMhtaGvWKKYMs
-coverY: 0
+cover: .gitbook/assets/generic-docs-banner.png
+coverY: 2.0843819393042193
 ---
 
 # Products

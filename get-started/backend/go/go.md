@@ -30,8 +30,6 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Once th
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-![Create a Space](<../../.gitbook/assets/space-name (4).png>)
-
 Example instructions to go with numbered annotations
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
@@ -55,8 +53,6 @@ Navigate to the **Space** containing your recently created Data Capsule and clic
 Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
-
-![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## View Application
 

@@ -1,10 +1,12 @@
 ---
 cover: .gitbook/assets/nuxt3-nitro-cover.jpg
 coverY: 0
+coverHeight: 424
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -14,6 +16,10 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
     visible: true
 ---
 
@@ -162,13 +168,13 @@ Now, let’s address a crucial topic: the server requirements for running Nuxt 3
 
 {% stepper %}
 {% step %}
-#### Server Environment
+**Server Environment**
 
 **Node.js:** Both Nuxt 3 and Vue.js applications require Node.js to run on the server. Ensure that you have a compatible Node.js version installed.
 {% endstep %}
 
 {% step %}
-#### Routing
+**Routing**
 
 **Vue.js:** In a Vue.js application, routing is typically handled on the client-side using Vue Router. The server mainly serves the initial HTML file, and routing transitions are managed by the client.
 
@@ -176,7 +182,7 @@ Now, let’s address a crucial topic: the server requirements for running Nuxt 3
 {% endstep %}
 
 {% step %}
-#### Server Deployment
+**Server Deployment**
 
 **Vue.js:** For a Vue.js application, you can deploy it as a static site by generating pre-rendered HTML files. In this case, the server mainly serves static files, and you can use simple web hosting or a Content Delivery Network (CDN) for deployment.
 
@@ -184,19 +190,19 @@ Now, let’s address a crucial topic: the server requirements for running Nuxt 3
 {% endstep %}
 
 {% step %}
-#### Server-Side Rendering (SSR)
+**Server-Side Rendering (SSR)**
 
 **Nuxt 3:** If you plan to use Nuxt 3 for server-side rendering (SSR), you need a server environment that can execute Node.js code and handle SSR requests. Ensure your server supports Node.js and can handle the extra server-side processing required for SSR.
 {% endstep %}
 
 {% step %}
-#### API and Backend Integration
+**API and Backend Integration**
 
 Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend services. Ensure that your server environment allows outgoing HTTP requests to external APIs if needed.
 {% endstep %}
 
 {% step %}
-#### Build and Deployment Process
+**Build and Deployment Process**
 
 **Vue.js:** For Vue.js applications, the build process usually involves transpiling and bundling JavaScript and assets for production. Deployment is often simpler, especially for single-page applications (SPAs).
 
@@ -204,7 +210,7 @@ Both Vue.js and Nuxt 3 applications can make HTTP requests to APIs or backend se
 {% endstep %}
 
 {% step %}
-#### Hosting Providers
+**Hosting Providers**
 
 **Vue.js:** Vue.js applications can be hosted on a wide range of hosting providers, including static site hosting, traditional web hosting, cloud platforms, and serverless environments. Learn how to [deploy your Vue application to production](https://codecapsules.io/doc/how-to-deploy-a-vue-application-to-production-on-code-capsules/) on Code Capsules.
 

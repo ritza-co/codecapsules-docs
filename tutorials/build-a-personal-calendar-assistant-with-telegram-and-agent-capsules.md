@@ -4,10 +4,12 @@ description: >-
   through natural Telegram conversations, deployed on Code Capsules.
 cover: .gitbook/assets/calendar-assistant-cover.jpg
 coverY: 0
+coverHeight: 421
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -17,6 +19,10 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
     visible: true
 ---
 
@@ -115,7 +121,7 @@ Then, authorize your web application credentials by clicking the **Go to Clients
 
 <figure><img src=".gitbook/assets/telegram-agent-google-oauth-clients.png" alt=""><figcaption></figcaption></figure>
 
-When doing so, set the redirect URI to the URL of the Calendar Agent and specify the endpoint `/api/calendar/auth/callback`. To find the public URL of your Calendar Agent, open your Agent Capsule dashboard, navigate to the **Details** tab, and copy the **Public URL**.&#x20;
+When doing so, set the redirect URI to the URL of the Calendar Agent and specify the endpoint `/api/calendar/auth/callback`. To find the public URL of your Calendar Agent, open your Agent Capsule dashboard, navigate to the **Details** tab, and copy the **Public URL**.
 
 <figure><img src=".gitbook/assets/telegram-agent-capsule-public-uri.png" alt=""><figcaption></figcaption></figure>
 

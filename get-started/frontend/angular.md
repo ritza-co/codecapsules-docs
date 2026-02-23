@@ -35,7 +35,7 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Once th
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-<figure><img src="/broken/files/c1RKSsytKv66iCGB7Ln3" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/space-name (1).png" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
 
 Example instructions to go with numbered annotations
 

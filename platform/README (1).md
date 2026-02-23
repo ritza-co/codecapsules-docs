@@ -23,7 +23,7 @@
 
 ### October 2025
 
-* New and improved alerting. Check it out [here](https://app.gitbook.com/s/oyCI3rJYfUxA3cJhHZbu/alerting).
+* New and improved alerting. Check it out [here](https://app.gitbook.com/s/oyCI3rJYfUxA3cJhHZbu/database-capsule/alerting).
 * Ability to get email notifications for any workload alerts like OOM, too much CPU being used, unexpected app crashes, etc.
 
 ### September 2025

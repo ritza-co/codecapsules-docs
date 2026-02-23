@@ -39,7 +39,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](/broken/files/m10b9QRjcH8SGo8JjPp9)
+![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Connect the Capsules
 
@@ -51,6 +51,6 @@ After the two capsules have been successfully built, the next step is to connect
 
 You can now view the application after the two capsules have been connected. To see how it looks, click on the URL in the **Details** tab.
 
-![Deployed App](/broken/files/VuztSzLULIy7zLzVbAmu)
+![Deployed App](<../../.gitbook/assets/cc-django-app (1).png>)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](../../).

@@ -18,7 +18,7 @@ Log in to your Code Capsules account and navigate to the Space where you want to
 
 Click the yellow **+** button on the bottom-left corner of the dashboard. Select **New Capsule** and then **Persistent Storage** from the dropdown.
 
-![Create Data Capsule](/broken/files/8CouzzPxAl0fKrJ7qYA0)
+![Create Data Capsule](../.gitbook/assets/create-persistent-capsule.png)
 
 Select your payment method, then click **Create Capsule**.
 
@@ -28,7 +28,7 @@ You need to bind the Storage Capsule to a Backend Capsule hosted on Code Capsule
 
 Navigate to the Backend Capsule and open the **Config** tab. Scroll down to the **Bind Data Capsule** section, where your recently created Storage Capsule is listed.
 
-![Bind Data Capsule](/broken/files/roMn17PkntOMIVZ3b5eh)
+![Bind Data Capsule](../.gitbook/assets/bind-persistent.png)
 
 Click **Bind** to bind the Capsules.
 
@@ -36,7 +36,7 @@ During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` enviro
 
 When the two Capsules are bound, scroll to the top of the **Config** tab to view the value of the variable.
 
-![PERSISTENT STORAGE DIR Environment Variable](/broken/files/J967MQBHQzSee4uOf0ce)
+![PERSISTENT STORAGE DIR Environment Variable](../.gitbook/assets/env-variables-persistent-storage.png)
 
 Now you can use this environment variable in your code to read and write to the Storage Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and assign it to the `db_directory` variable. Alternatively, reference it directly using `os.getenv` in Python or `process.env` in Node.js.
 
@@ -91,7 +91,7 @@ To enable file browsing:
 2. Go to the **Details** tab
 3. Toggle **Public Access** to **Enabled**
 
-![Toggle Storage to Public Acess Enabled](/broken/files/E9mwIX5ibKFi9uVc92xs)
+![Toggle Storage to Public Acess Enabled](../.gitbook/assets/toggle-public-access.png)
 
 Enabling this setting doesn't make your files publicly accessible on the internet. They are served over the WebDAV protocol and require authentication credentials to access.
 
@@ -109,7 +109,7 @@ The WebDAV server will now appear as a mounted drive in **Finder**.
 
 Here you can see the files inside a WordPress Capsule accessed locally through **Finder** in macOS.
 
-![See Your Files Locally](/broken/files/mQvTCXHR1XwggrD81YaW)
+![See Your Files Locally](../.gitbook/assets/see-your-files.png)
 
 #### Windows
 

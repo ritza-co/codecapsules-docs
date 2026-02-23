@@ -1,10 +1,12 @@
 ---
 cover: .gitbook/assets/express-htmx-cover.jpg
 coverY: 0
+coverHeight: 421
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -14,6 +16,10 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
+    visible: true
+  tags:
     visible: true
 ---
 
@@ -418,4 +424,4 @@ Your remote repository will now be up-to-date with your local one.
 
 The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a persistent storage Data Capsule and a Backend Capsule and bind the two together to deploy the app. You can follow this [reference guide](https://codecapsules.io/tutorial/how-to-set-up-a-persistent-file-data-capsule/) to see how to do so in greater detail.
 
-That’s it! Your “Book Recommendations” app should be live and fully functional now.\
+That’s it! Your “Book Recommendations” app should be live and fully functional now.\\

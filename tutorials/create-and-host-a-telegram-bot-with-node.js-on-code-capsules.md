@@ -4,10 +4,12 @@ description: >-
   messages sent to the bot.
 cover: .gitbook/assets/telegram-bot-cover-nodejs.jpg
 coverY: 0
+coverHeight: 423
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -20,11 +22,13 @@ layout:
     visible: true
   metadata:
     visible: true
+  tags:
+    visible: true
 ---
 
 # How to Create and Host a Node.js Telegram Bot on Code Capsules
 
-_This guide uses Node.js. You can find the Python version_ [_here_](https://docs.codecapsules.io/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules) _or the Go version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot).&#x20;
+_This guide uses Node.js. You can find the Python version_ [_here_](https://docs.codecapsules.io/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules) _or the Go version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot).
 
 In this tutorial, we'll extend a boilerplate Express application on Code Capsules to create a Telegram bot in [Node.js](https://nodejs.org/en/about/) that tracks and responds with current Ethereum prices.
 

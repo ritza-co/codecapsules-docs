@@ -2,14 +2,15 @@
 description: >-
   Compare WordPress hosting costs and features across single-server VPS, AWS
   enterprise architecture, managed WordPress providers, and Code Capsules to
-  match infrastructure to your team's technical capacity.
+  match infrastructure to your team's technical capa
 cover: .gitbook/assets/wordpress-hosting-cover.jpg
 coverY: 0
+coverHeight: 425
 layout:
   width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -21,6 +22,8 @@ layout:
   pagination:
     visible: true
   metadata:
+    visible: true
+  tags:
     visible: true
 ---
 
@@ -86,11 +89,12 @@ WordPress hosting options range from $5 single-server VPS setups to $1,500 AWS e
 * AWS delivers maximum reliability but needs dedicated DevOps staff to manage 11 separate services.
 * Managed WordPress providers remove server management but limit customization, and cost $35 to $100 per month.
 
-<<<<<<< Updated upstream
-For a detailed comparison of hosting costs and trade-offs, see our [WordPress Hosting Cost Comparison](link/).
+<<<<<<< Updated upstream For a detailed comparison of hosting costs and trade-offs, see our [WordPress Hosting Cost Comparison](link/).
 
-=======
->>>>>>> Stashed changes
+\=======
+
+> > > > > > > Stashed changes
+
 ### Why Code Capsules Works Well for WordPress Hosting
 
 Code Capsules solves the primary challenges of hosting a WordPress production site:
