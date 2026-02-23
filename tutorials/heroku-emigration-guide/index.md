@@ -300,6 +300,8 @@ Save your variables at the top right and restart the Capsule.
 
 Like in Heroku, both frontend and backend apps must be deployed before you can get the URLs of them both. You then set both URLs as environment variables, so they can call each other. While Code Capsules provides the URLs, it does not prefix them with `https://`, which we needed to do before our apps ran without error.
 
+Static sites cannot access environment variables at runtime, so you must include in your build process a way to inject the backend URL into the JavaScript of the website.
+
 The final step was to delete the Heroku `Procfile`s from our repository, as they are not needed in Code Capsules.
 
 ### The Cron job
