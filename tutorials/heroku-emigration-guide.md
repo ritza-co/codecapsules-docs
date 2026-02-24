@@ -1,3 +1,20 @@
+---
+cover: .gitbook/assets/heroku-emigration-cover.jpg
+coverY: 0
+coverHeight: 425
+layout:
+  width: default
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+---
+
 # How to Emigrate from Heroku to Code Capsules
 
 This guide demonstrates how to move a suite of applications running from the Heroku platform as a service (PaaS) to Code Capsules. You'll learn the Code Capsules equivalents for Heroku components, what changes to make to your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
