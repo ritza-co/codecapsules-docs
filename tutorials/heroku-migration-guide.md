@@ -88,7 +88,7 @@ Before moving our example app to Code Capsules, let's consider how we'd set it u
 
 ### The Frontend
 
-On Heroku, you can create an app without assigning any dyno resources, before deploying code. It acts as a placeholder. Heroku creates and runs the dyno after you deploy your code, via a [`Procfile` file](https://devcenter.heroku.com/articles/procfile). This file might have an instruction like `web: node server.ts`, which tells Heroku to run a new web dyno.
+On Heroku, you can create an app without assigning any dyno resources and without deploying code. That app then acts as a placeholder. Heroku creates and runs the dyno after you deploy your code, via a [`Procfile` file](https://devcenter.heroku.com/articles/procfile). This file might have an instruction like `web: node server.ts`, which tells Heroku to run a new web dyno.
 
 Let's say that all the example app code is in TypeScript and Node.js (although Heroku does support equivalent features in other languages to the ones we discuss in this guide).
 
@@ -208,7 +208,7 @@ If your database is only a few MB in size, however, you can connect to it direct
 pg_dump -Fc --no-acl --no-owner "$(curl -s https://api.heroku.com/apps/emigrate-backend/config-vars -H "Authorization: Bearer $KEY" -H "Accept: application/vnd.heroku+json; version=3" | jq -r '.DATABASE_URL')" -f backup.dump
 ```
 
-Because Code Capsules doesn't create public URLS for database Capsules, you need to use the [Code Capsules CLI](https://docs.codecapsules.io/cli/readme/getting-started/quick-start) to connect to your PostgreSQL Capsule.
+Because Code Capsules doesn't create public URLs for database Capsules, you need to use the [Code Capsules CLI](https://docs.codecapsules.io/cli/readme/getting-started/quick-start) to connect to your PostgreSQL Capsule.
 
 **Note:** While you don't have to install the CLI permanently on your machine, you do need Node.js installed on your machine (or to be able to run Node.js through Docker).
 
@@ -280,7 +280,7 @@ Deploy the frontend as follows:
 
     **Note:** Unlike Heroku, you cannot create a Capsule without linking it to a repository, so ensure your code is ready to deploy before setting up your infrastructure.
 
-3. After choosing a repository, specify which folder(s) Code Capsules should deploy.
+3. After choosing a repository, specify which folder Code Capsules should deploy.
 
     Since we had three components in different folders, we chose the `/frontend` folder. If you have one application per repository, you can just leave Code Capsules to use the `/` root folder.
 
@@ -298,7 +298,7 @@ Follow the same process to deploy your backend code, only ensure that you use a 
 
 1. Ensure that the Code Capsules addon (and therefore your backend Capsule) can access your backend repository in GitHub.
 
-2. Specify which folder(s) you want the addon to deploy to your Capsule.
+2. Specify which folder you want the addon to deploy to your Capsule.
 
 3. Enter a run command for starting the Capsule.
 
@@ -417,10 +417,10 @@ This guide covers how to move common system components to Code Capsules, but you
 
 ### Scaling Capsules
 
-There are multiple ways to scale an application in Code Capsules.
+There are multiple ways to scale an application in Code Capsules:
 
-- By manually increasing the RAM, CPU, or disk space of a Capsule
-- By increasing the number of instances (Capsule replicas) to a maximum of three instances
+- By manually increasing the RAM, CPU, or disk space of a Capsule.
+- By increasing the number of instances (Capsule replicas) to a maximum of three instances.
 
 Code Capsules does not provide the capability to automatically scale your Capsules under load.
 
